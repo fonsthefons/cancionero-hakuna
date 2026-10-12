@@ -1,6 +1,7 @@
 ---
 title: "Tu rostro"
 capo: "2"
+link: "https://open.spotify.com/track/1erC7sj0MgbLujDgbqDW20"
 song_tags:
   mi_pobre_loco: []
 ---

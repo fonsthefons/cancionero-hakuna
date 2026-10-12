@@ -1,6 +1,7 @@
 ---
 title: "Mi peso en tus hombros"
 capo: "1"
+link: "https://open.spotify.com/track/0uBVjJ3sLKCpmhuyioidGK"
 song_tags:
   pasion: []
 ---

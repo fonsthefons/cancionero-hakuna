@@ -1,6 +1,7 @@
 ---
 title: "No te vas"
 capo: "3"
+link: "https://open.spotify.com/track/69fYhhDgieqFWGESsrMh3o"
 song_tags:
   el_arte_de_vivir: []
 ---

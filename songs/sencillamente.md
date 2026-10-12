@@ -1,6 +1,7 @@
 ---
 title: "Sencillamente"
 capo: "1"
+link: "https://open.spotify.com/track/1t7i3ZQgjhU341Il43ijW8"
 song_tags:
   sencillamente: []
 ---

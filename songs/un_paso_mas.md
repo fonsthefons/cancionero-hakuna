@@ -1,6 +1,7 @@
 ---
 title: "Un paso más"
 capo: "3"
+link: "https://open.spotify.com/track/0iUj1sBAa6AwGHkHuNO12f"
 song_tags:
   mi_pobre_loco: []
 ---

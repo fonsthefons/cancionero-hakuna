@@ -1,6 +1,7 @@
 ---
 title: "Que no se pierda ninguno"
 capo: "4"
+link: "https://open.spotify.com/track/4brm65j0O2ZhlUzoSYJPPH"
 song_tags:
   mi_pobre_loco: []
 ---

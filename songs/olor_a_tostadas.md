@@ -1,6 +1,7 @@
 ---
 title: "Olor a tostadas"
 capo: "2"
+link: "https://open.spotify.com/track/7I3LqH5nUFh9fxwigr68di"
 song_tags:
   capricho: []
 ---

@@ -1,6 +1,7 @@
 ---
 title: "No sé qué viste en mí"
 capo: "5"
+link: "https://open.spotify.com/track/3RXhBTRteM9nS1Engqaude"
 song_tags:
   pasion: []
 ---

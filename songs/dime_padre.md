@@ -1,6 +1,7 @@
 ---
 title: "Dime Padre"
 capo: "2"
+link: "https://open.spotify.com/track/5edDuXRCMuA6gxeld0SdtB"
 song_tags:
   capricho: []
 ---

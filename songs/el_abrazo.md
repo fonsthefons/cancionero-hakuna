@@ -1,6 +1,7 @@
 ---
 title: "El abrazo"
 capo: "2"
+link: "https://open.spotify.com/track/7f4dVqztHzgbFmRmij5Ank"
 song_tags:
   sencillamente: []
 ---

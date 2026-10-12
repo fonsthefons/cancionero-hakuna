@@ -49,6 +49,20 @@ rejoined; app name/icon "Cancionero Hakuna" with the H logo; add_song tools kept
 - `scratch/hkn_offline_test.py` (offline_test.py with the new title): all pass.
 - `scratch/hkn_tools_check.py`: add_song/add_songs Hakuna defaults. `hkn_shots.py`: screenshots.
 
+### Spotify links (98 of 126)
+- First publish went out before the per-song lookup (`hkn_links.py`, a web search per song,
+  ~1.5 min each) had finished, so most songs had no link. The user noticed.
+- Faster and more exact (`hkn_album_links.py`): one web search per album finds its Spotify
+  album page; the album's embed page lists every track; songs matched by title within
+  their own album. All 8 studio albums found: 92 songs get the album's own track
+  (e.g. "Cirineo (Estación V)"). It also fixed "Gloria", which the per-song search
+  had matched to "El Rey de la Gloria".
+- Per-song search for the rest: Hoy en Belén, Del cielo, Juntos, Lo imposible (Hakuna
+  singles); Cara a cara (Marcos Vidal) and Lord I Need You (Matt Maher), covers in Hora Santa.
+- No link (28): the Misa parts (no Misa album on Spotify), Gloria, Aleluya (Misa), Papá,
+  ¿Para quién soy yo?, Lo tienes delante, Que todo sea verdad, most of Hora Santa and Otras
+  canciones de Misa. Report: `scratch/hkn/album_links_report.txt`.
+
 ### Notes / blocked
 - The copied `venv/` belongs to the original repo (its pip installs into
   `../cancionero/venv`): my first `pip install pdfplumber` landed there by accident

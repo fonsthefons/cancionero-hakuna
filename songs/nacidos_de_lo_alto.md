@@ -1,6 +1,7 @@
 ---
 title: "Nacidos de lo alto"
 capo: "2"
+link: "https://open.spotify.com/track/2zgM1I713Q6a433WWPfAJg"
 song_tags:
   capricho: []
 ---

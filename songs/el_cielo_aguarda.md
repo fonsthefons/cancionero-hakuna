@@ -1,6 +1,7 @@
 ---
 title: "El cielo aguarda"
 capo: "1"
+link: "https://open.spotify.com/track/0FJzZEtCE09DhvVLQdRUMn"
 song_tags:
   qaos: []
 ---

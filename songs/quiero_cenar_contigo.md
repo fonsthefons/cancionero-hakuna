@@ -1,6 +1,7 @@
 ---
 title: "Quiero cenar contigo"
 capo: "2"
+link: "https://open.spotify.com/track/3eaudxBDqoEdP91vqFhfZu"
 song_tags:
   mi_pobre_loco: []
 ---

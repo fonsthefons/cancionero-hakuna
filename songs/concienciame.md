@@ -1,6 +1,7 @@
 ---
 title: "Conciénciame"
 capo: "7"
+link: "https://open.spotify.com/track/1XbZKR97T5ri1omfwVLeKx"
 song_tags:
   sencillamente: []
 ---

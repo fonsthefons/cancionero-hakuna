@@ -1,6 +1,7 @@
 ---
 title: "Mirada"
 capo: "5"
+link: "https://open.spotify.com/track/0YlKwGPhm6ciZSoyNrsRbY"
 song_tags:
   qaos: []
 ---

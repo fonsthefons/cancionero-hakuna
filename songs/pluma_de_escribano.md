@@ -1,6 +1,7 @@
 ---
 title: "Pluma de escribano"
 capo: "5"
+link: "https://open.spotify.com/track/10z2aUbHmKs3F9OWCa3NhE"
 song_tags:
   capricho: []
 ---

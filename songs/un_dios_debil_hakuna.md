@@ -1,6 +1,7 @@
 ---
 title: "Un Dios débil (Hakuna)"
 capo: "1"
+link: "https://open.spotify.com/track/1tm7bR8ddVCULDv2YgkTvD"
 song_tags:
   hakuna: []
 ---

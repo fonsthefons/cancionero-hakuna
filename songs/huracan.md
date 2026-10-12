@@ -1,6 +1,7 @@
 ---
 title: "Huracán"
 capo: "5"
+link: "https://open.spotify.com/track/4QgQabkpEzVvTflLhiYtun"
 song_tags:
   qaos: []
 ---

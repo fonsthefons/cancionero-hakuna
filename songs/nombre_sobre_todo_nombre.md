@@ -1,6 +1,7 @@
 ---
 title: "Nombre sobre todo nombre"
 capo: "3"
+link: "https://open.spotify.com/track/0obqAY8sELrKDN1dxWKdte"
 song_tags:
   mi_pobre_loco: []
 ---

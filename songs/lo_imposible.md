@@ -1,6 +1,7 @@
 ---
 title: "Lo imposible"
 capo: "3"
+link: "https://open.spotify.com/track/2xoBRb0JSSPhMrqkvi7rxO"
 song_tags:
   villancicos: []
 ---

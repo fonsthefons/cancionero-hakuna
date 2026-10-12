@@ -1,5 +1,6 @@
 ---
 title: "Tonto"
+link: "https://open.spotify.com/track/7zDcCTcTFoPj5mnITAd3ua"
 song_tags:
   mi_pobre_loco: []
 ---

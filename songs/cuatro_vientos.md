@@ -1,6 +1,7 @@
 ---
 title: "Cuatro vientos"
 capo: "2"
+link: "https://open.spotify.com/track/7wc2c9rMKY0D4QxILBptUU"
 song_tags:
   mi_pobre_loco: []
 ---

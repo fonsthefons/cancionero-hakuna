@@ -1,6 +1,7 @@
 ---
 title: "Un segundo"
 capo: "3"
+link: "https://open.spotify.com/track/6WTdsYUlvy5HX6r8pj2f0r"
 song_tags:
   qaos: []
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Todos por todos"
 capo: "3"
+link: "https://open.spotify.com/track/7frBYysQuPl52Zvn5hiKkh"
 song_tags:
   sencillamente: []
 ---

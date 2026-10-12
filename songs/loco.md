@@ -1,6 +1,7 @@
 ---
 title: "Loco"
 capo: "6"
+link: "https://open.spotify.com/track/7tiF5iSinIQDLhehL94z3n"
 song_tags:
   el_arte_de_vivir: []
 ---

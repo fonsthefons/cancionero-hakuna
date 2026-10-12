@@ -1,6 +1,7 @@
 ---
 title: "Descalzos"
 capo: "2"
+link: "https://open.spotify.com/track/6zrVIzzqi0fLFxSezbNwLS"
 song_tags:
   qaos: []
 ---

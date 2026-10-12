@@ -1,6 +1,7 @@
 ---
 title: "Tan cerca"
 capo: "2"
+link: "https://open.spotify.com/track/4IgooZbgYtgZaYJ2WnxWOF"
 song_tags:
   hakuna: []
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Solo Tú"
+link: "https://open.spotify.com/track/4ushdiJUKXecZsxrsdjcYD"
 song_tags:
   tu: []
 ---

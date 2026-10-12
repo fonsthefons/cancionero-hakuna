@@ -1,6 +1,7 @@
 ---
 title: "Trueno"
 capo: "3"
+link: "https://open.spotify.com/track/1NZTc8iAOEhQcMTsWCe4Qv"
 song_tags:
   el_arte_de_vivir: []
 ---

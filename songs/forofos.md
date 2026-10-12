@@ -1,6 +1,7 @@
 ---
 title: "Forofos"
 capo: "7"
+link: "https://open.spotify.com/track/1seWNwVAp8Ztwc91lHFWfI"
 song_tags:
   sencillamente: []
 ---

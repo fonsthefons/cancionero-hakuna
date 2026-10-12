@@ -1,6 +1,7 @@
 ---
 title: "Ojalá"
 capo: "2"
+link: "https://open.spotify.com/track/4a2Mx2JZ7fblUgbGVDv8HH"
 song_tags:
   capricho: []
 ---

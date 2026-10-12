@@ -1,6 +1,7 @@
 ---
 title: "En medio del fuego"
 capo: "4"
+link: "https://open.spotify.com/track/5Q5O60DtrxV1BRRXHSNhCq"
 song_tags:
   tu: []
 ---

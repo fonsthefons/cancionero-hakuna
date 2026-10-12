@@ -1,6 +1,7 @@
 ---
 title: "Mi amado"
 capo: "3"
+link: "https://open.spotify.com/track/2vuAi3K38fZ95ygzDSt7TO"
 song_tags:
   el_arte_de_vivir: []
 ---

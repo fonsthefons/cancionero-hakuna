@@ -1,5 +1,6 @@
 ---
 title: "El Rey de la gloria"
+link: "https://open.spotify.com/track/0OlkJiyabHjmQVgENbSo2n"
 song_tags:
   el_arte_de_vivir: []
 ---
