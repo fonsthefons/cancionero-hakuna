@@ -3,7 +3,10 @@
 // takes too long, it shows the last saved copy. Only used on the hosted site:
 // opening index.html as a file never registers it (see web/js/offline.js).
 
-const CACHE = "cancionero-v1";
+// Other books on the same site (the original Cancionero) have their own caches:
+// only this book's older caches, with this prefix, are ever deleted.
+const CACHE_PREFIX = "cancionero-hakuna-";
+const CACHE = CACHE_PREFIX + "v1";
 const PAGE = "./"; // the book; every page request is answered with it
 const FILES = [PAGE, "manifest.webmanifest", "icon-180.png", "icon-512.png"];
 const NETWORK_WAIT_MS = 4000; // slow signal: show the saved copy after this
@@ -20,7 +23,8 @@ self.addEventListener("activate", (event) => {
     event.waitUntil(
         caches.keys()
             .then((keys) => Promise.all(
-                keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+                keys.filter((k) => k.startsWith(CACHE_PREFIX) && k !== CACHE)
+                    .map((k) => caches.delete(k))))
             .then(() => self.clients.claim())
     );
 });

@@ -1,8 +1,10 @@
-# Cancionero
+# Cancionero Hakuna
 
-A song book with chords for guitar, as **one web page**: `index.html`.
+The songs of **Hakuna Group Music** with chords for guitar, as **one web page**: `index.html`.
+The songs come from the printed *Cancionero Hakuna Group Music 2026* and are grouped
+by album, in the songbook's order.
 
-- Live at **https://fonsthefons.github.io/cancionero/** (works on phone, iPad and laptop).
+- Live at **https://fonsthefons.github.io/cancionero-hakuna/** (works on phone, iPad and laptop).
 - The whole book is a single file with nothing to download separately, so once
   the page is saved in the browser it works without internet.
 - Added to the home screen, it opens offline too (see *Using the book*).
@@ -20,7 +22,7 @@ A song book with chords for guitar, as **one web page**: `index.html`.
 | See the result | open `index.html` in a browser (double-click it) |
 | Publish it to the website | `git add -A`, `git commit -m "Add <song>"`, `git push` |
 
-Run every command from inside the `cancionero` folder. On Windows, write
+Run every command from inside the `cancionero-hakuna` folder. On Windows, write
 `venv\Scripts\python` instead of `venv/bin/python`.
 
 ## Setup
@@ -36,8 +38,8 @@ You need:
 Then, in a terminal:
 
 ```bash
-git clone https://github.com/fonsthefons/cancionero.git
-cd cancionero
+git clone https://github.com/fonsthefons/cancionero-hakuna.git
+cd cancionero-hakuna
 python3 -m venv venv
 venv/bin/pip install -r requirements.txt
 venv/bin/python build.py
@@ -77,7 +79,7 @@ It needs an internet connection and offers three ways in:
    Cifra Club, LaCuerda, or another site that shows the song as plain text.
    The path of a page saved from the browser also works.
 2. **Paste**: paste the song (chords above the lyrics), then type `END` on its own line.
-3. **Search**: type the title and the artist. It searches the web (DuckDuckGo)
+3. **Search**: type the title (the artist is Hakuna unless you type another). It searches the web (DuckDuckGo)
    and Ultimate Guitar and lists the best chord pages, your three sites first.
    Enter takes the first; if a page can't be read, or you say the preview
    looks wrong, the list comes back so you can try the next one.
@@ -95,11 +97,13 @@ It then:
   chord over its letter;
 - **shows you the result** and asks if it looks right;
 - **asks for the details**: title (it warns if the song is already in the
-  book), author, capo, Spotify link and tags (pick numbers from a list);
+  book), author (Hakuna unless you change it; Hakuna isn't written in the
+  file or shown in the book), capo, Spotify link and album tag (pick a number);
 - **finds the Spotify link**: it offers the matching tracks it finds, each one
   checked with Spotify itself. Enter takes the first, a number picks another,
   `-` means none, or paste your own link;
-- **writes** `songs/<title>_<author>.md` and **rebuilds** `index.html`.
+- **writes** `songs/<title>.md` (`songs/<title>_<author>.md` for another
+  artist) and **rebuilds** `index.html`.
 
 Then open `index.html` to check the song, and [publish](#publishing).
 If something needs fixing, edit the song file (see below) and run
@@ -120,8 +124,8 @@ Good to know:
 
 ### Many songs at once
 
-Write the songs in a text file, one per line as `Title - Artist` (or just
-`Title`), then:
+Write the songs in a text file, one per line as `Title` (a Hakuna song) or
+`Title - Artist`, then:
 
 ```bash
 venv/bin/python add_songs.py Want.txt --section Want --report Checked.txt
@@ -148,8 +152,8 @@ they look like comments.
 
 ### By hand
 
-1. Copy `song_template.md` to `songs/<title>_<author>.md`
-   (lowercase, `_` instead of spaces, no accents; e.g. `songs/sopla_senor_popular.md`).
+1. Copy `song_template.md` to `songs/<title>.md`
+   (lowercase, `_` instead of spaces, no accents; e.g. `songs/olor_a_tostadas.md`).
 2. Fill in the details at the top and paste the lyrics with chords.
 3. Run `venv/bin/python build.py`, check `index.html`, and [publish](#publishing).
 
@@ -160,30 +164,36 @@ The build checks every song and stops with a list of every problem
 
 ```yaml
 ---
-title: Sopla Señor          # required
-autor: popular              # optional, shown next to the title
+title: Olor a tostadas      # required
 capo: "2"                   # optional, free text
 link: "https://..."         # optional, Spotify or other recording (must start with http)
-song_tags:                  # optional, see "Tags" below
-  misa:
-    - comunion
-  adoracion: []
+song_tags:                  # optional, the album: see "Tags" below
+  capricho: []
+autor: Someone              # optional, only for songs not by Hakuna (shown next to the title)
 ---
 ```
 
 Songs are numbered automatically, alphabetically by title in Spanish order:
-accents and capitals are ignored (*Déjate* sorts as *dejate*), and ñ comes after n.
+accents, capitals and punctuation are ignored (*Déjate* sorts as *dejate*,
+*¿Por qué?* as *por que*), and ñ comes after n.
 
 ### Lyrics and chords
 
 Write chords on their own line, above the lyric they belong to, aligned with
 **spaces**. A line counts as a chord line when every word on it is a chord
-(`G`, `Am`, `C#m7`, `Bb`, `Dsus4`, `D/F#`...) or a separator (`|`, `-`, `(`, `)`).
-A blank line starts a new verse.
+(`G`, `Am`, `C#m7`, `Bb`, `Dsus4`, `D/F#`...), a separator (`|`, `-`, `(`, `)`)
+or a repeat mark (`x2`, `(x4)`).
+A blank line starts a new verse. A line with only `**` starts or ends a
+**bold** part (the choruses, as in the printed songbook); it can span verses.
 
 ```
 G              C
 First line of lyrics
+
+**
+D              G
+Chorus line, shown in bold
+**
 ```
 
 Your spacing is kept exactly: the book uses a fixed-width font and never wraps
@@ -193,19 +203,30 @@ the editor (the book counts a tab as 2 spaces).
 
 ## Tags
 
-Tags and subtags are defined in **`tags.yaml`**. That file is the only place to
-edit when adding, renaming or reordering them; the book follows its order, and
-`add_song.py` lists them from there.
+The tags are Hakuna's albums, defined in **`tags.yaml`** in the songbook's
+order. That file is the only place to edit when adding, renaming or reordering
+them; the book follows its order, and `add_song.py` lists them from there.
+Inside an album, songs are listed alphabetically.
 
-| Tag | Subtags |
-|-----|---------|
-| `misa` | `entrada`, `gloria`, `aleluya`, `ofertorio`, `santo`, `cordero`, `comunion`, `salida` |
-| `alabanza` | `primer_ciclo`, `segundo_ciclo`, `tercer_ciclo`, `cuarto_ciclo` |
-| `adoracion` | none: use `adoracion: []` |
-| `tema` | `padre`, `cristo`, `espiritu`, `santo`, `martir`, `virgen` |
+| Tag | Album |
+|-----|-------|
+| `hakuna` | Hakuna |
+| `mi_pobre_loco` | Mi pobre loco |
+| `pasion` | Pasión |
+| `sencillamente` | Sencillamente |
+| `qaos` | Qaos |
+| `capricho` | Capricho |
+| `el_arte_de_vivir` | El arte de vivir |
+| `tu` | Tú |
+| `misa` | Misa |
+| `villancicos` | Villancicos HKN |
+| `otras_hkn` | Otras canciones HKN |
+| `hora_santa` | Hora Santa |
+| `otras_misa` | Otras canciones de Misa |
 
-A song can have several tags and several subtags per tag. A tag with subtags
-needs at least one. A song without tags only appears in *All Songs*.
+Albums have no subtags, so a song uses `<album>: []`. Tags can still have
+subtags (see the comment in `tags.yaml`); a tag with subtags needs at least one.
+A song without tags only appears in *All Songs*.
 
 ## Using the book
 
@@ -220,7 +241,7 @@ needs at least one. A song without tags only appears in *All Songs*.
   Settings are remembered on each device.
 - **Search** (top bar, and the Sing Session box): type a song number, or any
   words from the title, author or lyrics, in any order and without accents
-  ("padre abba", "senor jesus"); the start of a word is enough. Title matches
+  ("dios debil", "senor ten"); the start of a word is enough. Title matches
   come first, then authors, then lyrics, which show the line they were found in.
 - **Sing Session** (first in the ☰ menu): a list of songs to practise or play.
   Add songs with its search box or the **+ Session** button on any song;
@@ -232,7 +253,7 @@ needs at least one. A song without tags only appears in *All Songs*.
   (1–10, remembered). Scrolling by hand or jumping to a song while it runs
   continues from there; it pauses while the menu is open and stops at the end.
 - **Per song**: show/hide chords, transpose (tap the number to reset), 1 or 2 columns.
-  These are remembered per song on each device (e.g. Abba Padre stays at +3);
+  These are remembered per song on each device (e.g. Huracán stays at +3);
   ☰ → *Song changes → Reset all* puts every song back as written.
 - **Text size**: each song is sized so its longest line fits the screen.
   A− / A+ scale that up or down; pinch-zoom always works too.
@@ -249,7 +270,7 @@ needs at least one. A song without tags only appears in *All Songs*.
 | Problem | What to do |
 |---|---|
 | `python3: command not found`, or a version below 3.10 | Install Python from https://www.python.org/downloads/, then redo the setup. |
-| `No such file or directory: venv/bin/python` | You're not in the `cancionero` folder (`cd cancionero`), or the setup wasn't run. |
+| `No such file or directory: venv/bin/python` | You're not in the `cancionero-hakuna` folder (`cd cancionero-hakuna`), or the setup wasn't run. |
 | `ModuleNotFoundError: No module named 'yaml'` | Run `venv/bin/pip install -r requirements.txt`. |
 | The build prints `Invalid songs:` | It lists each file and what's wrong (e.g. an unknown tag). Fix those files and build again. |
 | `git push` is refused | Run `git pull` first, then push again. If it says "permission denied", ask the owner for write access. |
@@ -283,7 +304,7 @@ web/       ─┘
 | `builder/tags.py` | Loads `tags.yaml`, validates song tags, groups songs by tag |
 | `builder/lyrics.py` | Detects chord lines and turns lyrics into HTML |
 | `builder/render.py` | Builds the HTML fragments and fills `web/template.html` |
-| `web/template.html` | Page layout, with `{{ placeholders }}` filled by the build |
+| `web/template.html` | Page layout, with `{{ placeholders }}` filled by the build; also holds the Hakuna logo (an inline SVG drawn in the text colour, so it follows the dark theme) |
 | `web/song-controls.html` | Buttons shown above each song |
 | `web/styles.css` | All styles (theme colours and sizes are variables at the top) |
 | `web/js/core.js` | Shared helpers: `onAction`, `songSetting`, `prefs` (saved settings), `songState` (saved per-song changes) |

@@ -1,6 +1,6 @@
 {
-  "name": "Cancionero",
-  "short_name": "Cancionero",
+  "name": "Cancionero Hakuna",
+  "short_name": "Cancionero Hakuna",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

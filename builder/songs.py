@@ -103,10 +103,11 @@ def load_song(path):
 
 def spanish_sort_key(text):
     """Sort key for Spanish alphabetical order: accents are ignored (é = e,
-    ü = u) and case too, but ñ is its own letter, right after n."""
+    ü = u) and case too, but ñ is its own letter, right after n. Punctuation
+    is ignored too, so "¿Por qué?" sorts under P and "(Tú) El..." under T."""
     text = unicodedata.normalize("NFC", text).casefold().replace("ñ", "n￿")
     letters = unicodedata.normalize("NFD", text)
-    return "".join(c for c in letters if not unicodedata.combining(c))
+    return "".join(c for c in letters if not unicodedata.combining(c) and (c.isalnum() or c in " ￿"))
 
 
 def load_songs(songs_dir, taxonomy):

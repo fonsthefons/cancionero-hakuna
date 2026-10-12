@@ -6,7 +6,8 @@ Asks for a link (Ultimate Guitar, Cifra Club, LaCuerda, or another site that
 shows the song as plain text), for the song itself, or for a title and artist
 to search for (importer/search.py). Cleans the song up (importer/clean.py),
 asks for title, author, capo, Spotify link and tags, writes
-songs/<title>_<author>.md and rebuilds index.html.
+songs/<title>.md (songs/<title>_<author>.md when the author isn't Hakuna)
+and rebuilds index.html.
 """
 
 import argparse
@@ -31,6 +32,18 @@ from importer.spotify import find_tracks
 ROOT = Path(__file__).parent
 ALIASES_FILE = ROOT / "author_aliases.yaml"
 END_MARK = "END"
+# Every song in this book is Hakuna's: it's the default artist, and it isn't
+# written in the song file (the book doesn't show an author for it).
+ARTIST = "Hakuna"
+
+
+def is_book_artist(autor):
+    return (autor or "").casefold() == ARTIST.casefold()
+
+
+def song_name(title, autor):
+    """File name (without .md) for a song."""
+    return slug(title) if is_book_artist(autor) else slug(title) + "_" + slug(autor or "popular")
 
 
 # ---------- asking ----------
@@ -259,7 +272,7 @@ def yaml_value(text):
 
 def song_file(title, autor, capo, link, tags, body):
     lines = ["---", f"title: {yaml_value(title)}"]
-    if autor:
+    if autor and not is_book_artist(autor):
         lines.append(f"autor: {yaml_value(autor)}")
     if capo:
         lines.append(f'capo: "{capo}"')
@@ -308,7 +321,7 @@ def main():
     searched_artist = ""
     if choice == "3":
         song_title = ask("Song title")
-        searched_artist = ask("Artist (Enter to skip)")
+        searched_artist = ask("Artist", ARTIST)
         got = from_search(song_title, searched_artist) if song_title else None
     elif choice == "1":
         link = ask("Link to the song (or a saved web page file)")
@@ -341,14 +354,14 @@ def main():
 
     aliases = load_aliases()
     site_artist = (draft.artist or "").strip() if draft else ""
-    autor = ask("Author", alias_for(site_artist, aliases) if site_artist else searched_artist or "popular")
+    autor = ask("Author", alias_for(site_artist, aliases) if site_artist else searched_artist or ARTIST)
     if site_artist and autor and autor != alias_for(site_artist, aliases) and autor != site_artist:
         remember_alias(site_artist, autor)
     capo = ask("Capo (Enter for none)", (draft.capo if draft else None) or cleaned.capo)
     link = ask_spotify(title, autor, offline=args.offline)
     tags = ask_tags(taxonomy)
 
-    path = free_path(songs_dir, slug(title) + "_" + slug(autor or "popular"))
+    path = free_path(songs_dir, song_name(title, autor))
     path.write_text(song_file(title, autor, capo, link, tags, cleaned.body), encoding="utf-8")
     try:
         load_song(path)

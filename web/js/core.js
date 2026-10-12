@@ -25,17 +25,20 @@ function setActionLabel(action, text) {
 
 // Preferences remembered on this device. Storage can be unavailable
 // (private mode, blocked site data), so every access is guarded.
+// The prefix keeps this book's data apart from other books on the same site
+// (fonsthefons.github.io also hosts the original Cancionero, whose keys are "cancionero.*").
+const STORAGE_PREFIX = "cancionero-hakuna.";
 const prefs = {
     get(key, fallback) {
         try {
-            return localStorage.getItem(`cancionero.${key}`) ?? fallback;
+            return localStorage.getItem(STORAGE_PREFIX + key) ?? fallback;
         } catch {
             return fallback;
         }
     },
     set(key, value) {
         try {
-            localStorage.setItem(`cancionero.${key}`, value);
+            localStorage.setItem(STORAGE_PREFIX + key, value);
         } catch {
             // Not remembered; the setting still applies for this visit.
         }

@@ -22,9 +22,9 @@ CHORD_RE = re.compile(
     r"(?:/[A-G][#b]?(?:m|maj|min|dim|aug|sus|add|dom)?\d*)?"
     r")(?!\w)"
 )
-SEPARATOR_RE = re.compile(r"[-|()]+")
-VERSE_BREAK_RE = re.compile(r"\n\s*\n")
+SEPARATOR_RE = re.compile(r"[-|()]+|\(?[xX]\d+\)?")  # also repeat marks: x2, (x4)
 TAB_WIDTH = 2
+BOLD_MARK = "**"
 
 
 def clean_line(raw):
@@ -66,8 +66,9 @@ def chord_line_html(line):
     return f'<div class="chord-line">{chords}</div>'
 
 
-def lyric_line_html(line):
-    return f'<div class="lyric-line">{escape(line, quote=False)}</div>'
+def lyric_line_html(line, bold=False):
+    css_class = "lyric-line bold" if bold else "lyric-line"
+    return f'<div class="{css_class}">{escape(line, quote=False)}</div>'
 
 
 def pair_html(*lines):
@@ -75,10 +76,11 @@ def pair_html(*lines):
 
 
 def verse_html(verse):
+    """One verse: a list of (raw line, bold) without blank lines."""
     parts = []
     pending_chords = None  # chord line waiting for its lyric line
 
-    for raw in verse.split("\n"):
+    for raw, bold in verse:
         line = clean_line(raw)
         if not line.strip():
             continue
@@ -87,19 +89,40 @@ def verse_html(verse):
                 parts.append(pair_html(pending_chords))
             pending_chords = chord_line_html(line)
         elif pending_chords:
-            parts.append(pair_html(pending_chords, lyric_line_html(line)))
+            parts.append(pair_html(pending_chords, lyric_line_html(line, bold)))
             pending_chords = None
         else:
-            parts.append(lyric_line_html(line))
+            parts.append(lyric_line_html(line, bold))
 
     if pending_chords:
         parts.append(pair_html(pending_chords))
     return f'<div class="verse">{"".join(parts)}</div>' if parts else ""
 
 
+def split_verses(body):
+    """Body -> verses, each a list of (raw line, bold).
+
+    Blank lines separate verses. A line holding only BOLD_MARK starts or ends
+    a bold part (used for choruses); it isn't shown and may span verses.
+    """
+    verses, current, bold = [], [], False
+    for raw in body.split("\n"):
+        if raw.strip() == BOLD_MARK:
+            bold = not bold
+        elif not raw.strip():
+            if current:
+                verses.append(current)
+            current = []
+        else:
+            current.append((raw, bold))
+    if current:
+        verses.append(current)
+    return verses
+
+
 def lyrics_html(body):
     # Only trim blank lines around the body: the first line's indentation
     # (e.g. a chord placed mid-line) must be kept.
     body = body.strip("\n")
-    verses = "\n".join(filter(None, map(verse_html, VERSE_BREAK_RE.split(body))))
+    verses = "\n".join(filter(None, map(verse_html, split_verses(body))))
     return f'<div class="lyrics">\n{verses}\n</div>'

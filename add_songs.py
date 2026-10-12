@@ -2,7 +2,8 @@
 
     venv/bin/python add_songs.py Want.txt --section Want --report Checked.txt
 
-The list has one song per line, "Title - Artist" or just "Title". Blank lines
+The list has one song per line, "Title - Artist" or just "Title" (the artist
+is then Hakuna). Blank lines
 are skipped. A line ending with ":" (or equal to the --section name) starts a
 section; with --section only that section is read, so "NOT YET:" lists can sit
 below it.
@@ -10,7 +11,7 @@ below it.
 For each song it does what add_song.py's search does, but decides by itself:
 search the web and Ultimate Guitar, read the best chord pages, clean the song
 (importer/clean.py), find a Spotify link (or a YouTube one), and write
-songs/<title>_<author>.md with no tags. When it isn't sure, it creates
+songs/<title>.md (<title>_<author>.md for other artists) with no tags. When it isn't sure, it creates
 nothing and says why:
 - the song is already in the book;
 - no readable chord page whose title has every word of the song's title (and
@@ -27,7 +28,7 @@ import time
 from pathlib import Path
 
 import build
-from add_song import alias_for, existing_song, free_path, load_aliases, slug, song_file
+from add_song import ARTIST, alias_for, existing_song, free_path, load_aliases, song_file, song_name
 from builder.lyrics import is_chord_line
 from builder.songs import SongError, load_song
 from importer.clean import clean_song
@@ -61,7 +62,7 @@ def read_list(path, section=None):
         if section and (current or "").casefold() != section.casefold():
             continue
         title, _, artist = text.partition(" - ")
-        songs.append((title.strip(), artist.strip()))
+        songs.append((title.strip(), artist.strip() or ARTIST))
     return songs
 
 
@@ -206,7 +207,7 @@ def add_one(title, artist, songs_dir, aliases):
     capo = draft.capo or cleaned.capo
     link = find_link(song_title, autor if autor != "popular" else artist)
 
-    path = free_path(songs_dir, slug(song_title) + "_" + slug(autor or "popular"))
+    path = free_path(songs_dir, song_name(song_title, autor))
     path.write_text(song_file(song_title, autor, capo, link, {}, cleaned.body), encoding="utf-8")
     try:
         load_song(path)

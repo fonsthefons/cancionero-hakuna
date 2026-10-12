@@ -163,14 +163,23 @@ button:active {
 }
 
 .topbar-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-weight: bold;
     font-size: 1.15rem;
     white-space: nowrap;
 }
 
-/* Narrow screens: room for search + autoscroll; Contenido is in the menu. */
+.logo-mark {
+    width: 17px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+/* Narrow screens: room for search + autoscroll; only the logo stays. */
 @media (max-width: 560px) {
-    .topbar-title {
+    .topbar-title span {
         display: none;
     }
 }
@@ -535,6 +544,28 @@ body.drawer-open {
     margin: 20px 0 8px;
 }
 
+/* Logo and name from the songbook cover, above the contents */
+.cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 0 8px;
+}
+
+.cover .logo {
+    width: 88px;
+    height: auto;
+}
+
+.cover-title {
+    margin: 14px 0 0;
+    font-family: var(--sans);
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.25;
+    text-align: center;
+}
+
 .tag-index,
 .subtag-index {
     margin-bottom: 8px;
@@ -649,6 +680,12 @@ body.drawer-open {
 .chord {
     font-weight: bold;
     color: var(--chord);
+}
+
+/* Choruses (lines between `**` lines in the song file). Bold monospace keeps
+   the same character width, so chords stay on their letters. */
+.lyric-line.bold {
+    font-weight: bold;
 }
 
 .verse {

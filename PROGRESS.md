@@ -1,5 +1,61 @@
 # Progress
 
+## 2026-10-12 — New book: Cancionero Hakuna (repo `cancionero-hakuna`)
+
+User's choices (asked up front): create GitHub repo + push + Pages; songs in two albums
+stored as separate songs ("Un Dios débil (Hakuna)/(Pasión)", "Aleluya (Tú)/(Misa)");
+Pasión roman numerals dropped; choruses bold; Spotify links looked up; PDF line wraps
+rejoined; app name/icon "Cancionero Hakuna" with the H logo; add_song tools kept.
+
+### Songs from the PDF (scripts in `scratch/hkn_*.py`)
+- `hkn_lines.py` (pdfplumber): every text line with font, bold, column and each
+  character's x position. `hkn_parse.py`: splits songs on "N. TITLE" headings, capo
+  from "Cejilla N…", chords placed over the letter at the same x in the lyric line
+  below (monospace columns), bold lines flagged, wrapped lines rejoined. A line is
+  rejoined only when the next word could not have fit (Word-style wrap) AND: it ends
+  on a word a line never ends on (de, la, tu, que…), or the next line is a short
+  remainder (lower case, or Ti/Dios/Señor…). Rejoined lines over 50 characters are
+  split again at the comma nearest the middle (else where the PDF broke them).
+  Fixes: "Fm#" → "F#m", Spanish chord names (DO, MIm, SI7: songs 122, 126) → letters,
+  INTRO/PUENTE/ESTRIBILLO… → Intro/Puente/Estribillo, "(X2)" → "(x2)".
+- `hkn_check.py`: every chord line is a chord line for the book and no lyric line is
+  (0 problems). Spot-checked songs 1–15, 31, 42, 44, 65, 100 against the PDF pages.
+- `hkn_write.py`: 126 files `songs/<title>.md`, titles written by hand in normal case,
+  one album tag each (from the PDF's contents pages), choruses between `**` lines.
+- All old songs removed (`git rm -r songs`).
+
+### Book changes
+- `tags.yaml`: the 13 albums in PDF order (flat tags). Inside an album: alphabetical.
+- `builder/lyrics.py`: a line with only `**` toggles bold (`.lyric-line.bold`; bold
+  monospace keeps widths, as chords already do); repeat marks (`x2`, `(x4)`) allowed
+  on chord lines. `builder/songs.py`: punctuation ignored when sorting (¿Por qué?, (Tú)…).
+- Logo: the cover's H redrawn as an inline SVG (`web/template.html`, colour follows the
+  theme): small in the top bar (stays on phones), large with "GROUP MUSIC" and
+  "Cancionero / Hakuna Group Music" above the contents. Title "Cancionero Hakuna".
+- Icons (`scratch/hkn_icons.py`): dark H on white. Manifest name "Cancionero Hakuna".
+- Same site as the original book (fonsthefons.github.io): saved data now uses keys
+  `cancionero-hakuna.*` and the service worker cache `cancionero-hakuna-v1`, and it only
+  deletes its own old caches. The ORIGINAL repo's sw.js still deletes every other cache
+  when it updates (could wipe this book's offline copy until the next online visit):
+  worth the same one-line fix there (not done: outside this repo).
+- `add_song.py` / `add_songs.py`: artist defaults to Hakuna; Hakuna songs get no `autor`
+  and are named `<title>.md`. README, `song_template.md` updated.
+
+### Checks
+- `scratch/hkn_ui_test.py` (copy of ui_test.py pointed at Hakuna songs): all pass in
+  Chromium and WebKit, phone/iPad/laptop: 5,493 chords / 6,556 lines exactly aligned
+  (1 and 2 columns, 40% and 250% text), 60,423 transposed chord positions, session,
+  persistence, autoscroll, search, menu, print dialog, no JS errors.
+- `scratch/hkn_offline_test.py` (offline_test.py with the new title): all pass.
+- `scratch/hkn_tools_check.py`: add_song/add_songs Hakuna defaults. `hkn_shots.py`: screenshots.
+
+### Notes / blocked
+- The copied `venv/` belongs to the original repo (its pip installs into
+  `../cancionero/venv`): my first `pip install pdfplumber` landed there by accident
+  (harmless extra packages in the original's venv). Created `.venv/` here instead and
+  used it for everything else (pyyaml, pdfplumber, pypdf, playwright).
+- `venv/bin/python` in README still works on a fresh clone (each laptop makes its own).
+
 ## 2026-10-11 — Refactor for maintainability
 
 ### Phase 1: understand the repo
