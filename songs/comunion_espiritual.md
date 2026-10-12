@@ -1,12 +1,11 @@
 ---
 title: "Comunión espiritual"
+capo: "7"
 link: "https://open.spotify.com/track/6bfQN7f9a70qQnIZsMpssK"
 song_tags:
   qaos: []
 ---
 (Oración de San Alfonso María de Ligorio)
-
-Cejilla 7º traste
 
 Intro: C
 

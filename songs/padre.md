@@ -5,31 +5,31 @@ song_tags:
   tu: []
 ---
 Dmaj7: X-X-0-2-2-2
-D : 3-0-0-2-3-2
-Dmaj7 : 3-0-0-2-2-2
+D/G: 3-0-0-2-3-2
+Dmaj7/G: 3-0-0-2-2-2
 Bm7: X-2-0-2-3-0
 Bsus2: X-2-0-2-2-0
 Gsus2: 3-0-0-2-3-3
 
 Intro:
 D - Dmaj7 - D
-D  - Dmaj7   - D
+D/G - Dmaj7/G - D/G
 
     D
 Oh, Padre, Tú eres misterio,
         Dmaj7           D
 origen eterno, en el silencio.
-    D
+    D/G
 Oh, Padre, creas el cosmos,
-           Dmaj7        D
+           Dmaj7/G      D/G
 pintas los mares y el universo.
     Bm7
 Oh, Padre, Tú eres promesa,
                        Bsus2
 eres la Vida, todo grandeza.
-    D
+    D/G
 Oh, Padre, estás en los cielos,
-          Dmaj7       D
+          Dmaj7/G     D/G
 Santo es Tu nombre, venga Tu reino.
 
 Oh, Padre, Tú eres misterio,

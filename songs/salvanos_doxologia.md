@@ -1,11 +1,11 @@
 ---
 title: "Sálvanos (Doxología)"
+capo: "3"
 song_tags:
   misa: []
 ---
 (Sacerdote: “Este es el sacramento de nuestra fe”)
 
-Cejilla 3er traste
       C          D
 ¡¡Sálvanos, sálvanos!!
        G      D/F#       Em

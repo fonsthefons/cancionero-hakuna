@@ -64,7 +64,7 @@ Madre, quiero mirarte cuando no
 encuentre la luz,
        A
 y recorrer contigo cada paso,
-A m B
+Am                      B
 Madre, del camino de la Cruz.
 **
 C#m              G#m         A            E

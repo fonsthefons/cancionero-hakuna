@@ -77,7 +77,7 @@ y tantos más, ya tantos más.
 
 **
 ¡Que seamos todos uno como el
-P a d re y Tú sois uno!
+Padre y Tú sois uno!
 ¡Todos forofos de todos,
 que nos queramos siempre más!
 **

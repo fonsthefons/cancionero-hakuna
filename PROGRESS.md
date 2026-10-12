@@ -1,5 +1,25 @@
 # Progress
 
+## 2026-10-12 — Songs checked against the PDF (user asked: anything lost to the 2 columns?)
+
+- `scratch/hkn_verify.py`: independent of the import (pdfplumber + x positions), it reads
+  the PDF with pypdf in reading order, cuts it at the "N. TITLE" headings, and compares
+  each song file with the PDF: every word of the lyrics in order (difflib), every chord
+  in order, and the capo. Report: `scratch/hkn/verify_report.txt`.
+- Result: all 126 songs present; 105 identical at once. Real errors found and fixed:
+  - Forofos: "P a d re y Tú sois uno!" → "Padre y Tú sois uno!" (letter spacing in the PDF).
+  - Madre: chord line "A m B" → "Am … B" (it was shown as a lyric line).
+  - Padre: every "/G" was lost (D/G → D, Dmaj7/G → Dmaj7) in the diagrams, intro and 2 verses.
+  - Comunión espiritual, Peticiones, Sálvanos, Triple amén: "Cejilla N" was left in the
+    lyrics; now `capo:` in the front matter.
+- The 14 remaining differences are the check's own limits, each read by hand: album names at
+  page ends, 2-line headings, "Fm#" → "F#m" (import fix), Madre de Hakuna's capo note,
+  and "(x2)"/chords that the import rejoined onto the wrapped line (Tu rostro, Revolución,
+  Loco, No te vas, Cordero de Dios, Hoy en Belén).
+- Not checked by this script: exact chord columns (the chord *order* is checked; columns
+  were checked at import time by `hkn_check.py` and by eye on ~20 songs).
+- Song files are now the source: re-running `hkn_write.py` would overwrite these fixes.
+
 ## 2026-10-12 — Do Re Mi chord names; first-visit home-screen tip
 
 - ☰ → Settings → *Chord names*: `C D E` / `Do Re Mi` (Am → Lam, D/F# → Re/Fa#, Bb → Sib).
