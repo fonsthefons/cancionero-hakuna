@@ -41,10 +41,10 @@ def song_list(songs):
     return '<ul class="song-list">\n' + "\n".join(map(song_link, songs)) + "\n</ul>"
 
 
-def collapsible(anchor, heading_tag, title, body, css_class):
-    """A section that can be folded away; open by default."""
+def collapsible(anchor, heading_tag, title, body, css_class, is_open=True):
+    """A section that can be folded away. Printing always unfolds it (print.js)."""
     return (
-        f'<details class="{css_class}" id="{anchor}" open>'
+        f'<details class="{css_class}" id="{anchor}"{" open" if is_open else ""}>'
         f"<summary><{heading_tag}>{escape(title)}</{heading_tag}></summary>\n"
         f"{body}\n</details>"
     )
@@ -84,7 +84,9 @@ def tag_index_html(groups):
             )
         sections.append(
             collapsible(
-                tag_anchor(group.tag.id), "h2", group.tag.label, "\n".join(parts), "tag-index"
+                # albums start folded: the contents page shows just the album names
+                tag_anchor(group.tag.id), "h2", group.tag.label, "\n".join(parts), "tag-index",
+                is_open=False,
             )
         )
     return "\n".join(sections)

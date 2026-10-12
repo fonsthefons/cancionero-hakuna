@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-10-12 — Albums folded by default
+
+- `builder/render.py`: `collapsible(..., is_open=False)` for the album sections of the
+  contents; *All Songs* stays open. Printing already unfolds every folded section
+  (`print.js`, beforeprint/afterprint), and menu links unfold their album (`index.js`).
+- Checks: `scratch/hkn_fold_test.py` (new: 13 albums folded on load in Chromium and WebKit,
+  tap and menu link unfold, printed PDF lists every song under its album, folds restored
+  after printing); `hkn_ui_test.py` updated (albums start folded) and all pass.
+
 ## 2026-10-12 — Songs checked against the PDF (user asked: anything lost to the 2 columns?)
 
 - `scratch/hkn_verify.py`: independent of the import (pdfplumber + x positions), it reads

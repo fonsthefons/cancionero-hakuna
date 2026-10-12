@@ -241,6 +241,8 @@ A song without tags only appears in *All Songs*.
   columns for the whole book, chord names (*C D E* or *Do Re Mi*: Am → Lam,
   D/F# → Re/Fa#), light/dark theme, keep the screen on, print.
   Settings are remembered on each device.
+- **Contents**: the albums start folded (just their names); tap one to see its
+  songs. *All Songs* below is always open. A menu link to an album unfolds it.
 - **Search** (top bar, and the Sing Session box): type a song number, or any
   words from the title, author or lyrics, in any order and without accents
   ("dios debil", "senor ten"); the start of a word is enough. Title matches
