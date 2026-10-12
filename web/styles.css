@@ -733,6 +733,19 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     margin: 0.75rem 0;
 }
 
+.install-tip {
+    max-width: min(26rem, calc(100vw - 32px));
+}
+
+.install-tip h3 {
+    margin-top: 0;
+}
+
+.install-tip p {
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
 .dialog-buttons {
     display: flex;
     gap: 8px;

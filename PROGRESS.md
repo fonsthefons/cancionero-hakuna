@@ -1,5 +1,27 @@
 # Progress
 
+## 2026-10-12 — Do Re Mi chord names; first-visit home-screen tip
+
+- ☰ → Settings → *Chord names*: `C D E` / `Do Re Mi` (Am → Lam, D/F# → Re/Fa#, Bb → Sib).
+  `web/js/transpose.js`: `transposeChord` converts letters after transposing, so the
+  existing gap logic keeps chords on their letters; where two chords are one space
+  apart (286 of 2,453 chord lines) the next chord moves right by the extra letters.
+  `renderChords` also grows the song's `--chars` when a line gets longer than the widest,
+  so lines still fit the screen (0 overflowing on phone). Remembered (`notation` pref).
+- `web/js/install-tip.js` + `<dialog id="install-tip">`: "Para acceso offline:" with one
+  line for iPhone (Compartir → Añadir a pantalla de inicio) and one for Android (menú ⋮ → …).
+  Shown once per browser, only on the hosted site, never inside the home-screen app.
+- Found while testing: `Intro: G Em C D` lines (and Solo/Final/Punteo/Outro/Puente, 90 lines)
+  were plain text, so they didn't transpose. `builder/lyrics.py` now marks the chords after
+  the label (`.chord-inline`), up to the first lyric word ("Intro: E Hoy quiero, Señor").
+- Chord pattern accepts `Amadd9`, `Emadd9`, `GSus`: 12 chord lines in No te vas, Señor ten
+  piedad and El Rey de mi vida were shown as lyrics (checked with `scratch/hkn_chord_re_diff.py`:
+  only those lines changed). Left as is: `CSus2A` (El Rey de mi vida) and `Cd` (Señor ten
+  piedad, a custom chord), unclear in the source.
+- Checks: `scratch/hkn_notation_test.py` (new; Chromium + WebKit, phone + laptop: tip once,
+  every chord in solfège, aligned, fits, transpose + reload, back to letters restores every
+  line exactly), `hkn_ui_test.py` and `hkn_offline_test.py`: all pass.
+
 ## 2026-10-12 — New book: Cancionero Hakuna (repo `cancionero-hakuna`)
 
 User's choices (asked up front): create GitHub repo + push + Pages; songs in two albums

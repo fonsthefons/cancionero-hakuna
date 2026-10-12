@@ -14,11 +14,11 @@ import re
 import unicodedata
 from html import escape
 
-# Standard chord symbols: Em, B7, Cmaj7, D/F#, G#m, Bb, Asus4, ...
+# Standard chord symbols: Em, B7, Cmaj7, D/F#, G#m, Bb, Asus4, Amadd9, GSus, ...
 CHORD_RE = re.compile(
     r"(?<!\w)("
     r"[A-G][#b]?"
-    r"(?:(?:maj|min|dim|aug|sus|add|dom)\d*|m\d*|\d+)?"
+    r"(?:m?(?:maj|min|dim|aug|[sS]us|add|dom)\d*|m\d*|\d+)?"
     r"(?:/[A-G][#b]?(?:m|maj|min|dim|aug|sus|add|dom)?\d*)?"
     r")(?!\w)"
 )
@@ -66,8 +66,31 @@ def chord_line_html(line):
     return f'<div class="chord-line">{chords}</div>'
 
 
+# "Intro: G Em C D", "Solo: F G Am (x2)": chords written after a label, on a
+# line of their own or followed by the first lyrics ("Intro: E Hoy quiero...").
+LABEL_RE = re.compile(r"(\s*(?:intro|solo|final|punteo|outro|out|puente|interludio)\s*:)(.*)", re.I)
+
+
+def label_chords_html(rest):
+    """Mark the chords after a label, up to the first word that isn't one."""
+    words = re.split(r"(\s+)", rest)  # odd indexes are runs of spaces
+    for i in range(0, len(words), 2):
+        word = words[i]
+        if word and not (word[0] in "ABCDEFG" or SEPARATOR_RE.fullmatch(word) or not re.search(r"\w", word)):
+            return "".join(words[:i]), "".join(words[i:])
+    return rest, ""
+
+
 def lyric_line_html(line, bold=False):
     css_class = "lyric-line bold" if bold else "lyric-line"
+    label = LABEL_RE.fullmatch(line)
+    if label:
+        chords, lyrics = label_chords_html(label.group(2))
+        chords = CHORD_RE.sub(r'<span class="chord">\1</span>', escape(chords, quote=False))
+        if "<span" in chords:
+            # chord-inline: transpose.js rewrites these chords too
+            html = escape(label.group(1), quote=False) + chords + escape(lyrics, quote=False)
+            return f'<div class="{css_class} chord-inline">{html}</div>'
     return f'<div class="{css_class}">{escape(line, quote=False)}</div>'
 
 

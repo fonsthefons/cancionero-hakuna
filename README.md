@@ -235,9 +235,11 @@ A song without tags only appears in *All Songs*.
   from then on it opens without internet too (airplane mode, no signal).
   With internet it always shows the newest book and saves it for next time.
   (A home-screen app has its own storage: a copy in Safari's Reading List
-  isn't used by it.)
+  isn't used by it.) The first visit in a browser shows a one-time popup
+  with these two steps (`web/js/install-tip.js`).
 - **☰ menu**: contents, plus settings: text size (A− / A+), chords and
-  columns for the whole book, light/dark theme, keep the screen on, print.
+  columns for the whole book, chord names (*C D E* or *Do Re Mi*: Am → Lam,
+  D/F# → Re/Fa#), light/dark theme, keep the screen on, print.
   Settings are remembered on each device.
 - **Search** (top bar, and the Sing Session box): type a song number, or any
   words from the title, author or lyrics, in any order and without accents
@@ -263,7 +265,10 @@ A song without tags only appears in *All Songs*.
   at the top of a new page (a long song continues onto the next pages).
 - **Transposing** keeps every chord on its letter. Only when two chords are a
   single space apart (e.g. `D Em` → `D# Fm`) does the second one shift by the
-  one column it needs.
+  one column it needs. The same applies to *Do Re Mi* names, which are longer.
+- **Intro / Solo / Final / Punteo / Outro / Puente lines** (`Intro: G Em C D`):
+  the chords after the label are real chords, so they transpose and change
+  names too.
 
 ## Troubleshooting
 
@@ -309,7 +314,8 @@ web/       ─┘
 | `web/styles.css` | All styles (theme colours and sizes are variables at the top) |
 | `web/js/core.js` | Shared helpers: `onAction`, `songSetting`, `prefs` (saved settings), `songState` (saved per-song changes) |
 | `web/js/display.js` | Chords, columns, text size, theme |
-| `web/js/transpose.js` | Transposition that keeps chords in their columns |
+| `web/js/transpose.js` | Transposition that keeps chords in their columns, and the chord-names setting (C D E / Do Re Mi) |
+| `web/js/install-tip.js` | First-visit popup: how to add the book to the home screen (hosted site only, once per browser) |
 | `web/js/autoscroll.js` | Autoscroll (speed settings at the top of the file) |
 | `web/js/search.js` | Song search (number, title, author, lyrics; ranked, with the matching line) |
 | `web/js/session.js` | Sing Session (list in the menu, + Session buttons) |

@@ -16,9 +16,15 @@ function transposeNote(note, shift) {
     return scale[(((index + shift) % 12) + 12) % 12];
 }
 
-// Transposes the root and the bass note: D/F# +2 -> E/G#
+// Chord names: letters (C D E) or solfège (Do Re Mi), a book-wide setting.
+const NOTATIONS = { letters: "C D E", solfege: "Do Re Mi" };
+const SOLFEGE = { C: "Do", D: "Re", E: "Mi", F: "Fa", G: "Sol", A: "La", B: "Si" };
+
+// Transposes the root and the bass note: D/F# +2 -> E/G# (or Mi/Sol#)
 function transposeChord(chord, shift) {
-    return chord.replace(NOTE_RE, (note) => transposeNote(note, shift));
+    const name = chord.replace(NOTE_RE, (note) => transposeNote(note, shift));
+    if (document.body.dataset.notation !== "solfege") return name;
+    return name.replace(/[A-G]/g, (letter) => SOLFEGE[letter]); // Am7 -> Lam7
 }
 
 // Original text between chords (spaces and separators like "(", ")", "|"),
@@ -63,9 +69,26 @@ function transposeChordLine(line, shift) {
     });
 }
 
+// Widest line of each song as built (--chars, see render.py).
+const builtChars = new WeakMap();
+
+// Rewrite a song's chords for its transposition and the current notation.
+// Longer names (Sol#m vs G#m) can push a line past the widest one, so --chars
+// grows with it and the lyrics still fit the screen.
+function renderChords(song) {
+    const shift = Number(song.dataset.transpose || 0);
+    if (!builtChars.has(song)) builtChars.set(song, Number(song.style.getPropertyValue("--chars")));
+    let widest = builtChars.get(song);
+    song.querySelectorAll(".chord-line, .chord-inline").forEach((line) => {
+        transposeChordLine(line, shift);
+        widest = Math.max(widest, line.textContent.length);
+    });
+    song.style.setProperty("--chars", widest);
+}
+
 function setTranspose(song, shift) {
     song.dataset.transpose = shift;
-    song.querySelectorAll(".chord-line").forEach((line) => transposeChordLine(line, shift));
+    renderChords(song);
     song.querySelector(".transpose-value").textContent = shift > 0 ? `+${shift}` : shift;
     songState.set(song, "transpose", shift || null); // remembered on this device
 }
@@ -85,3 +108,17 @@ songState.each("transpose", (song, shift) => {
     const valid = Number.isInteger(shift) && Math.abs(shift) < 12;
     setTranspose(song, valid ? shift : 0);
 });
+
+function setNotation(notation) {
+    if (!(notation in NOTATIONS)) notation = "letters";
+    const changed = notation !== (document.body.dataset.notation || "letters");
+    document.body.dataset.notation = notation;
+    prefs.set("notation", notation);
+    setActionLabel("cycle-notation", NOTATIONS[notation]);
+    if (changed) document.querySelectorAll(".song").forEach(renderChords);
+}
+
+onAction("cycle-notation", () => {
+    setNotation(document.body.dataset.notation === "solfege" ? "letters" : "solfege");
+});
+setNotation(prefs.get("notation", "letters"));

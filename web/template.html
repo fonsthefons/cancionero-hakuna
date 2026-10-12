@@ -15,7 +15,7 @@
 {{ css }}
 </style>
 </head>
-<body data-chords="show" data-columns="1" data-theme="auto">
+<body data-chords="show" data-columns="1" data-theme="auto" data-notation="letters">
 
 <!-- Hakuna Group Music logo (the H from the songbook cover), drawn in the text colour -->
 <svg width="0" height="0" style="position: absolute" aria-hidden="true">
@@ -81,6 +81,10 @@
       <button data-action="toggle-all-chords">Hide all chords</button>
     </div>
     <div class="setting">
+      <span>Chord names</span>
+      <button data-action="cycle-notation">C D E</button>
+    </div>
+    <div class="setting">
       <span>Columns</span>
       <button data-action="toggle-all-columns">2 columns</button>
     </div>
@@ -141,6 +145,18 @@
     <div class="dialog-buttons">
       <button value="cancel">Cancel</button>
       <button value="print">Print PDF</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- First visit on the hosted site: how to add the book to the home screen (install-tip.js) -->
+<dialog id="install-tip" class="print-dialog install-tip">
+  <form method="dialog">
+    <h3>Para acceso offline:</h3>
+    <p><strong>iPhone:</strong> Compartir → “Añadir a pantalla de inicio”</p>
+    <p><strong>Android:</strong> menú ⋮ → “Añadir a pantalla de inicio”</p>
+    <div class="dialog-buttons">
+      <button value="ok">Entendido</button>
     </div>
   </form>
 </dialog>
