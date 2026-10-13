@@ -5,3 +5,5 @@ __pycache__/
 scratch/
 # The printed songbook the songs were taken from: kept locally, not published
 Cancionero_HKN_2026.pdf
+# Added by code-review-graph
+.code-review-graph/

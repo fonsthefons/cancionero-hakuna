@@ -185,8 +185,9 @@ button:active {
     white-space: nowrap;
 }
 
+/* book.yaml logo: any SVG, 22px high, its own width */
 .logo-mark {
-    width: 17px;
+    width: auto;
     height: 22px;
     flex-shrink: 0;
 }
@@ -768,6 +769,44 @@ body[data-columns="2"] .song:not([data-columns="1"]),
 }
 
 /* ============================= */
+/* INSTALL TIP AS A BANNER       */
+/* (book.yaml install_tip: banner) */
+/* ============================= */
+
+.install-banner {
+    position: fixed;
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: calc(var(--gutter) + env(safe-area-inset-bottom, 0px));
+    z-index: 150; /* above the songs and top bar, below the menu */
+    max-width: 30rem;
+    margin: 0 auto;
+    padding: 10px 44px 10px 14px;
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 4px 16px var(--shadow);
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.install-banner[hidden] {
+    display: none;
+}
+
+.install-banner p {
+    margin: 0;
+}
+
+.install-banner .icon-button {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+/* ============================= */
 /* PRINT                         */
 /* ============================= */
 
@@ -781,6 +820,7 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     .backdrop,
     .drawer,
     .controls,
+    .install-banner,
     .print-dialog {
         display: none !important;
     }
@@ -845,20 +885,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
 </head>
 <body data-chords="show" data-columns="1" data-theme="auto" data-notation="letters">
 
-<!-- Hakuna Group Music logo (the H from the songbook cover), drawn in the text colour -->
-<svg width="0" height="0" style="position: absolute" aria-hidden="true">
-  <defs>
-    <path id="hakuna-h" fill="currentColor" fill-rule="evenodd"
-          d="M0 0H232V301H0Z M61 0H172V60H61Z M61 120H172V181H61Z M61 241H172V301H61Z"/>
-  </defs>
-</svg>
-
 <!-- Top bar: always visible -->
 <header class="topbar">
   <button class="icon-button" data-action="open-drawer" aria-label="Menu" aria-controls="drawer">☰</button>
   <a class="topbar-title" href="#index" aria-label="Cancionero Hakuna: contenido">
-    <svg class="logo-mark" viewBox="0 0 232 301" aria-hidden="true"><use href="#hakuna-h"/></svg>
-    <span>Cancionero Hakuna</span>
+    <svg class="logo-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 301"><path fill="currentColor" fill-rule="evenodd" d="M0 0H232V301H0Z M61 0H172V60H61Z M61 120H172V181H61Z M61 241H172V301H61Z"/></svg><span>Cancionero Hakuna</span>
   </a>
   <div class="search">
     <input type="search" placeholder="Search songs..." aria-label="Search songs" autocomplete="off">
@@ -954,12 +985,7 @@ body[data-columns="2"] .song:not([data-columns="1"]),
 <!-- Index of songs by tag; every section can be folded -->
 <section id="index" class="index">
   <header class="cover">
-    <svg class="logo" viewBox="0 0 292 301" role="img" aria-label="Hakuna Group Music">
-      <use href="#hakuna-h"/>
-      <text transform="translate(262 9) rotate(90)" font-size="40" font-weight="300"
-            textLength="288" lengthAdjust="spacingAndGlyphs" fill="currentColor"
-            font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif">GROUP MUSIC</text>
-    </svg>
+    <svg class="logo" role="img" aria-label="Cancionero Hakuna" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292 301"><path fill="currentColor" fill-rule="evenodd" d="M0 0H232V301H0Z M61 0H172V60H61Z M61 120H172V181H61Z M61 241H172V301H61Z"/><text transform="translate(262 9) rotate(90)" font-size="40" font-weight="300" textLength="288" lengthAdjust="spacingAndGlyphs" fill="currentColor" font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif">GROUP MUSIC</text></svg>
     <p class="cover-title">Cancionero<br>Hakuna Group Music</p>
   </header>
   <h1>Contenido</h1>
@@ -4349,6 +4375,10 @@ body[data-columns="2"] .song:not([data-columns="1"]),
   </form>
 </dialog>
 
+<!-- This book's settings (book.yaml) for the scripts below -->
+<script>
+const BOOK = {"storagePrefix": "cancionero-hakuna.", "notationSetting": true};
+</script>
 <!-- Scripts from web/js/, core.js first -->
 <script>
 // Core helpers shared by every feature script. Loaded first.
@@ -4378,9 +4408,9 @@ function setActionLabel(action, text) {
 
 // Preferences remembered on this device. Storage can be unavailable
 // (private mode, blocked site data), so every access is guarded.
-// The prefix keeps this book's data apart from other books on the same site
-// (fonsthefons.github.io also hosts the original Cancionero, whose keys are "cancionero.*").
-const STORAGE_PREFIX = "cancionero-hakuna.";
+// The prefix (book.yaml storage_key) keeps this book's data apart from other
+// books on the same site (<user>.github.io hosts every book of that user).
+const STORAGE_PREFIX = BOOK.storagePrefix;
 const prefs = {
     get(key, fallback) {
         try {
@@ -4686,20 +4716,29 @@ document.addEventListener("click", (event) => {
 });
 </script>
 <script>
-// First visit: a small popup explaining how to add the book to the home
-// screen (iPhone and Android) so it works offline. Shown once per browser,
-// only on the hosted site (offline needs sw.js), and never inside the
-// home-screen app itself.
+// First visit: how to add the book to the home screen (iPhone and Android) so
+// it works offline. Shown once per browser, only on the hosted site (offline
+// needs sw.js), and never inside the home-screen app itself.
+//
+// book.yaml `install_tip` picks the look: "popup" (a dialog, #install-tip),
+// "banner" (a note at the bottom, .install-banner) or "off" (neither is on the page).
 
 (() => {
-    const tip = document.getElementById("install-tip");
+    const popup = document.getElementById("install-tip");
+    const banner = document.querySelector(".install-banner");
     const installed = window.matchMedia("(display-mode: standalone)").matches
         || navigator.standalone === true; // iOS home-screen app
-    if (!tip?.showModal || installed || !/^https?:$/.test(location.protocol)) return;
+    if ((!popup?.showModal && !banner) || installed || !/^https?:$/.test(location.protocol)) return;
     if (prefs.get("installTipSeen")) return;
     prefs.set("installTipSeen", "1");
-    tip.showModal();
+    if (popup?.showModal) popup.showModal();
+    else banner.hidden = false;
 })();
+
+onAction("close-install-tip", () => {
+    const banner = document.querySelector(".install-banner");
+    if (banner) banner.hidden = true;
+});
 </script>
 <script>
 // Offline home-screen app: on the hosted site, register sw.js so the book is
@@ -5223,7 +5262,8 @@ function setNotation(notation) {
 onAction("cycle-notation", () => {
     setNotation(document.body.dataset.notation === "solfege" ? "letters" : "solfege");
 });
-setNotation(prefs.get("notation", "letters"));
+// Books without the setting (book.yaml notation_setting: false) always show letters.
+if (BOOK.notationSetting) setNotation(prefs.get("notation", "letters"));
 </script>
 <script>
 // "Keep screen on" while playing. Only shown where the browser supports it

@@ -1,0 +1,9 @@
+title: Cancionero Hakuna
+storage_key: cancionero-hakuna
+default_author: Hakuna
+fold_subtags: false
+logo: logo.svg
+cover_logo: cover.svg
+cover_title: "Cancionero\nHakuna Group Music"
+strict_tags: true
+url: https://fonsthefons.github.io/cancionero-hakuna/
