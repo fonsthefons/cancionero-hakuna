@@ -5142,11 +5142,12 @@ onAction("session-clear", () => {
 onAction("session-share", () => {
     const url = new URL(location.pathname, location.href);
     url.searchParams.set("session", session.join(","));
-    const copy = () => (navigator.clipboard?.writeText(url.href) ?? Promise.reject())
+    const text = `Someone shared a song session with you (${document.title})`;
+    const copy = () => (navigator.clipboard?.writeText(`${text}\n${url.href}`) ?? Promise.reject())
         .then(() => alert("Link copied"), () => prompt("Copy this link:", url.href));
     // Share sheet only on phones/tablets: desktop ones crash (Arc) or refuse file:// links (Safari).
     if (navigator.share && matchMedia("(pointer: coarse)").matches) {
-        navigator.share({ title: document.title, url: url.href })
+        navigator.share({ title: document.title, text, url: url.href })
             .catch((error) => { if (error.name !== "AbortError") copy(); });
     } else copy();
 });
