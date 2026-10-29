@@ -6,7 +6,7 @@
         "code-review-graph",
         "serve"
       ],
-      "cwd": "/Users/fons/Documents/cancionero-hakuna",
+      "cwd": "/Users/fons/Documents/programs/cancionero-hakuna",
       "type": "stdio"
     }
   }
