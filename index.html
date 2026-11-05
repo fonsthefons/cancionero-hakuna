@@ -547,7 +547,8 @@ body.drawer-open {
     gap: 4px;
 }
 
-.text-scale-value {
+.text-scale-value,
+.song-scale-value {
     min-width: 64px;
 }
 
@@ -687,13 +688,14 @@ body.drawer-open {
  *
  * Size: the font is chosen so the song's widest line (--chars, set by the
  * build) fills the available width, capped at --max-lyrics-size, then
- * multiplied by the user's text size (--text-scale). A monospace character is
+ * multiplied by the user's book-wide text size (--text-scale) and the song's
+ * own size (--song-scale, set on .song by display.js). A monospace character is
  * ~0.6em wide. With 2 columns each line gets half the width.
  */
 .lyrics {
     --fit: calc((100cqi - (var(--cols) - 1) * var(--col-gap)) / ((var(--chars) + 1) * 0.6));
     font-family: var(--mono);
-    font-size: calc(min(var(--fit) / var(--cols), var(--max-lyrics-size)) * var(--text-scale));
+    font-size: calc(min(var(--fit) / var(--cols), var(--max-lyrics-size)) * var(--text-scale) * var(--song-scale, 1));
     line-height: 1.3;
     column-count: var(--cols);
     column-gap: var(--col-gap);
@@ -971,6 +973,10 @@ body[data-columns="2"] .song:not([data-columns="1"]),
         --text-scale: 1;
         --max-lyrics-size: 11pt;
         padding: 0;
+    }
+
+    .song {
+        --song-scale: 1 !important; /* beats the inline per-song size */
     }
 
     /* Every song starts at the top of a new page; a long song simply
@@ -1452,6 +1458,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1479,6 +1490,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1500,6 +1516,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1517,6 +1538,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1544,6 +1570,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1576,6 +1607,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1602,6 +1638,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1629,6 +1670,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1657,6 +1703,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1681,6 +1732,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1711,6 +1767,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1732,6 +1793,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1755,6 +1821,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1777,6 +1848,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1801,6 +1877,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1820,6 +1901,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1838,6 +1924,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1858,6 +1949,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1877,6 +1973,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1902,6 +2003,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1926,6 +2032,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1953,6 +2064,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1970,6 +2086,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -1999,6 +2120,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2027,6 +2153,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2052,6 +2183,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2085,6 +2221,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2109,6 +2250,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2136,6 +2282,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2167,6 +2318,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2193,6 +2349,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2221,6 +2382,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2242,6 +2408,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2268,6 +2439,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2293,6 +2469,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2314,6 +2495,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2338,6 +2524,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2362,6 +2553,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2391,6 +2587,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2412,6 +2613,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2441,6 +2647,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2465,6 +2676,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2493,6 +2709,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2519,6 +2740,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2542,6 +2768,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2566,6 +2797,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2594,6 +2830,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2616,6 +2857,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2639,6 +2885,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2662,6 +2913,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2690,6 +2946,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2713,6 +2974,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2739,6 +3005,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2765,6 +3036,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2792,6 +3068,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2811,6 +3092,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2830,6 +3116,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2856,6 +3147,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2883,6 +3179,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2907,6 +3208,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2933,6 +3239,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2958,6 +3269,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -2981,6 +3297,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3006,6 +3327,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3025,6 +3351,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3046,6 +3377,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3065,6 +3401,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3092,6 +3433,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3118,6 +3464,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3143,6 +3494,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3167,6 +3523,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3187,6 +3548,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3214,6 +3580,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3239,6 +3610,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3262,6 +3638,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3283,6 +3664,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3300,6 +3686,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3317,6 +3708,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3341,6 +3737,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3367,6 +3768,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3395,6 +3801,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3423,6 +3834,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3440,6 +3856,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3463,6 +3884,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3484,6 +3910,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3508,6 +3939,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3533,6 +3969,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3566,6 +4007,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3593,6 +4039,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3620,6 +4071,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3644,6 +4100,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3667,6 +4128,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3688,6 +4154,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3716,6 +4187,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3734,6 +4210,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3753,6 +4234,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3777,6 +4263,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3794,6 +4285,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3813,6 +4309,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3839,6 +4340,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3860,6 +4366,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3887,6 +4398,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3920,6 +4436,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3944,6 +4465,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3972,6 +4498,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -3998,6 +4529,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4015,6 +4551,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4034,6 +4575,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4059,6 +4605,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4077,6 +4628,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4100,6 +4656,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4125,6 +4686,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4143,6 +4709,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4173,6 +4744,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4200,6 +4776,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4226,6 +4807,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4249,6 +4835,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4267,6 +4858,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4295,6 +4891,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4324,6 +4925,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4349,6 +4955,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4374,6 +4985,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4400,6 +5016,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4418,6 +5039,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4441,6 +5067,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4463,6 +5094,11 @@ body[data-columns="2"] .song:not([data-columns="1"]),
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
   <button data-action="toggle-columns">Columns</button>
+  <div class="stepper">
+    <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
+    <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
+    <button data-action="song-text-bigger" aria-label="Bigger text">A+</button>
+  </div>
   <button data-action="session-toggle" aria-pressed="false">+ Session</button>
 </div>
 <div class="lyrics">
@@ -4686,7 +5322,8 @@ function normalizeText(text) {
 //
 // Scrolls the page smoothly at a steady speed while you play. If you scroll
 // by hand or jump to a song meanwhile, it continues from where you land.
-// Pauses while the menu is open and stops at the end of the page.
+// Pauses while the menu is open. Stops when the end of the song cut off by the
+// bottom of the screen reaches the bottom; ▶ again goes on into the next song.
 
 const AUTOSCROLL = {
     minSpeed: 1,
@@ -4701,6 +5338,15 @@ let autoscrollRunning = false;
 let autoscrollFrame = null;
 let autoscrollLastTime = null;
 let autoscrollPosition = 0; // exact (fractional) position we scrolled to
+let autoscrollSong = null; // the song being scrolled through; null = to the end of the page
+
+// The song cut off by the bottom of the screen: the only one with more to show.
+// Songs that end on screen are passed over, so ▶ after a stop goes on to the next song.
+function songAtScreenBottom() {
+    return [...document.querySelectorAll(".song")]
+        // 2px: a stopped song may end up to ~2px below (stop tolerance + whole-pixel scrolling).
+        .find((song) => song.getBoundingClientRect().bottom > window.innerHeight + 2) ?? null;
+}
 
 function renderAutoscroll() {
     document.querySelectorAll('[data-action="toggle-autoscroll"]').forEach((button) => {
@@ -4721,10 +5367,19 @@ function autoscrollStep(time) {
 
     if (document.body.classList.contains("drawer-open")) return;
 
-    // Moved by hand (or jumped to a song): continue from there.
-    if (Math.abs(window.scrollY - autoscrollPosition) > 2) autoscrollPosition = window.scrollY;
+    // Moved by hand (or jumped to a song): continue from there, in the song now cut off.
+    if (Math.abs(window.scrollY - autoscrollPosition) > 2) {
+        autoscrollPosition = window.scrollY;
+        autoscrollSong = songAtScreenBottom();
+    }
 
-    const bottom = document.documentElement.scrollHeight - window.innerHeight;
+    // Stop when the song's bottom reaches the screen's bottom (re-read every
+    // frame: the song can grow or shrink with text size, columns or layout).
+    const pageBottom = document.documentElement.scrollHeight - window.innerHeight;
+    const songBottom = autoscrollSong
+        ? window.scrollY + autoscrollSong.getBoundingClientRect().bottom - window.innerHeight
+        : pageBottom;
+    const bottom = Math.min(pageBottom, songBottom);
     if (autoscrollPosition >= bottom - 1) {
         setAutoscroll(false);
         return;
@@ -4739,6 +5394,7 @@ function setAutoscroll(running) {
     autoscrollFrame = null;
     if (running) {
         autoscrollPosition = window.scrollY;
+        autoscrollSong = songAtScreenBottom();
         autoscrollLastTime = null;
         autoscrollFrame = requestAnimationFrame(autoscrollStep);
     }
@@ -4778,16 +5434,35 @@ onAction("reset-songs", () => {
         .forEach((song) => setTranspose(song, 0));
     chordsSetting.clearSongs();
     columnsSetting.clearSongs();
+    document.querySelectorAll(".song[data-song-scale]").forEach((song) => setSongScale(song, 1));
     songState.clearAll();
 });
 
 // ---- Text size: multiplies the fit-to-screen lyrics size (see styles.css) ----
+// Book-wide (menu) and per song (song controls); the two multiply.
 
 const TEXT_SCALE = { min: 0.4, max: 3, step: 0.1 };
 
+const clampScale = (scale) =>
+    Math.round(Math.min(TEXT_SCALE.max, Math.max(TEXT_SCALE.min, scale)) * 10) / 10;
+
+function setSongScale(song, scale) {
+    const rounded = clampScale(scale);
+    song.style.setProperty("--song-scale", rounded);
+    song.dataset.songScale = rounded;
+    song.querySelector(".song-scale-value").textContent = `${Math.round(rounded * 100)}%`;
+    songState.set(song, "textScale", rounded === 1 ? null : rounded);
+}
+
+const songScale = (song) => Number(song.dataset.songScale || 1);
+
+onAction("song-text-smaller", (button, song) => setSongScale(song, songScale(song) - TEXT_SCALE.step));
+onAction("song-text-bigger", (button, song) => setSongScale(song, songScale(song) + TEXT_SCALE.step));
+onAction("song-text-reset", (button, song) => setSongScale(song, 1));
+songState.each("textScale", (song, scale) => setSongScale(song, Number(scale) || 1));
+
 function setTextScale(scale) {
-    const clamped = Math.min(TEXT_SCALE.max, Math.max(TEXT_SCALE.min, scale));
-    const rounded = Math.round(clamped * 10) / 10;
+    const rounded = clampScale(scale);
     document.body.style.setProperty("--text-scale", rounded);
     document.body.dataset.textScale = rounded;
     prefs.set("textScale", rounded);
