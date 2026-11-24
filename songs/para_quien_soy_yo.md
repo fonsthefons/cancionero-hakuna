@@ -1,5 +1,6 @@
 ---
 title: "¿Para quién soy yo?"
+key: G
 song_tags:
   otras_hkn: []
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Noche"
+key: C#m
 capo: "1"
 link: "https://open.spotify.com/track/7F481UYKoaLYLsUCADbtf2"
 song_tags:

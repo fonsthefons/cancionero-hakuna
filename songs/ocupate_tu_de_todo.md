@@ -1,5 +1,6 @@
 ---
 title: "Ocúpate Tú de todo"
+key: C
 capo: "1"
 link: "https://open.spotify.com/track/1YvSzh9FmdTTs0p1IRGtVu"
 song_tags:

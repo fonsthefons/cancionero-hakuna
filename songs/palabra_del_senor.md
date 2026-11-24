@@ -1,5 +1,6 @@
 ---
 title: "Palabra del Señor"
+key: C
 capo: "2"
 song_tags:
   misa: []

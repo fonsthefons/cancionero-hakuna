@@ -1,5 +1,6 @@
 ---
 title: "Padre"
+key: D
 link: "https://open.spotify.com/track/3oCEgWhmBqZq6srjlCa3wP"
 song_tags:
   tu: []

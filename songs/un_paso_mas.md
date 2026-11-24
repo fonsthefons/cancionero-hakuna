@@ -1,5 +1,6 @@
 ---
 title: "Un paso más"
+key: E
 capo: "3"
 link: "https://open.spotify.com/track/0iUj1sBAa6AwGHkHuNO12f"
 song_tags:

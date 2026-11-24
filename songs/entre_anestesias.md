@@ -1,5 +1,6 @@
 ---
 title: "Entre anestesias"
+key: C
 capo: "3"
 link: "https://open.spotify.com/track/6FZcbCSB84j4wiAnqmFfjG"
 song_tags:

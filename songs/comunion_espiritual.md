@@ -1,5 +1,6 @@
 ---
 title: "Comunión espiritual"
+key: C
 capo: "7"
 link: "https://open.spotify.com/track/6bfQN7f9a70qQnIZsMpssK"
 song_tags:

@@ -1,5 +1,6 @@
 ---
 title: "Aleluya (Misa)"
+key: C
 song_tags:
   misa: []
 ---

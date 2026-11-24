@@ -1,5 +1,6 @@
 ---
 title: "Que todo sea verdad"
+key: G
 capo: "3"
 song_tags:
   otras_hkn: []

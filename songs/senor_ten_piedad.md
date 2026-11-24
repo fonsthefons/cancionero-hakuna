@@ -1,5 +1,6 @@
 ---
 title: "Señor ten piedad"
+key: Em
 song_tags:
   misa: []
 ---

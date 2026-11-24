@@ -1,5 +1,6 @@
 ---
 title: "Te alabaré"
+key: G
 capo: "2"
 link: "https://open.spotify.com/track/2Qv3FoIBMUoRodeSHWrX5j"
 song_tags:

@@ -1,5 +1,6 @@
 ---
 title: "Deseo"
+key: A
 capo: "2"
 link: "https://open.spotify.com/track/3XvRXabvTutzrzOOM6Lfxp"
 song_tags:

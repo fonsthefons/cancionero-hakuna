@@ -1,5 +1,6 @@
 ---
 title: "Mi pobre loco"
+key: C
 capo: "5"
 link: "https://open.spotify.com/track/1O0rjdgKz0XLnkNNRbJfsu"
 song_tags:

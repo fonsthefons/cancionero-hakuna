@@ -1,5 +1,6 @@
 ---
 title: "No sé qué viste en mí"
+key: C
 capo: "5"
 link: "https://open.spotify.com/track/3RXhBTRteM9nS1Engqaude"
 song_tags:

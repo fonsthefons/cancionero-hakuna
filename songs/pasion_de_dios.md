@@ -1,5 +1,6 @@
 ---
 title: "Pasión de Dios"
+key: G
 link: "https://open.spotify.com/track/5bBfHiCOHSPlRjNA206JbP"
 song_tags:
   hakuna: []

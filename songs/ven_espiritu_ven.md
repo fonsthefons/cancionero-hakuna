@@ -1,5 +1,6 @@
 ---
 title: "Ven Espíritu ven"
+key: C
 capo: "2"
 song_tags:
   hora_santa: []

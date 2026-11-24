@@ -1,5 +1,6 @@
 ---
 title: "Papá"
+key: C
 song_tags:
   otras_hkn: []
 ---

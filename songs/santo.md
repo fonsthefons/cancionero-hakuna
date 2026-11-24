@@ -1,5 +1,6 @@
 ---
 title: "Santo"
+key: G
 capo: "7"
 song_tags:
   misa: []

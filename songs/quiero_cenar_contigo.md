@@ -1,5 +1,6 @@
 ---
 title: "Quiero cenar contigo"
+key: E
 capo: "2"
 link: "https://open.spotify.com/track/3eaudxBDqoEdP91vqFhfZu"
 song_tags:

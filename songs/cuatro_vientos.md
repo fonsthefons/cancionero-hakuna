@@ -1,5 +1,6 @@
 ---
 title: "Cuatro vientos"
+key: E
 capo: "2"
 link: "https://open.spotify.com/track/7wc2c9rMKY0D4QxILBptUU"
 song_tags:

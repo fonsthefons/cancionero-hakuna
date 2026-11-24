@@ -1,5 +1,6 @@
 ---
 title: "(Tú) El único Rey – Una voz"
+key: G
 capo: "3"
 link: "https://open.spotify.com/track/1ocy9G7T0cTemRnV8etM3p"
 song_tags:

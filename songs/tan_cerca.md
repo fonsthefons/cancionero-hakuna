@@ -1,5 +1,6 @@
 ---
 title: "Tan cerca"
+key: G
 capo: "2"
 link: "https://open.spotify.com/track/4IgooZbgYtgZaYJ2WnxWOF"
 song_tags:

@@ -1,5 +1,6 @@
 ---
 title: "Un Dios débil (Pasión)"
+key: C
 link: "https://open.spotify.com/track/5Pav5v4KuJLFbum4VGL5Ku"
 song_tags:
   pasion: []

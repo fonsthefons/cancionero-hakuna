@@ -1,5 +1,6 @@
 ---
 title: "A Ti te alabo"
+key: C
 capo: "3"
 link: "https://open.spotify.com/track/6XLPxmYdva9RIwEDYL2YHt"
 song_tags:

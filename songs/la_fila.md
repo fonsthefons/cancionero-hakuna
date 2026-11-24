@@ -1,5 +1,6 @@
 ---
 title: "La fila"
+key: Am
 capo: "4"
 link: "https://open.spotify.com/track/2Fwhtw2BXjcg846WNAXOKD"
 song_tags:

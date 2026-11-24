@@ -1,5 +1,6 @@
 ---
 title: "Salve rociera"
+key: A
 song_tags:
   otras_misa: []
 ---

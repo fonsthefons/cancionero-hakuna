@@ -1,5 +1,6 @@
 ---
 title: "Te amo Rey"
+key: D
 song_tags:
   hora_santa: []
 ---

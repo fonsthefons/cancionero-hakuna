@@ -1,5 +1,6 @@
 ---
 title: "En lo hondo"
+key: D
 capo: "3"
 link: "https://open.spotify.com/track/0GAKJ7Fj9NMf6refjr5kjV"
 song_tags:

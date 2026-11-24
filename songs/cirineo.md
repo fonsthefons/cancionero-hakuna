@@ -1,5 +1,6 @@
 ---
 title: "Cirineo"
+key: G
 capo: "4"
 link: "https://open.spotify.com/track/4ofyi2MTkppGdaHViln62J"
 song_tags:

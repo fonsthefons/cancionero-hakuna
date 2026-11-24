@@ -1,5 +1,6 @@
 ---
 title: "Palabra de Dios"
+key: Am
 song_tags:
   misa: []
 ---

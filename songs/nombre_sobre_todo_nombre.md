@@ -1,5 +1,6 @@
 ---
 title: "Nombre sobre todo nombre"
+key: Am
 capo: "3"
 link: "https://open.spotify.com/track/0obqAY8sELrKDN1dxWKdte"
 song_tags:

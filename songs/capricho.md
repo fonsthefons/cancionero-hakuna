@@ -1,5 +1,6 @@
 ---
 title: "Capricho"
+key: C
 capo: "2"
 link: "https://open.spotify.com/track/600Z5C33xvCoGdgOfkEHoN"
 song_tags:

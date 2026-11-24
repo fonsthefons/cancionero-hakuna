@@ -1,5 +1,6 @@
 ---
 title: "No adoréis"
+key: C
 song_tags:
   hora_santa: []
 ---

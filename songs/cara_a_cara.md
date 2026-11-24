@@ -1,5 +1,6 @@
 ---
 title: "Cara a cara"
+key: D
 link: "https://open.spotify.com/track/3AbYh5nP4NdvWUahFCU1Ys"
 song_tags:
   hora_santa: []
@@ -38,7 +39,7 @@ solo dejame mirarte cara a cara
 y perderme como un niño en tu mirada
    Gmaj7    A/G
 y que pase mucho tiempo
-   F#  F#/Bb  A/B--Bm
+   F#  F#/A#  A/B--Bm
 y que nadie diga nada
    G    D/F#    Em7     D--A
 porque estoy viendo al maestro cara a cara
@@ -50,7 +51,7 @@ que se ahogue mi recuerdo en tu mirada
 quiero amarte en el silencio y sin palabras
    Gmaj7    A/G
 y que pase mucho tiempo
-   F#  F#/Bb   A/B--Bm
+   F#  F#/A#   A/B--Bm
 y que nadie diga nada
    G  D/F# Em7  A     D
 solo dejame mirarte cara a cara
@@ -77,7 +78,7 @@ solo dejame mirarte cara a cara
 aunque caiga derretido en tu mirada
   Gmaj7       A/G
 derrotado y desde el suelo
-  F# F#/Bb   A/B--Bm
+  F# F#/A#   A/B--Bm
 tembloroso y sin aliento
    G D/F# Em7       D--A
 aunque seguiré mirando a mi maestro
@@ -87,7 +88,7 @@ cuando caiga ante tus plantas de rodillas
 dejame llorar pegado a tus heridas
    Gmaj7    A/G
 y que pase mucho tiempo
-   F#  F#/Bb A/B--Bm
+   F#  F#/A# A/B--Bm
 y que nadie me lo impida
      G   D/F# Em7    A  D
 que he esperado este momento toda mi vida

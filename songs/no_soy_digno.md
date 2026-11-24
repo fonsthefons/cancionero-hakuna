@@ -1,5 +1,6 @@
 ---
 title: "No soy digno"
+key: Am
 song_tags:
   misa: []
 ---

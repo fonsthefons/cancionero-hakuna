@@ -1,5 +1,6 @@
 ---
 title: "Pringados"
+key: C
 capo: "6"
 link: "https://open.spotify.com/track/5JHiSIB4ugnsViz09rOS7w"
 song_tags:

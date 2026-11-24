@@ -1,5 +1,6 @@
 ---
 title: "Peticiones"
+key: C
 capo: "2"
 song_tags:
   misa: []

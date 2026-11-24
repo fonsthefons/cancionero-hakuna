@@ -1,5 +1,6 @@
 ---
 title: "El Rey de mi vida"
+key: G
 song_tags:
   hora_santa: []
 ---

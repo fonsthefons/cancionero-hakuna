@@ -1,5 +1,6 @@
 ---
 title: "Vértigo"
+key: C
 capo: "2"
 link: "https://open.spotify.com/track/2nXa6qRz31ARzEfIgpiSy0"
 song_tags:

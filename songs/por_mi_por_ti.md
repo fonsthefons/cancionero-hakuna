@@ -1,5 +1,6 @@
 ---
 title: "Por mí, por Ti"
+key: G
 capo: "2"
 link: "https://open.spotify.com/track/5zPhRlHCb6izkY5uw2UxxJ"
 song_tags:

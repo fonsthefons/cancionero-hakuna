@@ -1,5 +1,6 @@
 ---
 title: "Verónica"
+key: E
 capo: "1"
 link: "https://open.spotify.com/track/3pfFZCrgiOGi1BPAoh2ke0"
 song_tags:

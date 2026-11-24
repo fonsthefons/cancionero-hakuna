@@ -1,5 +1,6 @@
 ---
 title: "Convocados"
+key: C
 capo: "4"
 song_tags:
   misa: []

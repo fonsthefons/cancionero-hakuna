@@ -1,5 +1,6 @@
 ---
 title: "Forofos"
+key: G
 capo: "7"
 link: "https://open.spotify.com/track/1seWNwVAp8Ztwc91lHFWfI"
 song_tags:

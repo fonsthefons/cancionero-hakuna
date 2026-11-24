@@ -1,5 +1,6 @@
 ---
 title: "Todos por todos"
+key: C
 capo: "3"
 link: "https://open.spotify.com/track/7frBYysQuPl52Zvn5hiKkh"
 song_tags:

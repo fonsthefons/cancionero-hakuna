@@ -1,5 +1,6 @@
 ---
 title: "Hoy te dejo"
+key: A
 link: "https://open.spotify.com/track/6btcavbYVVRvP70HBBvvLf"
 song_tags:
   hakuna: []

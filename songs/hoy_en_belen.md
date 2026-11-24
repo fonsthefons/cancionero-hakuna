@@ -1,5 +1,6 @@
 ---
 title: "Hoy en Belén"
+key: D
 capo: "1"
 link: "https://open.spotify.com/track/3XlpE1RQNTDxtczeha0vWM"
 song_tags:

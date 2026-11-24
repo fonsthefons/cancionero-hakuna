@@ -1,5 +1,6 @@
 ---
 title: "¿Por qué lloras? (María Magdalena)"
+key: C
 capo: "2"
 link: "https://open.spotify.com/track/7xgNaNd0nhNYXzL51XkpEn"
 song_tags:
@@ -75,7 +76,7 @@ No entiendo mujer ¿por qué lloras?
 Él no está aquí, ¡ha resucitado!
 Recordad cuando os dijo
 que debía ser entregado,
-                F     G  A# - C
+                F     G  Bb - C
 por vuestros pecados…
 
      D                     (A)

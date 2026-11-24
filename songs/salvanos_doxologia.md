@@ -1,5 +1,6 @@
 ---
 title: "Sálvanos (Doxología)"
+key: G
 capo: "3"
 song_tags:
   misa: []

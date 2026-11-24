@@ -1,5 +1,6 @@
 ---
 title: "Bendito"
+key: G
 capo: "7"
 link: "https://open.spotify.com/track/2AgVJn79CL1yZydkQDIw2R"
 song_tags:

@@ -1,5 +1,6 @@
 ---
 title: "Arde"
+key: G
 capo: "3"
 link: "https://open.spotify.com/track/7vewA8C1p5XGirSZa3BK8y"
 song_tags:

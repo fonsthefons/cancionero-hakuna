@@ -1,5 +1,6 @@
 ---
 title: "Santo es el Señor"
+key: C
 song_tags:
   otras_misa: []
 ---

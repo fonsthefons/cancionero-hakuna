@@ -1,5 +1,6 @@
 ---
 title: "El arte de vivir"
+key: G
 link: "https://open.spotify.com/track/6vZtuRQOzMJv78ZU38gbPU"
 song_tags:
   el_arte_de_vivir: []

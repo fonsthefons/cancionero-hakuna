@@ -24,6 +24,7 @@ body {
     --muted: #666;
     --accent: #397380;
     --accent-light: #2f8ea4;
+    --done: #2e7d32;
     --chord: #1a8f8f;
     --button-bg: #fffaf1;
     --button-ink: #5f63a8;
@@ -53,6 +54,7 @@ body[data-theme="dark"] {
     --muted: #a3a3a3;
     --accent: #8cc4cf;
     --accent-light: #7fb8d0;
+    --done: #81c784;
     --chord: #5ed6cc;
     --button-bg: #2c2c31;
     --button-ink: #c3c5f0;
@@ -71,6 +73,7 @@ body[data-theme="dark"] {
         --muted: #a3a3a3;
         --accent: #8cc4cf;
         --accent-light: #7fb8d0;
+    --done: #81c784;
         --chord: #5ed6cc;
         --button-bg: #2c2c31;
         --button-ink: #c3c5f0;
@@ -622,6 +625,46 @@ body.drawer-open {
     padding: 5px 0;
 }
 
+/* Progress checkboxes (book.yaml progress: true, web/js/progress.js) */
+.song-list li:has(> .done-box) {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.song-list li:has(> .done-box) > a {
+    flex: 1;
+}
+
+.done-box {
+    flex: none;
+    width: 1.2em;
+    height: 1.2em;
+    margin: 0;
+    accent-color: var(--done);
+}
+
+.index li.done > a,
+.index details.done > summary {
+    color: var(--done);
+}
+
+.done-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media print {
+    .done-box,
+    .done-toggle {
+        display: none !important;
+    }
+}
+
 /* ============================= */
 /* SONG                          */
 /* ============================= */
@@ -660,6 +703,24 @@ body.drawer-open {
     color: var(--accent);
     text-decoration: underline;
     font-style: normal;
+}
+
+/* Tag pills (book.yaml tag_pills): each tag's colour is a .k<n> rule added by
+   the build. Dark text on a pastel works in both themes. */
+.pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: -4px 0 10px;
+}
+
+.pills i {
+    font-style: normal;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    padding: 0 7px;
+    border-radius: 9px;
+    color: #333;
 }
 
 .controls {
@@ -1171,7 +1232,19 @@ body.tour-on .drawer .nav {
         display: block !important;
     }
 }
-
+.k0{background:hsl(0 70% 87%)}
+.k1{background:hsl(24 70% 87%)}
+.k2{background:hsl(48 70% 87%)}
+.k3{background:hsl(72 70% 87%)}
+.k4{background:hsl(96 70% 87%)}
+.k5{background:hsl(120 70% 87%)}
+.k6{background:hsl(144 70% 87%)}
+.k7{background:hsl(168 70% 87%)}
+.k8{background:hsl(192 70% 87%)}
+.k9{background:hsl(216 70% 87%)}
+.k10{background:hsl(240 70% 87%)}
+.k11{background:hsl(264 70% 87%)}
+.k12{background:hsl(288 70% 87%)}
 </style>
 </head>
 <body data-chords="show" data-columns="1" data-theme="auto" data-notation="letters">
@@ -1598,9 +1671,10 @@ body.tour-on .drawer .nav {
 </section>
 
 <main class="songs">
-<article class="song" id="song-a_ti_te_alabo" data-title="A Ti te alabo" style="--chars: 46">
+<article class="song" id="song-a_ti_te_alabo" data-title="A Ti te alabo" data-key="C" style="--chars: 46">
 <h3>1. A Ti te alabo</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/6XLPxmYdva9RIwEDYL2YHt" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/6XLPxmYdva9RIwEDYL2YHt" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -1630,9 +1704,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">F – G – Am – C – F</div><div class="lyric-line">A ti te alabo</div></div>
 </div>
 </article>
-<article class="song" id="song-al_estar_en_la_presencia" data-title="Al estar en la presencia" style="--chars: 46">
+<article class="song" id="song-al_estar_en_la_presencia" data-title="Al estar en la presencia" data-key="A" style="--chars: 46">
 <h3>2. Al estar en la presencia</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/6aFUXFy2sS1s3KUPC1sJia" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/6aFUXFy2sS1s3KUPC1sJia" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k0">Hak</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -1656,9 +1731,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Y al estar aquí, delante de Ti, te adoraré,</div><div class="lyric-line bold">Postrado ante Ti, mi corazón te adora oh Dios,</div><div class="lyric-line bold">Y siempre quiero estar, para adorar,</div><div class="lyric-line bold">Y contemplar tu santidad,</div><div class="line-pair bold"><div class="chord-line">   A             E        D Dm   A</div>Te adoro a Ti Señor, te adoro a Ti</div></div>
 </div>
 </article>
-<article class="song" id="song-aleluya_misa" data-title="Aleluya (Misa)" style="--chars: 28">
+<article class="song" id="song-aleluya_misa" data-title="Aleluya (Misa)" data-key="C" style="--chars: 28">
 <h3>3. Aleluya (Misa)</h3>
-
+<p class="song-meta"><span class="meta-item song-key">Key: C</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -1678,9 +1754,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line chord-inline">Intro: <span class="chord">C</span> <span class="chord">C7</span></div><div class="line-pair"><div class="chord-line">G         Am      F        C</div>Aleluya, aleluya, aleeluyaaa</div><div class="line-pair"><div class="chord-line">G      Am     F     C</div>Aaaleeluyaa, aleeeluyaaa</div><div class="line-pair"><div class="chord-line">G      C</div>Aleluyaaa</div></div>
 </div>
 </article>
-<article class="song" id="song-aleluya_tu" data-title="Aleluya (Tú)" style="--chars: 43">
+<article class="song" id="song-aleluya_tu" data-title="Aleluya (Tú)" data-key="Em" style="--chars: 43">
 <h3>4. Aleluya (Tú)</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/4G1xZtr7KOVljv34DQFkFe" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: Em</span><a class="meta-item" href="https://open.spotify.com/track/4G1xZtr7KOVljv34DQFkFe" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -1710,9 +1787,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Aleluya, aleluya,</div><div class="lyric-line bold">aleluya, aleluya.</div></div>
 </div>
 </article>
-<article class="song" id="song-arde" data-title="Arde" style="--chars: 49">
+<article class="song" id="song-arde" data-title="Arde" data-key="G" style="--chars: 49">
 <h3>5. Arde</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/7vewA8C1p5XGirSZa3BK8y" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/7vewA8C1p5XGirSZa3BK8y" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k3">Sen</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -1747,9 +1825,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Un “Te quiero” mudo en un silencio acogedor.</div><div class="lyric-line">Un humilde carpintero mira a los ojos a Dios.</div></div>
 </div>
 </article>
-<article class="song" id="song-baila_y_dejate_de_historias" data-title="Baila y déjate de historias" style="--chars: 39">
+<article class="song" id="song-baila_y_dejate_de_historias" data-title="Baila y déjate de historias" data-key="G" style="--chars: 39">
 <h3>6. Baila y déjate de historias</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/1mrKM9bYFC4glEO3E6EXG7" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/1mrKM9bYFC4glEO3E6EXG7" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k5">Cap</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -1778,9 +1857,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Repetir Estribillo</div></div>
 </div>
 </article>
-<article class="song" id="song-bendita_sea_tu_pureza" data-title="Bendita sea tu pureza" style="--chars: 45">
+<article class="song" id="song-bendita_sea_tu_pureza" data-title="Bendita sea tu pureza" data-key="Am" style="--chars: 45">
 <h3>7. Bendita sea tu pureza</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/6317iupL13x72ITllZjYzE" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/6317iupL13x72ITllZjYzE" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k0">Hak</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -1810,9 +1890,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line chord-inline">Outro: <span class="chord">Am</span> <span class="chord">G</span> <span class="chord">C</span> <span class="chord">F</span> <span class="chord">Am</span> <span class="chord">G</span> <span class="chord">C</span></div><div class="chord-line">        Am  G C F  Am  G C G  C</div></div>
 </div>
 </article>
-<article class="song" id="song-bendito" data-title="Bendito" style="--chars: 43">
+<article class="song" id="song-bendito" data-title="Bendito" data-key="G" style="--chars: 43">
 <h3>8. Bendito</h3>
-<p class="song-meta"><span class="meta-item">Capo: 7</span><a class="meta-item" href="https://open.spotify.com/track/2AgVJn79CL1yZydkQDIw2R" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/2AgVJn79CL1yZydkQDIw2R" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k3">Sen</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -1843,9 +1924,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">3ª voz de chica (con la respuesta de chico)</div></div>
 </div>
 </article>
-<article class="song" id="song-bien_amado_senor" data-title="Bien amado Señor" style="--chars: 48">
+<article class="song" id="song-bien_amado_senor" data-title="Bien amado Señor" data-key="E" style="--chars: 48">
 <h3>9. Bien amado Señor</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/4eFz76pJnkwwknUULpoLzs" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/4eFz76pJnkwwknUULpoLzs" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k0">Hak</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -1872,9 +1954,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Haz que con la fe de un niño</div><div class="lyric-line bold">pueda confiar y confiar.</div><div class="lyric-line bold">Haz que con la Fe de un niño</div><div class="lyric-line bold">pueda confiar y confiar en Ti</div></div>
 </div>
 </article>
-<article class="song" id="song-capricho" data-title="Capricho" style="--chars: 45">
+<article class="song" id="song-capricho" data-title="Capricho" data-key="C" style="--chars: 45">
 <h3>10. Capricho</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/600Z5C33xvCoGdgOfkEHoN" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/600Z5C33xvCoGdgOfkEHoN" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k5">Cap</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -1907,9 +1990,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Con la lengua fuera,</div><div class="lyric-line bold">siempre detrás,</div><div class="lyric-line bold">me gustará gritar,</div><div class="lyric-line bold">ser tu capricho y nada más. (x2)</div></div>
 </div>
 </article>
-<article class="song" id="song-cara_a_cara" data-title="Cara a cara" style="--chars: 43">
+<article class="song" id="song-cara_a_cara" data-title="Cara a cara" data-key="D" style="--chars: 43">
 <h3>11. Cara a cara</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/3AbYh5nP4NdvWUahFCU1Ys" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/3AbYh5nP4NdvWUahFCU1Ys" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k11">Hor</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -1927,15 +2011,16 @@ body.tour-on .drawer .nav {
 </div>
 <div class="lyrics">
 <div class="verse"><div class="line-pair"><div class="chord-line">D     A   D</div>solamente una palabra</div><div class="line-pair"><div class="chord-line">Bm    A/B   A   Adim7</div>solamente una oración</div><div class="line-pair"><div class="chord-line">   G        Em      A  A7</div>cuando llegue a tu presencia o Señor</div><div class="line-pair"><div class="chord-line">   F#sus      F#</div>no me importa en qué lugar</div><div class="line-pair"><div class="chord-line">    Bm    A   G<span class="sep">(add9)</span></div>de la mesa me hagas sentar</div><div class="line-pair"><div class="chord-line">   G    D/F#   Em</div>o el color de mi corona</div><div class="line-pair"><div class="chord-line">   G/A      A</div>si la llego a ganar</div></div>
-<div class="verse"><div class="line-pair"><div class="chord-line">D     A   D</div>solamente una palabra</div><div class="line-pair"><div class="chord-line">     Bm    A/B  A  Adim7</div>si esque aun me queda voz</div><div class="line-pair"><div class="chord-line">     G    Em                 A  A7</div>y si logro articularla en tu presencia,</div><div class="line-pair"><div class="chord-line">F#sus        F#</div>no te quiero hacer preguntas</div><div class="line-pair"><div class="chord-line">  Bm   A  G<span class="sep">(add9)</span></div>solo una petición</div><div class="line-pair"><div class="chord-line">     G D/F#    Em     G/A  A</div>y si puede ser a solas mucho mejor</div><div class="line-pair bold"><div class="chord-line">  G    A    F#m7<span class="sep">--</span>B7</div>solo dejame mirarte cara a cara</div><div class="line-pair bold"><div class="chord-line">  Em7      F#    A/B<span class="sep">--</span>Bm</div>y perderme como un niño en tu mirada</div><div class="line-pair bold"><div class="chord-line">   Gmaj7    A/G</div>y que pase mucho tiempo</div><div class="line-pair bold"><div class="chord-line">   F#  F#/Bb  A/B<span class="sep">--</span>Bm</div>y que nadie diga nada</div><div class="line-pair bold"><div class="chord-line">   G    D/F#    Em7     D<span class="sep">--</span>A</div>porque estoy viendo al maestro cara a cara</div></div>
-<div class="verse"><div class="line-pair"><div class="chord-line">    G      A      F#m7<span class="sep">--</span>B7</div>que se ahogue mi recuerdo en tu mirada</div><div class="line-pair"><div class="chord-line">    Em7       F#        A/B<span class="sep">--</span>Bm</div>quiero amarte en el silencio y sin palabras</div><div class="line-pair"><div class="chord-line">   Gmaj7    A/G</div>y que pase mucho tiempo</div><div class="line-pair"><div class="chord-line">   F#  F#/Bb   A/B<span class="sep">--</span>Bm</div>y que nadie diga nada</div><div class="line-pair"><div class="chord-line">   G  D/F# Em7  A     D</div>solo dejame mirarte cara a cara</div></div>
+<div class="verse"><div class="line-pair"><div class="chord-line">D     A   D</div>solamente una palabra</div><div class="line-pair"><div class="chord-line">     Bm    A/B  A  Adim7</div>si esque aun me queda voz</div><div class="line-pair"><div class="chord-line">     G    Em                 A  A7</div>y si logro articularla en tu presencia,</div><div class="line-pair"><div class="chord-line">F#sus        F#</div>no te quiero hacer preguntas</div><div class="line-pair"><div class="chord-line">  Bm   A  G<span class="sep">(add9)</span></div>solo una petición</div><div class="line-pair"><div class="chord-line">     G D/F#    Em     G/A  A</div>y si puede ser a solas mucho mejor</div><div class="line-pair bold"><div class="chord-line">  G    A    F#m7<span class="sep">--</span>B7</div>solo dejame mirarte cara a cara</div><div class="line-pair bold"><div class="chord-line">  Em7      F#    A/B<span class="sep">--</span>Bm</div>y perderme como un niño en tu mirada</div><div class="line-pair bold"><div class="chord-line">   Gmaj7    A/G</div>y que pase mucho tiempo</div><div class="line-pair bold"><div class="chord-line">   F#  F#/A#  A/B<span class="sep">--</span>Bm</div>y que nadie diga nada</div><div class="line-pair bold"><div class="chord-line">   G    D/F#    Em7     D<span class="sep">--</span>A</div>porque estoy viendo al maestro cara a cara</div></div>
+<div class="verse"><div class="line-pair"><div class="chord-line">    G      A      F#m7<span class="sep">--</span>B7</div>que se ahogue mi recuerdo en tu mirada</div><div class="line-pair"><div class="chord-line">    Em7       F#        A/B<span class="sep">--</span>Bm</div>quiero amarte en el silencio y sin palabras</div><div class="line-pair"><div class="chord-line">   Gmaj7    A/G</div>y que pase mucho tiempo</div><div class="line-pair"><div class="chord-line">   F#  F#/A#   A/B<span class="sep">--</span>Bm</div>y que nadie diga nada</div><div class="line-pair"><div class="chord-line">   G  D/F# Em7  A     D</div>solo dejame mirarte cara a cara</div></div>
 <div class="verse"><div class="line-pair"><div class="chord-line">D     A   D</div>solamente una palabra</div><div class="line-pair"><div class="chord-line">Bm    A/B   A   Adim7</div>solamente una oración</div><div class="line-pair"><div class="chord-line">   G        Em      A  A7</div>cuando llegue a tu presencia o Señor</div><div class="line-pair"><div class="chord-line">   F#sus      F#</div>no me importa en qué lugar</div><div class="line-pair"><div class="chord-line">    Bm    A   G<span class="sep">(add9)</span></div>de la mesa me hagas sentar</div><div class="line-pair"><div class="chord-line">   G    D/F#   Em</div>o el color de mi corona</div><div class="line-pair"><div class="chord-line">   G/A      A</div>si la llego a ganar</div></div>
-<div class="verse"><div class="line-pair bold"><div class="chord-line">   G    A    F#m7<span class="sep">--</span>B7</div>solo dejame mirarte cara a cara</div><div class="line-pair bold"><div class="chord-line">   Em7    F#     A/B<span class="sep">--</span>Bm</div>aunque caiga derretido en tu mirada</div><div class="line-pair bold"><div class="chord-line">  Gmaj7       A/G</div>derrotado y desde el suelo</div><div class="line-pair bold"><div class="chord-line">  F# F#/Bb   A/B<span class="sep">--</span>Bm</div>tembloroso y sin aliento</div><div class="line-pair bold"><div class="chord-line">   G D/F# Em7       D<span class="sep">--</span>A</div>aunque seguiré mirando a mi maestro</div><div class="line-pair bold"><div class="chord-line">    G      A      F#m7<span class="sep">--</span>B7</div>cuando caiga ante tus plantas de rodillas</div><div class="line-pair bold"><div class="chord-line">  Em7     F#     A/B<span class="sep">--</span>Bm</div>dejame llorar pegado a tus heridas</div><div class="line-pair bold"><div class="chord-line">   Gmaj7    A/G</div>y que pase mucho tiempo</div><div class="line-pair bold"><div class="chord-line">   F#  F#/Bb A/B<span class="sep">--</span>Bm</div>y que nadie me lo impida</div><div class="line-pair bold"><div class="chord-line">     G   D/F# Em7    A  D</div>que he esperado este momento toda mi vida</div></div>
+<div class="verse"><div class="line-pair bold"><div class="chord-line">   G    A    F#m7<span class="sep">--</span>B7</div>solo dejame mirarte cara a cara</div><div class="line-pair bold"><div class="chord-line">   Em7    F#     A/B<span class="sep">--</span>Bm</div>aunque caiga derretido en tu mirada</div><div class="line-pair bold"><div class="chord-line">  Gmaj7       A/G</div>derrotado y desde el suelo</div><div class="line-pair bold"><div class="chord-line">  F# F#/A#   A/B<span class="sep">--</span>Bm</div>tembloroso y sin aliento</div><div class="line-pair bold"><div class="chord-line">   G D/F# Em7       D<span class="sep">--</span>A</div>aunque seguiré mirando a mi maestro</div><div class="line-pair bold"><div class="chord-line">    G      A      F#m7<span class="sep">--</span>B7</div>cuando caiga ante tus plantas de rodillas</div><div class="line-pair bold"><div class="chord-line">  Em7     F#     A/B<span class="sep">--</span>Bm</div>dejame llorar pegado a tus heridas</div><div class="line-pair bold"><div class="chord-line">   Gmaj7    A/G</div>y que pase mucho tiempo</div><div class="line-pair bold"><div class="chord-line">   F#  F#/A# A/B<span class="sep">--</span>Bm</div>y que nadie me lo impida</div><div class="line-pair bold"><div class="chord-line">     G   D/F# Em7    A  D</div>que he esperado este momento toda mi vida</div></div>
 </div>
 </article>
-<article class="song" id="song-cirineo" data-title="Cirineo" style="--chars: 40">
+<article class="song" id="song-cirineo" data-title="Cirineo" data-key="G" style="--chars: 40">
 <h3>12. Cirineo</h3>
-<p class="song-meta"><span class="meta-item">Capo: 4</span><a class="meta-item" href="https://open.spotify.com/track/4ofyi2MTkppGdaHViln62J" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/4ofyi2MTkppGdaHViln62J" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -1961,9 +2046,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="chord-line">G Em C D</div></div>
 </div>
 </article>
-<article class="song" id="song-colombia" data-title="Colombia" style="--chars: 50">
+<article class="song" id="song-colombia" data-title="Colombia" data-key="C" style="--chars: 50">
 <h3>13. Colombia</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/13ZmYvrRgNcL4Z0wiT1ZJb" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/13ZmYvrRgNcL4Z0wiT1ZJb" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k3">Sen</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -1988,9 +2074,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">C        F          C    F</div>Señor creo que tú estás,</div><div class="line-pair bold"><div class="chord-line">        C         F</div>aún sin verte ni sentirte</div><div class="line-pair bold"><div class="chord-line">     C             F         C   F          C  F</div>me palpita el corazón y se derrite en tus manos.</div><div class="line-pair bold"><div class="chord-line">C        F          C    F</div>Señor creo que tú estás,</div><div class="line-pair bold"><div class="chord-line">        C           F</div>aún sin verte ni sentirte</div><div class="line-pair bold"><div class="chord-line">      C          F</div>quiero conocerte cada día un poco</div><div class="line-pair bold"><div class="chord-line"> C  F         C   F   C    F</div>más. Un poco más.</div></div>
 </div>
 </article>
-<article class="song" id="song-comunion_espiritual" data-title="Comunión espiritual" style="--chars: 46">
+<article class="song" id="song-comunion_espiritual" data-title="Comunión espiritual" data-key="C" style="--chars: 46">
 <h3>14. Comunión espiritual</h3>
-<p class="song-meta"><span class="meta-item">Capo: 7</span><a class="meta-item" href="https://open.spotify.com/track/6bfQN7f9a70qQnIZsMpssK" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/6bfQN7f9a70qQnIZsMpssK" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k4">Qao</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2017,9 +2104,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">F Fm   C</div>Aaaaamén.</div></div>
 </div>
 </article>
-<article class="song" id="song-concienciame" data-title="Conciénciame" style="--chars: 34">
+<article class="song" id="song-concienciame" data-title="Conciénciame" data-key="G" style="--chars: 34">
 <h3>15. Conciénciame</h3>
-<p class="song-meta"><span class="meta-item">Capo: 7</span><a class="meta-item" href="https://open.spotify.com/track/1XbZKR97T5ri1omfwVLeKx" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/1XbZKR97T5ri1omfwVLeKx" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k3">Sen</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2041,9 +2129,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">G  C      G    C</div>Conciénciame, Señor</div><div class="line-pair bold"><div class="chord-line">G   C     Em</div>Conciénciame,</div><div class="line-pair bold"><div class="chord-line">    D                C</div>de ser el único que puede</div><div class="line-pair bold"><div class="chord-line">          D      G</div>saciar tu sed de mí</div><div class="line-pair"><div class="chord-line">G                         D</div>De no estar hecho para el éxito</div><div class="line-pair"><div class="chord-line">  C            G</div>sino para el amor</div><div class="line-pair"><div class="chord-line">G                   D</div>De no vivir para mí mismo</div><div class="line-pair"><div class="chord-line">  C                G</div>sino para la comunión</div><div class="line-pair"><div class="chord-line">Cadd9 G</div>Mmmmmmm x3</div><div class="line-pair"><div class="chord-line">Am                   D</div>De no vivir de sentimientos</div><div class="line-pair"><div class="chord-line">               G</div>sino sensibilidad</div><div class="line-pair"><div class="chord-line">G     D/F#             Em</div>No querer cumplir mis metas</div><div class="line-pair"><div class="chord-line">                  C</div>sino amar tu voluntad.</div><div class="line-pair"><div class="chord-line">                     D</div>De ser uno de los llamados</div><div class="line-pair"><div class="chord-line">            G</div>a tu Revolución</div><div class="line-pair"><div class="chord-line"> D/F#            Em</div>De ser carne de Cristo,</div><div class="line-pair"><div class="chord-line">               C<span class="sep">-</span>D</div>cuerpo de mi Señor</div><div class="line-pair bold"><div class="chord-line">G  C      G     C</div>Conciénciame, Señor</div><div class="line-pair bold"><div class="chord-line">G   C    Em D    C</div>Conciénciame, Señooooooor</div><div class="line-pair bold"><div class="chord-line">G  C      G    C</div>Conciénciame, Señor</div><div class="line-pair bold"><div class="chord-line">G   C     Em</div>Conciénciame,</div><div class="line-pair bold"><div class="chord-line">    D                C</div>de ser el único que puede</div><div class="line-pair bold"><div class="chord-line">          D      G</div>saciar tu sed de mí</div></div>
 </div>
 </article>
-<article class="song" id="song-consagracion_bendicion" data-title="Consagración (Bendición)" style="--chars: 39">
+<article class="song" id="song-consagracion_bendicion" data-title="Consagración (Bendición)" data-key="G" style="--chars: 39">
 <h3>16. Consagración (Bendición)</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2064,9 +2153,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">         C           D</div>¡¡Tuyas son, Bendito Dios!!</div><div class="line-pair bold"><div class="chord-line">        G     D/F#     Em</div>¡¡Tuyas son, Bendito Dios!!</div><div class="line-pair bold"><div class="chord-line">         C       D       G</div>¡¡Para siempre, Amén , Amén!!</div><div class="lyric-line">(Vino x2)</div></div>
 </div>
 </article>
-<article class="song" id="song-convocados" data-title="Convocados" style="--chars: 26">
+<article class="song" id="song-convocados" data-title="Convocados" data-key="C" style="--chars: 26">
 <h3>17. Convocados</h3>
-<p class="song-meta"><span class="meta-item">Capo: 4</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: C</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2089,9 +2179,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">C</div>Gracias (libres)</div><div class="line-pair"><div class="chord-line">G</div>Gracias (vivos)</div><div class="line-pair"><div class="chord-line">Am</div>Gracias (nuevos)</div><div class="line-pair"><div class="chord-line">F                G</div>Salvador del mundo</div><div class="line-pair"><div class="chord-line">C</div>Gracias (libres)</div><div class="line-pair"><div class="chord-line">G</div>Gracias (vivos)</div><div class="line-pair"><div class="chord-line">Am</div>Santos por tu Cruz</div><div class="line-pair"><div class="chord-line">F    G                 C</div>Nuevos por tu Resurrección</div></div>
 </div>
 </article>
-<article class="song" id="song-cordero_de_dios" data-title="Cordero de Dios" style="--chars: 39">
+<article class="song" id="song-cordero_de_dios" data-title="Cordero de Dios" data-key="Am" style="--chars: 39">
 <h3>18. Cordero de Dios</h3>
-<p class="song-meta"><span class="meta-item">Capo: 1</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: Am</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2113,9 +2204,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="chord-line">Am<span class="sep">…</span></div></div>
 </div>
 </article>
-<article class="song" id="song-cuarto_lugar" data-title="Cuarto lugar" style="--chars: 48">
+<article class="song" id="song-cuarto_lugar" data-title="Cuarto lugar" data-key="E" style="--chars: 48">
 <h3>19. Cuarto lugar</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/7LEluSjsO5eQVnP5kgGg76" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/7LEluSjsO5eQVnP5kgGg76" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k5">Cap</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2143,9 +2235,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Quémame, toma mi alma y mi cuerpo,</div><div class="lyric-line bold">consúmeme y hazme arder</div><div class="lyric-line bold">en tu fuego.</div><div class="lyric-line bold">Te hiciste hombre para que el</div><div class="lyric-line bold">Hombre se hiciera Dios.</div><div class="lyric-line bold">Uno: Tú y yo.</div></div>
 </div>
 </article>
-<article class="song" id="song-cuatro_vientos" data-title="Cuatro vientos" style="--chars: 53">
+<article class="song" id="song-cuatro_vientos" data-title="Cuatro vientos" data-key="E" style="--chars: 53">
 <h3>20. Cuatro vientos</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/7wc2c9rMKY0D4QxILBptUU" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/7wc2c9rMKY0D4QxILBptUU" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k1">Mi </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2172,9 +2265,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">A             B                           G#m</div>Sé que estás aquí, que me oyes y que me ves,</div><div class="line-pair"><div class="chord-line">             C#m       B</div>porque Tú eres fiel.</div><div class="line-pair"><div class="chord-line">A             B          G#m</div>Gracias por venir a este lugar.</div><div class="line-pair"><div class="chord-line">             C#m    B  A</div>Gracias por moverte en mí,</div><div class="line-pair"><div class="chord-line">                B                         E  A F#m  B</div>¡porque, para recibir, sólo tengo que pedir!</div></div>
 </div>
 </article>
-<article class="song" id="song-del_cielo" data-title="Del cielo" style="--chars: 40">
+<article class="song" id="song-del_cielo" data-title="Del cielo" data-key="C" style="--chars: 40">
 <h3>21. Del cielo</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/7zWb05R136043bcUTF5KOH" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/7zWb05R136043bcUTF5KOH" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k9">Vil</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2204,9 +2298,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">¡Creo que este niño</div><div class="lyric-line bold">viene del Cielo!</div></div>
 </div>
 </article>
-<article class="song" id="song-demos_gracias" data-title="Demos gracias" style="--chars: 20">
+<article class="song" id="song-demos_gracias" data-title="Demos gracias" data-key="E" style="--chars: 20">
 <h3>22. Demos gracias</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: E</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2226,9 +2321,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">E                A</div>Demos gracias a Dios</div><div class="lyric-line">(Gracias Señor)</div><div class="line-pair"><div class="chord-line">F#m             B</div>Demos gracias a Dios</div><div class="lyric-line">(Gracias Señor)</div><div class="line-pair"><div class="chord-line">G#m           C#m</div>Demos gracias a Dios</div><div class="lyric-line">(Aaaa)</div><div class="line-pair"><div class="chord-line">        A B E</div>Demos gracias</div></div>
 </div>
 </article>
-<article class="song" id="song-descalzos" data-title="Descalzos" style="--chars: 37">
+<article class="song" id="song-descalzos" data-title="Descalzos" data-key="A" style="--chars: 37">
 <h3>23. Descalzos</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/6zrVIzzqi0fLFxSezbNwLS" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/6zrVIzzqi0fLFxSezbNwLS" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k4">Qao</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2260,9 +2356,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Mmmmmm</div></div>
 </div>
 </article>
-<article class="song" id="song-deseo" data-title="Deseo" style="--chars: 50">
+<article class="song" id="song-deseo" data-title="Deseo" data-key="A" style="--chars: 50">
 <h3>24. Deseo</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/3XvRXabvTutzrzOOM6Lfxp" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/3XvRXabvTutzrzOOM6Lfxp" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k0">Hak</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2293,9 +2390,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">¡Deseo ser el compás de tus latidos,</div><div class="lyric-line bold">cantar, volar, asaltar el cielo,</div><div class="lyric-line bold">hasta desear como deseas Tú! (x4)</div></div>
 </div>
 </article>
-<article class="song" id="song-despojado" data-title="Despojado" style="--chars: 40">
+<article class="song" id="song-despojado" data-title="Despojado" data-key="Bm" style="--chars: 40">
 <h3>25. Despojado</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/4SssNu7Pcg7F0bqUJ9QqQo" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: Bm</span><a class="meta-item" href="https://open.spotify.com/track/4SssNu7Pcg7F0bqUJ9QqQo" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2323,9 +2421,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="chord-line">Bm  F#m G D Bm  Em A D</div></div>
 </div>
 </article>
-<article class="song" id="song-dime_padre" data-title="Dime Padre" style="--chars: 44">
+<article class="song" id="song-dime_padre" data-title="Dime Padre" data-key="Am" style="--chars: 44">
 <h3>26. Dime Padre</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/5edDuXRCMuA6gxeld0SdtB" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/5edDuXRCMuA6gxeld0SdtB" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k5">Cap</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2361,9 +2460,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">F                             G</div>No ven que el Bien ya ha vencido,</div><div class="line-pair bold"><div class="chord-line">                 C      G/B      Am    G</div>que la serpiente que les hace temblar</div><div class="line-pair bold"><div class="chord-line">                   F</div>ya la ha pisado mi Madre,</div><div class="line-pair bold"><div class="chord-line">                    G            C</div>¡Solo tienen que mirarme y vivirán!</div></div>
 </div>
 </article>
-<article class="song" id="song-donde_estas_tu" data-title="Donde estás Tú" style="--chars: 49">
+<article class="song" id="song-donde_estas_tu" data-title="Donde estás Tú" data-key="Am" style="--chars: 49">
 <h3>27. Donde estás Tú</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/58CVvanXMyQZxSeYVkkiJG" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/58CVvanXMyQZxSeYVkkiJG" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2390,9 +2490,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">          F G            C</div>Quiero estar donde estás Tú,</div><div class="line-pair bold"><div class="chord-line">     F G           C    Em   Am</div>esconderte dentro de mi corazón,</div><div class="line-pair bold"><div class="chord-line">Dm             G          C</div>de donde nadie te pueda sacar,</div><div class="line-pair bold"><div class="chord-line">F            G           C</div>para que así puedas descansar.</div></div>
 </div>
 </article>
-<article class="song" id="song-el_abrazo" data-title="El abrazo" style="--chars: 49">
+<article class="song" id="song-el_abrazo" data-title="El abrazo" data-key="E" style="--chars: 49">
 <h3>28. El abrazo</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/7f4dVqztHzgbFmRmij5Ank" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/7f4dVqztHzgbFmRmij5Ank" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k3">Sen</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2422,9 +2523,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line chord-inline">Final: <span class="chord">A</span></div></div>
 </div>
 </article>
-<article class="song" id="song-el_arte_de_vivir" data-title="El arte de vivir" style="--chars: 45">
+<article class="song" id="song-el_arte_de_vivir" data-title="El arte de vivir" data-key="G" style="--chars: 45">
 <h3>29. El arte de vivir</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/6vZtuRQOzMJv78ZU38gbPU" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/6vZtuRQOzMJv78ZU38gbPU" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k6">El </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2458,9 +2560,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="chord-line">G C G <span class="sep">-</span> G F G</div></div>
 </div>
 </article>
-<article class="song" id="song-el_cielo_aguarda" data-title="El cielo aguarda" style="--chars: 40">
+<article class="song" id="song-el_cielo_aguarda" data-title="El cielo aguarda" data-key="A" style="--chars: 40">
 <h3>30. El cielo aguarda</h3>
-<p class="song-meta"><span class="meta-item">Capo: 1</span><a class="meta-item" href="https://open.spotify.com/track/0FJzZEtCE09DhvVLQdRUMn" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/0FJzZEtCE09DhvVLQdRUMn" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k4">Qao</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2489,9 +2592,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">¡Que el Cielo aguarda!</div><div class="lyric-line bold">¡El Cielo aguarda!</div><div class="lyric-line bold">porque se oyen</div><div class="lyric-line bold">desde lo alto</div><div class="lyric-line bold">nuestras plegarias.</div><div class="lyric-line bold">El rumor de una revolución,</div><div class="lyric-line bold">el Cielo aguarda.</div><div class="line-pair bold"><div class="chord-line">          A</div>El Cielo aguarda.</div></div>
 </div>
 </article>
-<article class="song" id="song-el_rey_de_la_gloria" data-title="El Rey de la gloria" style="--chars: 41">
+<article class="song" id="song-el_rey_de_la_gloria" data-title="El Rey de la gloria" data-key="E" style="--chars: 41">
 <h3>31. El Rey de la gloria</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/0OlkJiyabHjmQVgENbSo2n" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/0OlkJiyabHjmQVgENbSo2n" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k6">El </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2522,9 +2626,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">B             A</div>¿Quién es ese Rey,</div><div class="line-pair bold"><div class="chord-line">            E</div>el Rey de la gloria?</div><div class="line-pair bold"><div class="chord-line">     B              A</div>El Señor, Dios de los ejércitos;</div><div class="line-pair bold"><div class="chord-line">      B    A          E</div>Él es el Rey de la Gloria.</div></div>
 </div>
 </article>
-<article class="song" id="song-el_rey_de_mi_vida" data-title="El Rey de mi vida" style="--chars: 50">
+<article class="song" id="song-el_rey_de_mi_vida" data-title="El Rey de mi vida" data-key="G" style="--chars: 50">
 <h3>32. El Rey de mi vida</h3>
-
+<p class="song-meta"><span class="meta-item song-key">Key: G</span></p>
+<p class="pills"><i class="k11">Hor</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2548,9 +2653,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">GSus Em7/G</div>Si Tu eres el Rey, ------- el Rey de mi vida/</div></div>
 </div>
 </article>
-<article class="song" id="song-en_lo_hondo" data-title="En lo hondo" style="--chars: 39">
+<article class="song" id="song-en_lo_hondo" data-title="En lo hondo" data-key="D" style="--chars: 39">
 <h3>33. En lo hondo</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/0GAKJ7Fj9NMf6refjr5kjV" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/0GAKJ7Fj9NMf6refjr5kjV" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k3">Sen</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2579,9 +2685,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">Bm    G    A</div>¡Oh, oooh, oh! ¡Quiero liberarte!</div><div class="line-pair bold"><div class="chord-line">Bm    G    A</div>¡Oh, oooh, oh! ¡Quiero liberarte!</div><div class="line-pair bold"><div class="chord-line">Bm    G    A</div>¡Oh, oooh, oh! ¡Quiero liberarte!</div><div class="line-pair bold"><div class="chord-line">Bm    G    A</div>¡Oh, oooh, oh!</div><div class="line-pair bold"><div class="chord-line">          G             A</div>Porque eres Tú quien vive en mí,</div><div class="line-pair bold"><div class="chord-line">             D</div>quien vive en mí.</div></div>
 </div>
 </article>
-<article class="song" id="song-en_medio_del_fuego" data-title="En medio del fuego" style="--chars: 44">
+<article class="song" id="song-en_medio_del_fuego" data-title="En medio del fuego" data-key="Em" style="--chars: 44">
 <h3>34. En medio del fuego</h3>
-<p class="song-meta"><span class="meta-item">Capo: 4</span><a class="meta-item" href="https://open.spotify.com/track/5Q5O60DtrxV1BRRXHSNhCq" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: Em</span><a class="meta-item" href="https://open.spotify.com/track/5Q5O60DtrxV1BRRXHSNhCq" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2609,9 +2716,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Em - D/F# - G - G/B – C</div></div>
 </div>
 </article>
-<article class="song" id="song-enciendeme" data-title="Enciéndeme" style="--chars: 47">
+<article class="song" id="song-enciendeme" data-title="Enciéndeme" data-key="E" style="--chars: 47">
 <h3>35. Enciéndeme</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/3nCFvYTpW7UnUQKVrJMeEU" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/3nCFvYTpW7UnUQKVrJMeEU" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k0">Hak</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2635,9 +2743,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Enciéndeme y déjame arder donde haga falta,</div><div class="lyric-line bold">Enciéndeme y déjame ser tu luz,</div><div class="lyric-line bold">Y así poder llevarte hasta todas las almas,</div><div class="lyric-line bold">Saciar la sed que tienes Tú desde la Cruz. (x2)</div></div>
 </div>
 </article>
-<article class="song" id="song-entre_anestesias" data-title="Entre anestesias" style="--chars: 42">
+<article class="song" id="song-entre_anestesias" data-title="Entre anestesias" data-key="C" style="--chars: 42">
 <h3>36. Entre anestesias</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/6FZcbCSB84j4wiAnqmFfjG" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/6FZcbCSB84j4wiAnqmFfjG" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k5">Cap</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2664,9 +2773,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Repetir Puente</div><div class="lyric-line">Repetir Estribillo</div></div>
 </div>
 </article>
-<article class="song" id="song-exulte_mi_alma" data-title="Exulte mi alma" style="--chars: 33">
+<article class="song" id="song-exulte_mi_alma" data-title="Exulte mi alma" data-key="E" style="--chars: 33">
 <h3>37. Exulte mi alma</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/5UTlVJw88REZ281JEjzDH9" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/5UTlVJw88REZ281JEjzDH9" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k5">Cap</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2693,9 +2803,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Será entonces mi papel,</div><div class="lyric-line">el de ser vuestra escalera,</div><div class="lyric-line">Y así podáis llegar a Él,</div><div class="lyric-line">sin encontrar… ya más barrera.</div></div>
 </div>
 </article>
-<article class="song" id="song-forofos" data-title="Forofos" style="--chars: 50">
+<article class="song" id="song-forofos" data-title="Forofos" data-key="G" style="--chars: 50">
 <h3>38. Forofos</h3>
-<p class="song-meta"><span class="meta-item">Capo: 7</span><a class="meta-item" href="https://open.spotify.com/track/1seWNwVAp8Ztwc91lHFWfI" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/1seWNwVAp8Ztwc91lHFWfI" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k3">Sen</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2727,9 +2838,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">¡Que seamos todos uno</div><div class="line-pair bold"><div class="chord-line">                       D</div>como el Padre y Tú sois uno!</div><div class="line-pair bold"><div class="chord-line">        A</div>¡SOMOS forofos de todos,</div><div class="line-pair bold"><div class="chord-line">                       D</div>que nos queramos siempre más!</div><div class="lyric-line bold">¡Que seamos todos uno</div><div class="lyric-line bold">como el Padre y Tú sois uno!</div><div class="lyric-line bold">¡SOMOS forofos de todos,</div><div class="lyric-line bold">que nos queramos siempre más!</div></div>
 </div>
 </article>
-<article class="song" id="song-gloria" data-title="Gloria" style="--chars: 43">
+<article class="song" id="song-gloria" data-title="Gloria" data-key="G" style="--chars: 43">
 <h3>39. Gloria</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2753,9 +2865,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">G                   D</div>Gloria a Dios en el Cielo</div><div class="line-pair bold"><div class="chord-line">        Am            C</div>y en la Tierra paz a los hombres</div><div class="line-pair bold"><div class="chord-line">     D       C <span class="sep">-</span> G</div>que ama el Señooor.</div></div>
 </div>
 </article>
-<article class="song" id="song-hoy_en_belen" data-title="Hoy en Belén" style="--chars: 46">
+<article class="song" id="song-hoy_en_belen" data-title="Hoy en Belén" data-key="D" style="--chars: 46">
 <h3>40. Hoy en Belén</h3>
-<p class="song-meta"><span class="meta-item">Capo: 1</span><a class="meta-item" href="https://open.spotify.com/track/3XlpE1RQNTDxtczeha0vWM" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/3XlpE1RQNTDxtczeha0vWM" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k9">Vil</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2787,9 +2900,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Celebrad que es verdad,</div><div class="lyric-line bold">hoy mi Dios, mi Rey</div><div class="lyric-line bold">nace en mi vida,</div><div class="lyric-line bold">¡es Navidad!</div></div>
 </div>
 </article>
-<article class="song" id="song-hoy_te_dejo" data-title="Hoy te dejo" style="--chars: 49">
+<article class="song" id="song-hoy_te_dejo" data-title="Hoy te dejo" data-key="A" style="--chars: 49">
 <h3>41. Hoy te dejo</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/6btcavbYVVRvP70HBBvvLf" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/6btcavbYVVRvP70HBBvvLf" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k0">Hak</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2816,9 +2930,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">        B    F#         G#m         D#m</div>Por eso Padre, transfórmame todo en Cristo,</div><div class="line-pair bold"><div class="chord-line">E               F#              B     F#  E F#  B</div>para que sea el Hijo entre los hombres.</div></div>
 </div>
 </article>
-<article class="song" id="song-huracan" data-title="Huracán" style="--chars: 38">
+<article class="song" id="song-huracan" data-title="Huracán" data-key="G" style="--chars: 38">
 <h3>42. Huracán</h3>
-<p class="song-meta"><span class="meta-item">Capo: 5</span><a class="meta-item" href="https://open.spotify.com/track/4QgQabkpEzVvTflLhiYtun" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 5</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/4QgQabkpEzVvTflLhiYtun" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k4">Qao</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2849,9 +2964,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Y tu huracán romperá</div><div class="lyric-line">el cielo desde mi garganta</div><div class="lyric-line">gritándome “¿cuánto me haces falta?”</div></div>
 </div>
 </article>
-<article class="song" id="song-imprescindible" data-title="Imprescindible" style="--chars: 40">
+<article class="song" id="song-imprescindible" data-title="Imprescindible" data-key="E" style="--chars: 40">
 <h3>43. Imprescindible</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/3w3698u96PM5zIr6JepR55" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/3w3698u96PM5zIr6JepR55" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k1">Mi </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2880,9 +2996,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">    E  G#m C#m  B       A B</div>¡de ti no quiso prescindir!</div><div class="line-pair bold"><div class="chord-line">    E  G#m C#m  B       Am  E</div>¡de ti no pudo prescindir!</div></div>
 </div>
 </article>
-<article class="song" id="song-jerusalem" data-title="Jerusalem" style="--chars: 33">
+<article class="song" id="song-jerusalem" data-title="Jerusalem" data-key="Am" style="--chars: 33">
 <h3>44. Jerusalem</h3>
-<p class="song-meta"><span class="meta-item">Capo: 4</span><a class="meta-item" href="https://open.spotify.com/track/5noZqN3jwYwVLnCoJRPkz2" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/5noZqN3jwYwVLnCoJRPkz2" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2908,9 +3025,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">Em        F          C</div>¿Por qué abrazas tu dolor?</div><div class="line-pair"><div class="chord-line">Am          F          C</div>¿Por qué te dejaste llevar?</div><div class="line-pair"><div class="chord-line">F             G            C</div>¿Por qué al morir en una cruz</div><div class="line-pair"><div class="chord-line">    Am    Em     Fmaj7   G</div>compraste mi libertad?</div><div class="line-pair"><div class="chord-line">                      C</div>¿Por qué lo hiciste Jesús?</div></div>
 </div>
 </article>
-<article class="song" id="song-juntos" data-title="Juntos" style="--chars: 38">
+<article class="song" id="song-juntos" data-title="Juntos" data-key="C" style="--chars: 38">
 <h3>45. Juntos</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/3fWmgfzs3fhLhfbisa7G9I" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/3fWmgfzs3fhLhfbisa7G9I" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k9">Vil</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2937,9 +3055,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">     D7        Bm</div>Ya verás como disfrutarás,</div><div class="line-pair bold"><div class="chord-line">        G</div>de los campos y el atardecer,</div><div class="line-pair bold"><div class="chord-line">            Em</div>de los tres juntos allí en Nazaret.</div><div class="line-pair bold"><div class="chord-line">        Bm               G</div>Mírala bien, ella es tu madre,</div><div class="line-pair bold"><div class="chord-line">            D</div>siempre estará junto a ti,</div><div class="line-pair bold"><div class="chord-line">            A</div>nunca lo olvides,</div><div class="line-pair bold"><div class="chord-line">                 Em7   A G A</div>la Vida empieza ahí.</div></div>
 </div>
 </article>
-<article class="song" id="song-la_fila" data-title="La fila" style="--chars: 43">
+<article class="song" id="song-la_fila" data-title="La fila" data-key="Am" style="--chars: 43">
 <h3>46. La fila</h3>
-<p class="song-meta"><span class="meta-item">Capo: 4</span><a class="meta-item" href="https://open.spotify.com/track/2Fwhtw2BXjcg846WNAXOKD" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/2Fwhtw2BXjcg846WNAXOKD" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k6">El </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2970,9 +3089,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">(Estribillo)</div></div>
 </div>
 </article>
-<article class="song" id="song-la_medida_del_amor" data-title="La medida del amor" style="--chars: 44">
+<article class="song" id="song-la_medida_del_amor" data-title="La medida del amor" data-key="D" style="--chars: 44">
 <h3>47. La medida del amor</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/5hR5b7bf4mB41KnEpz8UXj" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/5hR5b7bf4mB41KnEpz8UXj" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -2997,9 +3117,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line chord-inline">Final: <span class="chord">Gsus2</span> <span class="chord">Gm</span> <span class="chord">D</span> <span class="chord">Bm7</span> <span class="chord">Em</span> <span class="chord">A</span> <span class="chord">Dsus2</span></div></div>
 </div>
 </article>
-<article class="song" id="song-la_piel_por_ti" data-title="La piel por Ti" style="--chars: 44">
+<article class="song" id="song-la_piel_por_ti" data-title="La piel por Ti" data-key="D" style="--chars: 44">
 <h3>48. La piel por Ti</h3>
-<p class="song-meta"><span class="meta-item">Capo: 5</span><a class="meta-item" href="https://open.spotify.com/track/6w4zglfFWHMROimU1kQ19h" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 5</span><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/6w4zglfFWHMROimU1kQ19h" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k3">Sen</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3025,9 +3146,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line"> E                       B</div>Me he dejado la piel por ti porque</div><div class="line-pair bold"><div class="chord-line">          A                  B</div>te quiero más que a mi vida entera</div><div class="line-pair bold"><div class="chord-line">E B                 A B</div>y … lo volvería a hacer.</div><div class="line-pair bold"><div class="chord-line">E                 B G#m</div>Todo lo que pueda pesar,</div><div class="line-pair bold"><div class="chord-line">         A     G#m               A</div>dámelo a mí, que yo lo llevo por ti,</div><div class="line-pair bold"><div class="chord-line">    G#m               A   Am E</div>que yo me muero por ti...</div></div>
 </div>
 </article>
-<article class="song" id="song-libertad" data-title="Libertad" style="--chars: 45">
+<article class="song" id="song-libertad" data-title="Libertad" data-key="E" style="--chars: 45">
 <h3>49. Libertad</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/3mmr39v3LgI9SIQwkoCeyI" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/3mmr39v3LgI9SIQwkoCeyI" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k0">Hak</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3053,9 +3175,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Quiero apostar por grandes ideales,</div><div class="lyric-line bold">que sepa que mi vida vale, mucho</div><div class="lyric-line bold">más, mucho más.</div><div class="lyric-line bold">Que no me venda a la mediocridad,</div><div class="lyric-line bold">que busque servir y amar, servir y amar. (x2)</div></div>
 </div>
 </article>
-<article class="song" id="song-lo_imposible" data-title="Lo imposible" style="--chars: 39">
+<article class="song" id="song-lo_imposible" data-title="Lo imposible" data-key="G" style="--chars: 39">
 <h3>50. Lo imposible</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/2xoBRb0JSSPhMrqkvi7rxO" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/2xoBRb0JSSPhMrqkvi7rxO" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k9">Vil</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3086,9 +3209,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="chord-line">G D B Em C D D7 G</div></div>
 </div>
 </article>
-<article class="song" id="song-lo_tienes_delante" data-title="Lo tienes delante" style="--chars: 40">
+<article class="song" id="song-lo_tienes_delante" data-title="Lo tienes delante" data-key="C" style="--chars: 40">
 <h3>51. Lo tienes delante</h3>
-
+<p class="song-meta"><span class="meta-item song-key">Key: C</span></p>
+<p class="pills"><i class="k10">Otr</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3114,9 +3238,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Te tengo delante</div><div class="lyric-line bold">No te veo ahí</div><div class="lyric-line bold">Los brazos abiertos,</div><div class="lyric-line bold">tienes sed de mi Lo tengo delante</div><div class="lyric-line bold">Hoy quiero mirar</div><div class="lyric-line bold">Ahora se, que es solo cuestión de amar</div><div class="lyric-line bold">Qué es solo cuestión de amar</div></div>
 </div>
 </article>
-<article class="song" id="song-loco" data-title="Loco" style="--chars: 50">
+<article class="song" id="song-loco" data-title="Loco" data-key="G" style="--chars: 50">
 <h3>52. Loco</h3>
-<p class="song-meta"><span class="meta-item">Capo: 6</span><a class="meta-item" href="https://open.spotify.com/track/7tiF5iSinIQDLhehL94z3n" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 6</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/7tiF5iSinIQDLhehL94z3n" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k6">El </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3145,9 +3270,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">G</div>Este es mi Hijo amado,</div><div class="lyric-line">en Él me complazco.</div></div>
 </div>
 </article>
-<article class="song" id="song-lord_i_need_you" data-title="Lord I need you" style="--chars: 40">
+<article class="song" id="song-lord_i_need_you" data-title="Lord I need you" data-key="G" style="--chars: 40">
 <h3>53. Lord I need you</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/4EHWldZTas5KUyFtT0rQlY" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/4EHWldZTas5KUyFtT0rQlY" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k11">Hor</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3176,9 +3302,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line"> G       Cadd9       G   Cadd9</div>You are my one defense, my righteousness</div><div class="line-pair"><div class="chord-line">    G         D/F#  G</div>Oh God, how I need You</div><div class="line-pair"><div class="chord-line"> G      Cadd9        G    Cadd9</div>My one defense, my righteousness</div><div class="line-pair"><div class="chord-line">    G         D/F#  G</div>Oh God, how I need You</div></div>
 </div>
 </article>
-<article class="song" id="song-los_coros_del_universo" data-title="Los coros del universo" style="--chars: 33">
+<article class="song" id="song-los_coros_del_universo" data-title="Los coros del universo" data-key="Am" style="--chars: 33">
 <h3>54. Los coros del universo</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/4Kd1BPlAVPxN1J5mIS696N" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/4Kd1BPlAVPxN1J5mIS696N" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3208,9 +3335,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">     F           Am</div>Los coros del universo te aclaman</div><div class="line-pair bold"><div class="chord-line">  C              G</div>a Ti, a Ti para siempre. (x2)</div></div>
 </div>
 </article>
-<article class="song" id="song-madre" data-title="Madre" style="--chars: 55">
+<article class="song" id="song-madre" data-title="Madre" data-key="C" style="--chars: 55">
 <h3>55. Madre</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/4LFnaNrPChE1u6CpwD0TLA" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/4LFnaNrPChE1u6CpwD0TLA" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3232,9 +3360,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">Bm                F#m</div>No hay dolor tan grande</div><div class="line-pair bold"><div class="chord-line">      G            D</div>comparable a tu dolor,</div><div class="line-pair bold"><div class="chord-line">           G            Bm          A</div>no hay más vida que la muerte por amor.</div><div class="line-pair bold"><div class="chord-line">Bm            F#m            G            D</div>Cuando todos huyan, cuando pierdan la razón,</div><div class="line-pair bold"><div class="chord-line">     C                         A B7</div>velaré contigo el Rostro de mi Dios.</div><div class="line-pair"><div class="chord-line">E            G#m                        C#m   B</div>Madre, átame fuerte con tus brazos a la Cruz.</div><div class="line-pair"><div class="chord-line">          A           B</div>No quiero más tesoro que sus clavos.</div><div class="line-pair"><div class="chord-line">E              C#m</div>Madre, quiero mirarte cuando no</div><div class="line-pair"><div class="chord-line">             C#m    B</div>encuentre la luz,</div><div class="line-pair"><div class="chord-line">       A</div>y recorrer contigo cada paso,</div><div class="line-pair"><div class="chord-line">Am                      B</div>Madre, del camino de la Cruz.</div><div class="line-pair bold"><div class="chord-line">C#m              G#m         A            E</div>Guárdame en tus brazos esta noche junto a Él,</div><div class="line-pair bold"><div class="chord-line">      A         C#m           B</div>venceremos a la muerte con la fe.</div><div class="line-pair bold"><div class="chord-line">C#m        G#m          A            E</div>Calmaremos juntos el deseo que escuché</div><div class="line-pair bold"><div class="chord-line">          D</div>de sus labios que aún repiten</div><div class="line-pair bold"><div class="chord-line">        B</div>“Tengo sed”,</div><div class="line-pair bold"><div class="chord-line">        A                 B</div>de sus labios que aún me dicen</div><div class="line-pair bold"><div class="chord-line">        A Am  E</div>“Tengo sed”.</div></div>
 </div>
 </article>
-<article class="song" id="song-madre_de_hakuna" data-title="Madre de Hakuna" style="--chars: 51">
+<article class="song" id="song-madre_de_hakuna" data-title="Madre de Hakuna" data-key="E" style="--chars: 51">
 <h3>56. Madre de Hakuna</h3>
-<p class="song-meta"><span class="meta-item">Capo: 4 (o en 2º también)</span><a class="meta-item" href="https://open.spotify.com/track/2JaPSQUUlyRUjEJmZolqMz" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 4 (o en 2º también)</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/2JaPSQUUlyRUjEJmZolqMz" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k3">Sen</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3256,9 +3385,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Que no me canse nunca de mirarte</div><div class="lyric-line bold">Y repetir con humilde devoción:</div><div class="lyric-line bold">Te quiero con locura preciosa Madre</div><div class="lyric-line bold">Tú Madre de Hakuna y mi corazón.</div></div>
 </div>
 </article>
-<article class="song" id="song-me_sobrepasa" data-title="Me sobrepasa" style="--chars: 40">
+<article class="song" id="song-me_sobrepasa" data-title="Me sobrepasa" data-key="G" style="--chars: 40">
 <h3>57. Me sobrepasa</h3>
-<p class="song-meta"><span class="meta-item">Capo: 7</span><a class="meta-item" href="https://open.spotify.com/track/6nLBl3hzByuZnTC8hUZ46x" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/6nLBl3hzByuZnTC8hUZ46x" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k4">Qao</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3287,9 +3417,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="chord-line">G Em C D7</div></div>
 </div>
 </article>
-<article class="song" id="song-mi_amado" data-title="Mi amado" style="--chars: 31">
+<article class="song" id="song-mi_amado" data-title="Mi amado" data-key="C" style="--chars: 31">
 <h3>58. Mi amado</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/2vuAi3K38fZ95ygzDSt7TO" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/2vuAi3K38fZ95ygzDSt7TO" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k6">El </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3319,9 +3450,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Que mi Amado es para mí</div><div class="lyric-line">y yo soy para mi Amado. (x2)</div></div>
 </div>
 </article>
-<article class="song" id="song-mi_peso_en_tus_hombros" data-title="Mi peso en tus hombros" style="--chars: 48">
+<article class="song" id="song-mi_peso_en_tus_hombros" data-title="Mi peso en tus hombros" data-key="G" style="--chars: 48">
 <h3>59. Mi peso en tus hombros</h3>
-<p class="song-meta"><span class="meta-item">Capo: 1</span><a class="meta-item" href="https://open.spotify.com/track/0uBVjJ3sLKCpmhuyioidGK" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/0uBVjJ3sLKCpmhuyioidGK" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3348,9 +3480,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">             G</div>Hoy quiero decirte, Señor,</div><div class="line-pair bold"><div class="chord-line">               Dsus2</div>que te doy las gracias,</div><div class="line-pair bold"><div class="chord-line">      Em                       C</div>que recuerdo mi peso en tus hombros,</div><div class="line-pair bold"><div class="chord-line">        G          Dsus2                 Em  C G</div>pues lo único que te ata al leño es tu amor.</div></div>
 </div>
 </article>
-<article class="song" id="song-mi_pobre_loco" data-title="Mi pobre loco" style="--chars: 49">
+<article class="song" id="song-mi_pobre_loco" data-title="Mi pobre loco" data-key="C" style="--chars: 49">
 <h3>60. Mi pobre loco</h3>
-<p class="song-meta"><span class="meta-item">Capo: 5</span><a class="meta-item" href="https://open.spotify.com/track/1O0rjdgKz0XLnkNNRbJfsu" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 5</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/1O0rjdgKz0XLnkNNRbJfsu" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k1">Mi </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3379,9 +3512,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Y yo te canto a ti, mi Pobre Loco</div></div>
 </div>
 </article>
-<article class="song" id="song-mirada" data-title="Mirada" style="--chars: 32">
+<article class="song" id="song-mirada" data-title="Mirada" data-key="G" style="--chars: 32">
 <h3>61. Mirada</h3>
-<p class="song-meta"><span class="meta-item">Capo: 5</span><a class="meta-item" href="https://open.spotify.com/track/0YlKwGPhm6ciZSoyNrsRbY" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 5</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/0YlKwGPhm6ciZSoyNrsRbY" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k4">Qao</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3409,9 +3543,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">        C          G</div>Enséñame, ¡Oh Trinidad!,</div><div class="line-pair bold"><div class="chord-line">B7                Em</div>cómo es tu libre mirada.</div><div class="line-pair bold"><div class="chord-line">D       C            G</div>Enséñame, ¡Oh Trinidad!,</div><div class="line-pair bold"><div class="chord-line">B7               Em</div>Pues es la más bella y preciada,</div><div class="line-pair bold"><div class="chord-line">    D            G C</div>la más pura de amor,</div><div class="line-pair bold"><div class="chord-line">                 G C G</div>la más pura de amor.</div></div>
 </div>
 </article>
-<article class="song" id="song-nacidos_de_lo_alto" data-title="Nacidos de lo alto" style="--chars: 40">
+<article class="song" id="song-nacidos_de_lo_alto" data-title="Nacidos de lo alto" data-key="Em" style="--chars: 40">
 <h3>62. Nacidos de lo alto</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/2zgM1I713Q6a433WWPfAJg" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: Em</span><a class="meta-item" href="https://open.spotify.com/track/2zgM1I713Q6a433WWPfAJg" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k5">Cap</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3437,9 +3572,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">  Em             G</div>Y que prometida salvación,</div><div class="line-pair"><div class="chord-line">    D</div>que ya comenzó.</div><div class="line-pair"><div class="chord-line">      Am                  Bm</div>En alianza a su pueblo, alianza conmigo,</div><div class="line-pair"><div class="chord-line">      C</div>eres fiel a mí…</div></div>
 </div>
 </article>
-<article class="song" id="song-nada" data-title="Nada" style="--chars: 48">
+<article class="song" id="song-nada" data-title="Nada" data-key="C" style="--chars: 48">
 <h3>63. Nada</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/2SkPhCOPbTO5tjJS0bPvkG" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/2SkPhCOPbTO5tjJS0bPvkG" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k6">El </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3467,9 +3603,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">(Estribillo)</div></div>
 </div>
 </article>
-<article class="song" id="song-no_adoreis" data-title="No adoréis" style="--chars: 43">
+<article class="song" id="song-no_adoreis" data-title="No adoréis" data-key="C" style="--chars: 43">
 <h3>64. No adoréis</h3>
-
+<p class="song-meta"><span class="meta-item song-key">Key: C</span></p>
+<p class="pills"><i class="k11">Hor</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3491,9 +3628,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">/Porque sólo él os puede sostener/</div><div class="lyric-line">/no adoréis a nadie, a nadie más/</div><div class="lyric-line">no adoréis a nadie, a nadie más que a él.</div></div>
 </div>
 </article>
-<article class="song" id="song-no_se_que_viste_en_mi" data-title="No sé qué viste en mí" style="--chars: 48">
+<article class="song" id="song-no_se_que_viste_en_mi" data-title="No sé qué viste en mí" data-key="C" style="--chars: 48">
 <h3>65. No sé qué viste en mí</h3>
-<p class="song-meta"><span class="meta-item">Capo: 5</span><a class="meta-item" href="https://open.spotify.com/track/3RXhBTRteM9nS1Engqaude" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 5</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/3RXhBTRteM9nS1Engqaude" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3517,9 +3655,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">        F           G            C</div>Sé que cometí el error de anteponer a</div><div class="line-pair"><div class="chord-line">       G          Am</div>tus caminos la razón.</div><div class="line-pair"><div class="chord-line">        F         G</div>Sé que volveré a caer, más de mil</div><div class="line-pair"><div class="chord-line">C           G          Am</div>veces fallaré a tu perdón,</div><div class="line-pair"><div class="chord-line">       F                 G</div>y aun así dices que me amas, no sé</div><div class="line-pair"><div class="chord-line">             C</div>que viste en mí.</div></div>
 </div>
 </article>
-<article class="song" id="song-no_soy_digno" data-title="No soy digno" style="--chars: 24">
+<article class="song" id="song-no_soy_digno" data-title="No soy digno" data-key="Am" style="--chars: 24">
 <h3>66. No soy digno</h3>
-
+<p class="song-meta"><span class="meta-item song-key">Key: Am</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3541,9 +3680,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">     C</div>Pero una palabra tuya</div><div class="line-pair"><div class="chord-line">   G</div>bastará para sanarme</div><div class="line-pair"><div class="chord-line">F       Am</div>para sanarme (x2)</div></div>
 </div>
 </article>
-<article class="song" id="song-no_te_vas" data-title="No te vas" style="--chars: 37">
+<article class="song" id="song-no_te_vas" data-title="No te vas" data-key="Am" style="--chars: 37">
 <h3>67. No te vas</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/69fYhhDgieqFWGESsrMh3o" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/69fYhhDgieqFWGESsrMh3o" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k6">El </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3573,9 +3713,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">¿No ardía acaso nuestro corazón</div><div class="lyric-line">en ese camino?</div><div class="lyric-line">¿No ardía acaso nuestro corazón?</div></div>
 </div>
 </article>
-<article class="song" id="song-noche" data-title="Noche" style="--chars: 47">
+<article class="song" id="song-noche" data-title="Noche" data-key="C#m" style="--chars: 47">
 <h3>68. Noche</h3>
-<p class="song-meta"><span class="meta-item">Capo: 1</span><a class="meta-item" href="https://open.spotify.com/track/7F481UYKoaLYLsUCADbtf2" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: C#m</span><a class="meta-item" href="https://open.spotify.com/track/7F481UYKoaLYLsUCADbtf2" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k4">Qao</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3604,9 +3745,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">C#m</div>Ten piedad (x10)</div><div class="lyric-line">Ten piedad, Señor, ten piedad.</div></div>
 </div>
 </article>
-<article class="song" id="song-nombre_sobre_todo_nombre" data-title="Nombre sobre todo nombre" style="--chars: 48">
+<article class="song" id="song-nombre_sobre_todo_nombre" data-title="Nombre sobre todo nombre" data-key="Am" style="--chars: 48">
 <h3>69. Nombre sobre todo nombre</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/0obqAY8sELrKDN1dxWKdte" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/0obqAY8sELrKDN1dxWKdte" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k1">Mi </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3634,9 +3776,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">Dm                G        C Am</div>Nombre sobre todo nombre, mi Salvador.</div><div class="lyric-line">Nombre sobre todo nombre, mi Redentor.</div><div class="lyric-line">Nombre sobre todo nombre, sobre todo te levanto.</div></div>
 </div>
 </article>
-<article class="song" id="song-ocupate_tu_de_todo" data-title="Ocúpate Tú de todo" style="--chars: 38">
+<article class="song" id="song-ocupate_tu_de_todo" data-title="Ocúpate Tú de todo" data-key="C" style="--chars: 38">
 <h3>70. Ocúpate Tú de todo</h3>
-<p class="song-meta"><span class="meta-item">Capo: 1</span><a class="meta-item" href="https://open.spotify.com/track/1YvSzh9FmdTTs0p1IRGtVu" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/1YvSzh9FmdTTs0p1IRGtVu" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k3">Sen</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3663,9 +3806,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">     G                 F</div>Si parece que estoy solo</div><div class="line-pair bold"><div class="chord-line">  G             C</div>Ocúpate Tú de todo</div></div>
 </div>
 </article>
-<article class="song" id="song-ofertorio" data-title="Ofertorio" style="--chars: 47">
+<article class="song" id="song-ofertorio" data-title="Ofertorio" data-key="G" style="--chars: 47">
 <h3>71. Ofertorio</h3>
-<p class="song-meta"><span class="meta-item">Capo: 4</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: G</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3688,9 +3832,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">       G                 D</div>Que reciba el Señor de tus manos</div><div class="line-pair"><div class="chord-line">           C                D</div>Este sacrificio para la alabanza y</div><div class="line-pair"><div class="chord-line">              G     G7</div>gloria de su Nombre</div><div class="line-pair"><div class="chord-line">              C                           G</div>Para nuestro bien y el de toda su Santa Iglesia</div><div class="line-pair"><div class="chord-line">             C              D             G</div>Para nuestro bien y el de toda su Santa Iglesia</div></div>
 </div>
 </article>
-<article class="song" id="song-ojala" data-title="Ojalá" style="--chars: 44">
+<article class="song" id="song-ojala" data-title="Ojalá" data-key="C" style="--chars: 44">
 <h3>72. Ojalá</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/4a2Mx2JZ7fblUgbGVDv8HH" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/4a2Mx2JZ7fblUgbGVDv8HH" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k5">Cap</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3720,9 +3865,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">(11 vueltas:</div><div class="lyric-line">- 4ª vuelta: entran ojalás</div><div class="lyric-line">- 5ª vuelta: entra poesía</div><div class="lyric-line">- 10ª y 11ª vuelta: sin música)</div></div>
 </div>
 </article>
-<article class="song" id="song-olor_a_tostadas" data-title="Olor a tostadas" style="--chars: 38">
+<article class="song" id="song-olor_a_tostadas" data-title="Olor a tostadas" data-key="E" style="--chars: 38">
 <h3>73. Olor a tostadas</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/7I3LqH5nUFh9fxwigr68di" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/7I3LqH5nUFh9fxwigr68di" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k5">Cap</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3750,9 +3896,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">          A            E</div>Es tan sencillo, tan sencillo</div><div class="line-pair bold"><div class="chord-line">        A</div>que todo un Dios parezca</div><div class="line-pair bold"><div class="chord-line">        B</div>ser un pan.</div><div class="line-pair bold"><div class="chord-line">      A</div>Que nuestro Dios se haga</div><div class="line-pair bold"><div class="chord-line">        E</div>aquí presente</div><div class="line-pair bold"><div class="chord-line">                F#</div>convirtiendo el ahora</div><div class="line-pair bold"><div class="chord-line">                 B</div>en toda la eternidad.</div><div class="chord-line">E A <span class="sep">(x9)</span></div></div>
 </div>
 </article>
-<article class="song" id="song-padre" data-title="Padre" style="--chars: 35">
+<article class="song" id="song-padre" data-title="Padre" data-key="D" style="--chars: 35">
 <h3>74. Padre</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/3oCEgWhmBqZq6srjlCa3wP" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/3oCEgWhmBqZq6srjlCa3wP" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3778,9 +3925,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">D</div>Padre Nuestro, a ti toda Gloria.</div><div class="lyric-line bold">Padre Nuestro, a ti las sonrisas.</div><div class="line-pair bold"><div class="chord-line">G</div>Padre Nuestro, a ti la obediencia.</div><div class="lyric-line bold">Padre Nuestro, a ti toda vida.</div><div class="line-pair bold"><div class="chord-line">Bm7</div>Padre Nuestro, a ti toda Gloria.</div><div class="lyric-line bold">Padre Nuestro, a ti las sonrisas.</div><div class="line-pair bold"><div class="chord-line">G</div>Padre Nuestro, a ti la obediencia.</div><div class="lyric-line bold">Padre Nuestro, a ti toda vida.</div><div class="lyric-line bold">(x3)</div></div>
 </div>
 </article>
-<article class="song" id="song-padre_nuestro" data-title="Padre nuestro" style="--chars: 36">
+<article class="song" id="song-padre_nuestro" data-title="Padre nuestro" data-key="G" style="--chars: 36">
 <h3>75. Padre nuestro</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3804,9 +3952,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">A                 F#m</div>Venga a nosotros, venga tu Reino</div><div class="line-pair bold"><div class="chord-line">D                  E</div>Líbranos del mal, hazlo Padre en mí</div><div class="lyric-line bold">(x2)</div></div>
 </div>
 </article>
-<article class="song" id="song-palabra_de_dios" data-title="Palabra de Dios" style="--chars: 20">
+<article class="song" id="song-palabra_de_dios" data-title="Palabra de Dios" data-key="Am" style="--chars: 20">
 <h3>76. Palabra de Dios</h3>
-
+<p class="song-meta"><span class="meta-item song-key">Key: Am</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3826,9 +3975,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line chord-inline">Intro: <span class="chord">Am</span></div><div class="line-pair"><div class="chord-line">F      G        C  E</div>Te alabamos, Señor</div><div class="chord-line"><span class="sep">(x2)</span> Am</div></div>
 </div>
 </article>
-<article class="song" id="song-palabra_del_senor" data-title="Palabra del Señor" style="--chars: 24">
+<article class="song" id="song-palabra_del_senor" data-title="Palabra del Señor" data-key="C" style="--chars: 24">
 <h3>77. Palabra del Señor</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3848,9 +3998,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">C Cmaj7  C7</div>Gloooriaaa</div><div class="line-pair"><div class="chord-line">E7       F     Fm     C</div>Gloria a Ti, Señor Jesús</div></div>
 </div>
 </article>
-<article class="song" id="song-papa" data-title="Papá" style="--chars: 38">
+<article class="song" id="song-papa" data-title="Papá" data-key="C" style="--chars: 38">
 <h3>78. Papá</h3>
-
+<p class="song-meta"><span class="meta-item song-key">Key: C</span></p>
+<p class="pills"><i class="k10">Otr</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3877,9 +4028,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Y ahora si,</div><div class="lyric-line">Me atrevo aún a pedir</div><div class="lyric-line">Aunque sea por mi Mírame</div><div class="lyric-line">Mírame</div><div class="lyric-line">Como solías hacer</div><div class="lyric-line">Con esa complicidad</div><div class="lyric-line">Del hijo que va a pedir</div><div class="lyric-line">Ayúdame papa</div></div>
 </div>
 </article>
-<article class="song" id="song-para_quien_soy_yo" data-title="¿Para quién soy yo?" style="--chars: 44">
+<article class="song" id="song-para_quien_soy_yo" data-title="¿Para quién soy yo?" data-key="G" style="--chars: 44">
 <h3>79. ¿Para quién soy yo?</h3>
-
+<p class="song-meta"><span class="meta-item song-key">Key: G</span></p>
+<p class="pills"><i class="k10">Otr</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3908,9 +4060,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">¿Para quién soy yo?</div><div class="lyric-line bold">¿Qué hago aquí?</div><div class="lyric-line bold">Si supiera los deseos</div><div class="lyric-line bold">que tienes para mí.</div><div class="lyric-line bold">¿Para quién soy?</div><div class="lyric-line bold">Por mi nombre me has llamado</div><div class="lyric-line bold">Dime Dios, cuál es tu camino soñado (x3)</div></div>
 </div>
 </article>
-<article class="song" id="song-paraisos_sin_tu_rostro" data-title="Paraísos sin tu rostro" style="--chars: 33">
+<article class="song" id="song-paraisos_sin_tu_rostro" data-title="Paraísos sin tu rostro" data-key="D" style="--chars: 33">
 <h3>80. Paraísos sin tu rostro</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/57nPnGj0Ootr8k7DIotmFu" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/57nPnGj0Ootr8k7DIotmFu" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3941,9 +4094,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">      G    A          Dsus2</div>Me levanto siempre en Ti</div></div>
 </div>
 </article>
-<article class="song" id="song-pasion_de_dios" data-title="Pasión de Dios" style="--chars: 41">
+<article class="song" id="song-pasion_de_dios" data-title="Pasión de Dios" data-key="G" style="--chars: 41">
 <h3>81. Pasión de Dios</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/5bBfHiCOHSPlRjNA206JbP" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/5bBfHiCOHSPlRjNA206JbP" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k0">Hak</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3974,9 +4128,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="chord-line">G D/F#  Em  C D G</div></div>
 </div>
 </article>
-<article class="song" id="song-peticiones" data-title="Peticiones" style="--chars: 32">
+<article class="song" id="song-peticiones" data-title="Peticiones" data-key="C" style="--chars: 32">
 <h3>82. Peticiones</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -3996,9 +4151,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">(Ritmo medio rápido)</div><div class="line-pair"><div class="chord-line">C                   F         C</div>Date prisa en socorrernos, Señor</div></div>
 </div>
 </article>
-<article class="song" id="song-pluma_de_escribano" data-title="Pluma de escribano" style="--chars: 47">
+<article class="song" id="song-pluma_de_escribano" data-title="Pluma de escribano" data-key="D" style="--chars: 47">
 <h3>83. Pluma de escribano</h3>
-<p class="song-meta"><span class="meta-item">Capo: 5</span><a class="meta-item" href="https://open.spotify.com/track/10z2aUbHmKs3F9OWCa3NhE" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 5</span><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/10z2aUbHmKs3F9OWCa3NhE" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k5">Cap</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4024,9 +4180,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">  D                 F#m</div>A cambio de tus padres,</div><div class="line-pair bold"><div class="chord-line">        Bm</div>tendrás hijos,</div><div class="line-pair bold"><div class="chord-line">G             A                      G      A</div>que nombrarás príncipes por toda la tierra.</div><div class="line-pair"><div class="chord-line">D                F#m        Bm</div>Quiero hacer memorable tu nombre</div><div class="line-pair"><div class="chord-line">G                A</div>por generaciones y generaciones,</div><div class="line-pair"><div class="chord-line">       D          A    G  Gm</div>y los pueblos te alabarán</div><div class="line-pair"><div class="chord-line">                       D  F#m  Bm  G A D</div>por los siglos de los siglos.</div></div>
 </div>
 </article>
-<article class="song" id="song-por_mi_por_ti" data-title="Por mí, por Ti" style="--chars: 41">
+<article class="song" id="song-por_mi_por_ti" data-title="Por mí, por Ti" data-key="G" style="--chars: 41">
 <h3>84. Por mí, por Ti</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/5zPhRlHCb6izkY5uw2UxxJ" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/5zPhRlHCb6izkY5uw2UxxJ" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4050,9 +4207,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">C          D            Bm           Em</div>Arderé en la Gloria de tu Cruz, mi Señor,</div><div class="line-pair bold"><div class="chord-line">C             D           G</div>libre para siempre por tu Amor.</div></div>
 </div>
 </article>
-<article class="song" id="song-por_que" data-title="¿Por qué?" style="--chars: 50">
+<article class="song" id="song-por_que" data-title="¿Por qué?" data-key="Am" style="--chars: 50">
 <h3>85. ¿Por qué?</h3>
-<p class="song-meta"><span class="meta-item">Capo: 7</span><a class="meta-item" href="https://open.spotify.com/track/2poBUHUQJ3ZGpqfZuNAsFs" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/2poBUHUQJ3ZGpqfZuNAsFs" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4079,9 +4237,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">    F                C <span class="sep">(</span>G  Am<span class="sep">)</span></div>Yo quiero llevar tu cruz (x7)</div><div class="chord-line">G</div></div>
 </div>
 </article>
-<article class="song" id="song-por_que_lloras_maria_magdalena" data-title="¿Por qué lloras? (María Magdalena)" style="--chars: 36">
+<article class="song" id="song-por_que_lloras_maria_magdalena" data-title="¿Por qué lloras? (María Magdalena)" data-key="C" style="--chars: 36">
 <h3>86. ¿Por qué lloras? (María Magdalena)</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/7xgNaNd0nhNYXzL51XkpEn" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/7xgNaNd0nhNYXzL51XkpEn" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k5">Cap</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4105,13 +4264,14 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">     F                    G</div>No entiendo mujer ¿por qué lloras?</div><div class="line-pair bold"><div class="chord-line">      C                         C7</div>¿Por qué buscáis entre los muertos?</div></div>
 <div class="verse"><div class="line-pair bold"><div class="chord-line">             F             G</div>Él no está aquí, ¡ha resucitado!</div><div class="line-pair bold"><div class="chord-line">                   C</div>Recordad cuando os dijo</div><div class="line-pair bold"><div class="chord-line">                   C7</div>que debía ser entregado,</div><div class="line-pair bold"><div class="chord-line">                F</div>por vuestros pecados,</div><div class="line-pair bold"><div class="chord-line">           G</div>ser crucificado.</div><div class="line-pair bold"><div class="chord-line">       C                     Dm    G</div>Pero que al tercer día, volvería.</div></div>
 <div class="verse"><div class="lyric-line">Paz en mis entrañas,</div><div class="lyric-line">amor inexplicable,</div><div class="lyric-line">sólo quiero gritarlo:</div><div class="lyric-line">¡Dios existe! ¡Dios es grande!</div><div class="lyric-line">Lágrimas ahora de felicidad.</div><div class="lyric-line">Nos han regalado la eternidad.</div></div>
-<div class="verse"><div class="lyric-line bold">No entiendo mujer ¿por qué lloras?</div><div class="lyric-line bold">¿Por qué buscáis entre los muertos?</div><div class="lyric-line bold">Él no está aquí, ¡ha resucitado!</div><div class="lyric-line bold">Recordad cuando os dijo</div><div class="lyric-line bold">que debía ser entregado,</div><div class="line-pair bold"><div class="chord-line">                F     G  A# <span class="sep">-</span> C</div>por vuestros pecados…</div></div>
+<div class="verse"><div class="lyric-line bold">No entiendo mujer ¿por qué lloras?</div><div class="lyric-line bold">¿Por qué buscáis entre los muertos?</div><div class="lyric-line bold">Él no está aquí, ¡ha resucitado!</div><div class="lyric-line bold">Recordad cuando os dijo</div><div class="lyric-line bold">que debía ser entregado,</div><div class="line-pair bold"><div class="chord-line">                F     G  Bb <span class="sep">-</span> C</div>por vuestros pecados…</div></div>
 <div class="verse"><div class="line-pair bold"><div class="chord-line">     D                     <span class="sep">(</span>A<span class="sep">)</span></div>No entiendo mujer ¿por qué lloras?</div><div class="line-pair bold"><div class="chord-line">      D                         D7</div>¿Por qué buscáis entre los muertos?</div><div class="line-pair bold"><div class="chord-line">             G              A</div>Él no está aquí, ¡ha resucitado!</div><div class="line-pair bold"><div class="chord-line">                   D</div>Recordad cuando os dijo</div><div class="line-pair bold"><div class="chord-line">                   D7</div>que debía ser entregado,</div><div class="line-pair bold"><div class="chord-line">                G</div>por vuestros pecados,</div><div class="line-pair bold"><div class="chord-line">           A</div>ser crucificado.</div><div class="line-pair bold"><div class="chord-line">       D                     Em    A</div>Pero que al tercer día, volvería.</div></div>
 </div>
 </article>
-<article class="song" id="song-pringados" data-title="Pringados" style="--chars: 43">
+<article class="song" id="song-pringados" data-title="Pringados" data-key="C" style="--chars: 43">
 <h3>87. Pringados</h3>
-<p class="song-meta"><span class="meta-item">Capo: 6</span><a class="meta-item" href="https://open.spotify.com/track/5JHiSIB4ugnsViz09rOS7w" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 6</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/5JHiSIB4ugnsViz09rOS7w" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k4">Qao</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4147,9 +4307,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Ama la vida que se te ha dado,</div><div class="lyric-line">el amor con fuego en el pecho grabado…</div></div>
 </div>
 </article>
-<article class="song" id="song-que_bien_se_esta_cuando_se_esta_bien" data-title="Que bien se está cuando se está bien" style="--chars: 37">
+<article class="song" id="song-que_bien_se_esta_cuando_se_esta_bien" data-title="Que bien se está cuando se está bien" data-key="C" style="--chars: 37">
 <h3>88. Que bien se está cuando se está bien</h3>
-<p class="song-meta"><span class="meta-item">Capo: 1</span><a class="meta-item" href="https://open.spotify.com/track/25E6WO7eRzpwBvnlKzV2sM" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/25E6WO7eRzpwBvnlKzV2sM" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k0">Hak</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4179,9 +4340,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">D                        A</div>Que bien se está cuando se está bien,</div><div class="line-pair bold"><div class="chord-line">Bm            F#m</div>Tú me lo has enseñado,</div><div class="line-pair bold"><div class="chord-line">G         D</div>y tengo prisa en amarte,</div><div class="line-pair bold"><div class="chord-line">     G           A</div>¡que bien se está contigo! (x2)</div></div>
 </div>
 </article>
-<article class="song" id="song-que_no_se_pierda_ninguno" data-title="Que no se pierda ninguno" style="--chars: 50">
+<article class="song" id="song-que_no_se_pierda_ninguno" data-title="Que no se pierda ninguno" data-key="Am" style="--chars: 50">
 <h3>89. Que no se pierda ninguno</h3>
-<p class="song-meta"><span class="meta-item">Capo: 4</span><a class="meta-item" href="https://open.spotify.com/track/4brm65j0O2ZhlUzoSYJPPH" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/4brm65j0O2ZhlUzoSYJPPH" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k1">Mi </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4211,9 +4373,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">     F G          C     F C</div>¡Que no se pierda ninguno!</div></div>
 </div>
 </article>
-<article class="song" id="song-que_todo_sea_verdad" data-title="Que todo sea verdad" style="--chars: 50">
+<article class="song" id="song-que_todo_sea_verdad" data-title="Que todo sea verdad" data-key="G" style="--chars: 50">
 <h3>90. Que todo sea verdad</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span></p>
+<p class="pills"><i class="k10">Otr</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4240,9 +4403,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">¡Que todo sea verdad!</div><div class="lyric-line bold">¡Que todo sea verdad!</div><div class="lyric-line bold">¡Que todo, todo, que todo, todo sea verdad! (x2)</div><div class="lyric-line bold">¡Que todo, todo, que todo, todo sea!</div><div class="lyric-line bold">¡Que todo, todo, que todo, todo sea!</div><div class="lyric-line bold">¡Que todo, todo, que todo, todo sea verdad!</div></div>
 </div>
 </article>
-<article class="song" id="song-quiero_cenar_contigo" data-title="Quiero cenar contigo" style="--chars: 48">
+<article class="song" id="song-quiero_cenar_contigo" data-title="Quiero cenar contigo" data-key="E" style="--chars: 48">
 <h3>91. Quiero cenar contigo</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/3eaudxBDqoEdP91vqFhfZu" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/3eaudxBDqoEdP91vqFhfZu" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k1">Mi </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4268,9 +4432,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Vayas a donde vayas siéntete enviado.</div><div class="lyric-line bold">Vengas de donde vengas siéntete esperado.</div><div class="lyric-line bold">Que cuando escuches quieras recibir,</div><div class="lyric-line bold">y cuando mires lo hagas a través de Mí.</div><div class="lyric-line bold">Que lo des todo,</div><div class="lyric-line bold">y dejes abolida cualquier posesión propia.</div></div>
 </div>
 </article>
-<article class="song" id="song-revolucion" data-title="Revolución" style="--chars: 50">
+<article class="song" id="song-revolucion" data-title="Revolución" data-key="A" style="--chars: 50">
 <h3>92. Revolución</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/1at3LHbf1CSPhBj0uXLSXA" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/1at3LHbf1CSPhBj0uXLSXA" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k1">Mi </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4294,9 +4459,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">¡Grita revolución!</div><div class="lyric-line bold">¡Ábrete a tu verdad!</div><div class="lyric-line bold">¡Ábrete hasta hacerte pan!</div><div class="lyric-line bold">¡Ábrete y cree en lo imposible!</div><div class="lyric-line bold">¡Grita revolución!</div><div class="lyric-line bold">¡Ábrete a nacer de nuevo!</div><div class="lyric-line bold">¡Ábrete hasta ser quién eres!</div><div class="line-pair bold"><div class="chord-line">     E                F#m       D</div>¡Ábrete al huracán del Espíritu y serás</div><div class="line-pair bold"><div class="chord-line">        A             E</div>un hombre nuevo en este lugar,</div><div class="line-pair bold"><div class="chord-line">        F#m            D</div>que hoy reclama santos de copas</div><div class="line-pair bold"><div class="chord-line">         A          E             Dm         G   E</div>con ganas de vivir, de luchar, de amar… de amar!</div><div class="line-pair bold"><div class="chord-line">       A       D        E</div>¡Grita HAKUNA! ohhhh oh ohhhh (x4)</div><div class="lyric-line bold">Grita HAKUNA</div></div>
 </div>
 </article>
-<article class="song" id="song-ruah" data-title="Ruah" style="--chars: 46">
+<article class="song" id="song-ruah" data-title="Ruah" data-key="G" style="--chars: 46">
 <h3>93. Ruah</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/30gnt4eElggpBj7SxEfSFm" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/30gnt4eElggpBj7SxEfSFm" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4327,9 +4493,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Derrámalo (x4)</div></div>
 </div>
 </article>
-<article class="song" id="song-salvanos_doxologia" data-title="Sálvanos (Doxología)" style="--chars: 50">
+<article class="song" id="song-salvanos_doxologia" data-title="Sálvanos (Doxología)" data-key="G" style="--chars: 50">
 <h3>94. Sálvanos (Doxología)</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4350,9 +4517,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">      C          D</div>¡¡Sálvanos, sálvanos!!</div><div class="line-pair"><div class="chord-line">       G      D/F#       Em</div>¡¡Sálvanos, Salvador del mundo!!</div><div class="line-pair"><div class="chord-line">          C                   D</div>¡¡Que nos has liberado por tu Cruz y</div><div class="line-pair"><div class="chord-line">          G</div>Resurrección!!</div></div>
 </div>
 </article>
-<article class="song" id="song-salve_rociera" data-title="Salve rociera" style="--chars: 40">
+<article class="song" id="song-salve_rociera" data-title="Salve rociera" data-key="A" style="--chars: 40">
 <h3>95. Salve rociera</h3>
-
+<p class="song-meta"><span class="meta-item song-key">Key: A</span></p>
+<p class="pills"><i class="k12">Otr</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4374,9 +4542,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Dios te salve María</div><div class="lyric-line">Manantial de dulzura</div><div class="lyric-line">A tus pies noche y día</div><div class="lyric-line">Te venimos a rezar</div><div class="lyric-line">Dios te salve María</div><div class="lyric-line">Un rosal de hermosura</div><div class="lyric-line">eres Tú Madre mía</div><div class="lyric-line">de pureza virginal</div></div>
 </div>
 </article>
-<article class="song" id="song-sanas" data-title="Sanas" style="--chars: 36">
+<article class="song" id="song-sanas" data-title="Sanas" data-key="A" style="--chars: 36">
 <h3>96. Sanas</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/4tjcP5HR9rGYPDRqTgCtxk" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/4tjcP5HR9rGYPDRqTgCtxk" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4403,9 +4572,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Tú sanas los corazones destrozados,</div><div class="lyric-line bold">y vendas sus heridas con Tus manos.</div></div>
 </div>
 </article>
-<article class="song" id="song-santo" data-title="Santo" style="--chars: 34">
+<article class="song" id="song-santo" data-title="Santo" data-key="G" style="--chars: 34">
 <h3>97. Santo</h3>
-<p class="song-meta"><span class="meta-item">Capo: 7</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: G</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4425,9 +4595,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">G  C                        G</div>Santo, santo, santo es el Señor</div><div class="line-pair"><div class="chord-line">               C</div>Dios del universo, llenos están</div><div class="line-pair"><div class="chord-line">               D            G   G7</div>el Cielo y la Tierra de tu gloria.</div><div class="line-pair"><div class="chord-line">  C              D</div>Hosanna en el Cielo,</div><div class="line-pair"><div class="chord-line">   G        G/F#   Em   D</div>Bendito el que viene,</div><div class="line-pair"><div class="chord-line">     C          D  D7</div>en nombre del Señor.</div><div class="line-pair bold"><div class="chord-line">G             C            G</div>Hosanna en el Cielo</div><div class="lyric-line bold">(Santo es el Señor)</div><div class="line-pair bold"><div class="chord-line">G             C            G</div>Hosanna en el Cielo</div><div class="lyric-line bold">(Santo es el Señor)</div></div>
 </div>
 </article>
-<article class="song" id="song-santo_es_el_senor" data-title="Santo es el Señor" style="--chars: 53">
+<article class="song" id="song-santo_es_el_senor" data-title="Santo es el Señor" data-key="C" style="--chars: 53">
 <h3>98. Santo es el Señor</h3>
-
+<p class="song-meta"><span class="meta-item song-key">Key: C</span></p>
+<p class="pills"><i class="k12">Otr</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4449,9 +4620,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">C     F  C                        F     C           F</div>Bendito, bendito el que viene en nombre del Señor</div><div class="line-pair"><div class="chord-line">  C                  F       G</div>Hosanna en el Cielo llenos están,</div><div class="lyric-line">el Cielo y la tierra de Tu gloria,</div><div class="line-pair"><div class="chord-line"> F            C</div>hosanna en el Cielo.</div></div>
 </div>
 </article>
-<article class="song" id="song-sencillamente" data-title="Sencillamente" style="--chars: 43">
+<article class="song" id="song-sencillamente" data-title="Sencillamente" data-key="Em" style="--chars: 43">
 <h3>99. Sencillamente</h3>
-<p class="song-meta"><span class="meta-item">Capo: 1</span><a class="meta-item" href="https://open.spotify.com/track/1t7i3ZQgjhU341Il43ijW8" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: Em</span><a class="meta-item" href="https://open.spotify.com/track/1t7i3ZQgjhU341Il43ijW8" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k3">Sen</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4480,9 +4652,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">B7</div>Cómo me gusta seguirte</div><div class="line-pair bold"><div class="chord-line">         C</div>sintiendo dudas</div><div class="line-pair bold"><div class="chord-line">        G</div>Estando frío</div><div class="line-pair bold"><div class="chord-line">          B7</div>Sintiendo miedo</div><div class="line-pair bold"><div class="chord-line">        Em</div>Cómo me gusta</div><div class="line-pair bold"><div class="chord-line">        C</div>Cómo me gusta</div><div class="line-pair bold"><div class="chord-line">   G                  B7</div>¡Creerte, amarte y esperarte!</div><div class="line-pair bold"><div class="chord-line">Em              C    E</div>Te sigo, sencillamente.</div></div>
 </div>
 </article>
-<article class="song" id="song-senor_ten_piedad" data-title="Señor ten piedad" style="--chars: 23">
+<article class="song" id="song-senor_ten_piedad" data-title="Señor ten piedad" data-key="Em" style="--chars: 23">
 <h3>100. Señor ten piedad</h3>
-
+<p class="song-meta"><span class="meta-item song-key">Key: Em</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4506,9 +4679,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Perdónanos,</div><div class="lyric-line">Tú que sanas límpianos,</div><div class="lyric-line">Señor, ten piedad.</div></div>
 </div>
 </article>
-<article class="song" id="song-siempre_imagine" data-title="Siempre imaginé" style="--chars: 46">
+<article class="song" id="song-siempre_imagine" data-title="Siempre imaginé" data-key="C" style="--chars: 46">
 <h3>101. Siempre imaginé</h3>
-<p class="song-meta"><span class="meta-item">Capo: 1</span><a class="meta-item" href="https://open.spotify.com/track/6WpBT6BHecwSrt41c5i9gK" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/6WpBT6BHecwSrt41c5i9gK" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k1">Mi </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4538,9 +4712,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">¡Sed uno, como el Padre y yo!</div><div class="lyric-line bold">¡Porque soy de tu familia!</div><div class="lyric-line bold">¡Qué bonita es…!</div><div class="lyric-line bold">¡Estos son mi Madre y mis hermanos!</div><div class="lyric-line bold">¡Soy de tu familia!</div><div class="lyric-line bold">¡Qué bonita es tu Iglesia!</div></div>
 </div>
 </article>
-<article class="song" id="song-solo_tu" data-title="Solo Tú" style="--chars: 50">
+<article class="song" id="song-solo_tu" data-title="Solo Tú" data-key="G" style="--chars: 50">
 <h3>102. Solo Tú</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/4ushdiJUKXecZsxrsdjcYD" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/4ushdiJUKXecZsxrsdjcYD" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4576,9 +4751,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="chord-line">G</div></div>
 </div>
 </article>
-<article class="song" id="song-soy_libre" data-title="Soy libre" style="--chars: 50">
+<article class="song" id="song-soy_libre" data-title="Soy libre" data-key="A" style="--chars: 50">
 <h3>103. Soy libre</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/35sx4rk6TGum93jIZettPj" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/35sx4rk6TGum93jIZettPj" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4605,9 +4781,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">A            D</div>Todos mis pecados arden</div><div class="line-pair bold"><div class="chord-line">       F#m          E</div>en el fuego de tu amor.</div></div>
 </div>
 </article>
-<article class="song" id="song-tan_cerca" data-title="Tan cerca" style="--chars: 48">
+<article class="song" id="song-tan_cerca" data-title="Tan cerca" data-key="G" style="--chars: 48">
 <h3>104. Tan cerca</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/4IgooZbgYtgZaYJ2WnxWOF" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/4IgooZbgYtgZaYJ2WnxWOF" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k0">Hak</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4638,9 +4815,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">G                               D</div>Ya ves que he querido estar tan cerca,</div><div class="line-pair"><div class="chord-line">     C                         G         D     G</div>tan cerca que he dejado mi presencia en ti.</div></div>
 </div>
 </article>
-<article class="song" id="song-te_alabare" data-title="Te alabaré" style="--chars: 23">
+<article class="song" id="song-te_alabare" data-title="Te alabaré" data-key="G" style="--chars: 23">
 <h3>105. Te alabaré</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/2Qv3FoIBMUoRodeSHWrX5j" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/2Qv3FoIBMUoRodeSHWrX5j" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4669,9 +4847,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">        Em7  C  G Gsus2</div>Te alabaré,</div><div class="line-pair bold"><div class="chord-line">        Em7   C G Gsus2</div>te alabaré.</div><div class="line-pair bold"><div class="chord-line">        Em7  C  G Gsus2</div>Te alabaré,</div><div class="line-pair bold"><div class="chord-line">        D Em   C D</div>te alabaré.</div></div>
 </div>
 </article>
-<article class="song" id="song-te_amo_rey" data-title="Te amo Rey" style="--chars: 35">
+<article class="song" id="song-te_amo_rey" data-title="Te amo Rey" data-key="D" style="--chars: 35">
 <h3>106. Te amo Rey</h3>
-
+<p class="song-meta"><span class="meta-item song-key">Key: D</span></p>
+<p class="pills"><i class="k11">Hor</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4691,9 +4870,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">D</div>Te amo Rey</div><div class="line-pair"><div class="chord-line">     G     D</div>y levanto mi voz</div><div class="line-pair"><div class="chord-line">      G        A7</div>para adorar y gozarme en Ti.</div><div class="line-pair"><div class="chord-line">D           G        D</div>Regocíjate, escucha mi Rey,</div><div class="line-pair"><div class="chord-line">          G    A7      D</div>que sea un dulce sonar para Ti. (2)</div></div>
 </div>
 </article>
-<article class="song" id="song-todo" data-title="Todo" style="--chars: 31">
+<article class="song" id="song-todo" data-title="Todo" data-key="G" style="--chars: 31">
 <h3>107. Todo</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/32AudWhiMVnj7j4gbdzxTX" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/32AudWhiMVnj7j4gbdzxTX" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k4">Qao</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4715,9 +4895,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">      G</div>Todo libre,</div><div class="lyric-line">todo entregado,</div><div class="lyric-line">todo Tú,</div><div class="lyric-line">todo dado,</div><div class="line-pair"><div class="chord-line">        Bm</div>todo alegre,</div><div class="lyric-line">todo amante,</div><div class="lyric-line">todo amado,</div><div class="line-pair"><div class="chord-line">Bm    A#m    Am</div>todo arrodillado,</div><div class="lyric-line">todo hijo,</div><div class="lyric-line">todo hermano,</div><div class="lyric-line">todo padre,</div><div class="line-pair"><div class="chord-line">      C</div>todo disfrutón,</div><div class="line-pair"><div class="chord-line">        D</div>todo mariano,</div><div class="lyric-line">todos por todos,</div><div class="line-pair"><div class="chord-line">           D7</div>que viva todo,</div><div class="line-pair"><div class="chord-line">             G</div>con toda el alma.</div></div>
 </div>
 </article>
-<article class="song" id="song-todos_por_todos" data-title="Todos por todos" style="--chars: 42">
+<article class="song" id="song-todos_por_todos" data-title="Todos por todos" data-key="C" style="--chars: 42">
 <h3>108. Todos por todos</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/7frBYysQuPl52Zvn5hiKkh" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/7frBYysQuPl52Zvn5hiKkh" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k3">Sen</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4745,9 +4926,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">F         G</div>Todos por todos</div><div class="line-pair bold"><div class="chord-line">C G        Am G</div>Todos por todos</div><div class="line-pair bold"><div class="chord-line">F                      G</div>La revolución empieza aquí:</div><div class="lyric-line bold">Todos por -</div><div class="line-pair bold"><div class="chord-line"> F          G</div>-todos por todos</div><div class="line-pair bold"><div class="chord-line">C G        Am G</div>Todos por todos</div><div class="line-pair bold"><div class="chord-line">F                      G</div>La revolución empieza aquí:</div><div class="line-pair bold"><div class="chord-line">           F    C</div>Todos por todos</div></div>
 </div>
 </article>
-<article class="song" id="song-toma_senor_mi_libertad" data-title="Toma Señor mi libertad" style="--chars: 37">
+<article class="song" id="song-toma_senor_mi_libertad" data-title="Toma Señor mi libertad" data-key="C" style="--chars: 37">
 <h3>109. Toma Señor mi libertad</h3>
-
+<p class="song-meta"><span class="meta-item song-key">Key: C</span></p>
+<p class="pills"><i class="k12">Otr</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4768,9 +4950,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Dame tu amor y gracia,</div><div class="line-pair"><div class="chord-line">  F     G</div>que eso me basta</div></div>
 </div>
 </article>
-<article class="song" id="song-tomad_comed" data-title="Tomad, comed" style="--chars: 49">
+<article class="song" id="song-tomad_comed" data-title="Tomad, comed" data-key="G" style="--chars: 49">
 <h3>110. Tomad, comed</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/5xP5qweWgMdq1jc6WonliW" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/5xP5qweWgMdq1jc6WonliW" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k0">Hak</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4796,9 +4979,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line chord-inline">Out: <span class="chord">C</span> <span class="chord">D</span> <span class="chord">Em</span> <span class="chord">A</span> <span class="chord">C</span> <span class="chord">D</span> <span class="chord">G</span></div></div>
 </div>
 </article>
-<article class="song" id="song-tonto" data-title="Tonto" style="--chars: 49">
+<article class="song" id="song-tonto" data-title="Tonto" data-key="E" style="--chars: 49">
 <h3>111. Tonto</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/7zDcCTcTFoPj5mnITAd3ua" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/7zDcCTcTFoPj5mnITAd3ua" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k1">Mi </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4826,9 +5010,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">   F#      D#m    G#m      C#</div>¡Me río de mí y confío en ti!</div><div class="lyric-line">(Tú eres grande, Tú sí que puedes)</div><div class="line-pair bold"><div class="chord-line">  A#m       D#m   B   C#    F#</div>¡Me río de mí y confío en ti!</div><div class="lyric-line">(Tú sí que me quieres)</div></div>
 </div>
 </article>
-<article class="song" id="song-triple_amen" data-title="Triple amén" style="--chars: 38">
+<article class="song" id="song-triple_amen" data-title="Triple amén" data-key="G" style="--chars: 38">
 <h3>112. Triple amén</h3>
-<p class="song-meta"><span class="meta-item">Capo: 7</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: G</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4849,9 +5034,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">D  D7     G        Em  Am  D  G</div>Aaaaaaa amén, aaaamén, aaaaa amén</div></div>
 </div>
 </article>
-<article class="song" id="song-trueno" data-title="Trueno" style="--chars: 44">
+<article class="song" id="song-trueno" data-title="Trueno" data-key="C" style="--chars: 44">
 <h3>113. Trueno</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/1NZTc8iAOEhQcMTsWCe4Qv" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/1NZTc8iAOEhQcMTsWCe4Qv" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k6">El </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4884,9 +5070,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line">Me empuja el eco y me arrastra a Ti.</div></div>
 </div>
 </article>
-<article class="song" id="song-tu_el_unico_rey_una_voz" data-title="(Tú) El único Rey – Una voz" style="--chars: 35">
+<article class="song" id="song-tu_el_unico_rey_una_voz" data-title="(Tú) El único Rey – Una voz" data-key="G" style="--chars: 35">
 <h3>114. (Tú) El único Rey – Una voz</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/1ocy9G7T0cTemRnV8etM3p" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/1ocy9G7T0cTemRnV8etM3p" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4916,9 +5103,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="chord-line">G</div></div>
 </div>
 </article>
-<article class="song" id="song-tu_misericordia" data-title="Tu misericordia" style="--chars: 51">
+<article class="song" id="song-tu_misericordia" data-title="Tu misericordia" data-key="Am" style="--chars: 51">
 <h3>115. Tu misericordia</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/6mIFllrUsK9CKoy9zA0yc0" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/6mIFllrUsK9CKoy9zA0yc0" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k1">Mi </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4947,9 +5135,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">La misericordia ha entrado en esta casa (x2)</div><div class="lyric-line bold">Levántate y anda</div></div>
 </div>
 </article>
-<article class="song" id="song-tu_rostro" data-title="Tu rostro" style="--chars: 43">
+<article class="song" id="song-tu_rostro" data-title="Tu rostro" data-key="G" style="--chars: 43">
 <h3>116. Tu rostro</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/1erC7sj0MgbLujDgbqDW20" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/1erC7sj0MgbLujDgbqDW20" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k1">Mi </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4975,9 +5164,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">    A              D</div>Buscaré tu rostro, Señor</div><div class="line-pair bold"><div class="chord-line">E                          A</div>Todos los deseos se hacen uno entre los dos</div><div class="line-pair bold"><div class="chord-line">    F#m             D</div>Buscaré tu rostro, Señor</div><div class="line-pair bold"><div class="chord-line">E                             A <span class="sep">(</span>D   E   A<span class="sep">)</span></div>No hay amor más grande que el Amor (x2)</div></div>
 </div>
 </article>
-<article class="song" id="song-tuyo_es_el_reino" data-title="Tuyo es el Reino" style="--chars: 21">
+<article class="song" id="song-tuyo_es_el_reino" data-title="Tuyo es el Reino" data-key="Am" style="--chars: 21">
 <h3>117. Tuyo es el Reino</h3>
-<p class="song-meta"><span class="meta-item">Capo: 6</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 6</span><span class="meta-item song-key">Key: Am</span></p>
+<p class="pills"><i class="k8">Mis</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -4998,9 +5188,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">   Am</div>¡¡¡Tuyo es el Reino,</div><div class="line-pair"><div class="chord-line">F</div>Tuyo el Poder,</div><div class="line-pair"><div class="chord-line">C</div>Tuya la Gloria,</div><div class="line-pair"><div class="chord-line">     G          Am</div>Por siempre, Señor!!!</div></div>
 </div>
 </article>
-<article class="song" id="song-un_dios_debil_hakuna" data-title="Un Dios débil (Hakuna)" style="--chars: 40">
+<article class="song" id="song-un_dios_debil_hakuna" data-title="Un Dios débil (Hakuna)" data-key="C" style="--chars: 40">
 <h3>118. Un Dios débil (Hakuna)</h3>
-<p class="song-meta"><span class="meta-item">Capo: 1</span><a class="meta-item" href="https://open.spotify.com/track/1tm7bR8ddVCULDv2YgkTvD" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/1tm7bR8ddVCULDv2YgkTvD" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k0">Hak</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -5031,9 +5222,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Tu calor, tacto, vista, tu cercanía,</div><div class="lyric-line bold">no cambian nada, lo cambias todo.</div><div class="lyric-line bold">Tu calor, tacto, vista, tu cercanía,</div><div class="lyric-line bold">no cambian nada, lo cambias todo</div><div class="line-pair bold"><div class="chord-line"> F               G</div>uooo, lo cambias todo (x4)</div><div class="line-pair bold"><div class="chord-line">           C</div>lo cambias todo.</div></div>
 </div>
 </article>
-<article class="song" id="song-un_dios_debil_pasion" data-title="Un Dios débil (Pasión)" style="--chars: 46">
+<article class="song" id="song-un_dios_debil_pasion" data-title="Un Dios débil (Pasión)" data-key="C" style="--chars: 46">
 <h3>119. Un Dios débil (Pasión)</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/5Pav5v4KuJLFbum4VGL5Ku" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/5Pav5v4KuJLFbum4VGL5Ku" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -5065,9 +5257,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Lo cambias todo (x4)</div></div>
 </div>
 </article>
-<article class="song" id="song-un_paso_mas" data-title="Un paso más" style="--chars: 64">
+<article class="song" id="song-un_paso_mas" data-title="Un paso más" data-key="E" style="--chars: 64">
 <h3>120. Un paso más</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/0iUj1sBAa6AwGHkHuNO12f" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/0iUj1sBAa6AwGHkHuNO12f" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k1">Mi </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -5095,9 +5288,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">        A               E              F#m</div>¡Y no olvidaré cómo te metiste en mis huesos</div><div class="line-pair bold"><div class="chord-line">                 E   D    E</div>con ese beso que nos dimos!</div><div class="line-pair bold"><div class="chord-line">       A                  E</div>¡Convertiste mi ser en pedazos,</div><div class="line-pair bold"><div class="chord-line">        F#m</div>con la eficacia de ese abrazo que,</div><div class="line-pair bold"><div class="chord-line">E         D             C     D            E  D  E D <span class="sep">-</span> E D E D E</div>sin tocarnos, me acariciaste desde lo más alto!</div></div>
 </div>
 </article>
-<article class="song" id="song-un_segundo" data-title="Un segundo" style="--chars: 38">
+<article class="song" id="song-un_segundo" data-title="Un segundo" data-key="G" style="--chars: 38">
 <h3>121. Un segundo</h3>
-<p class="song-meta"><span class="meta-item">Capo: 3</span><a class="meta-item" href="https://open.spotify.com/track/6WTdsYUlvy5HX6r8pj2f0r" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/6WTdsYUlvy5HX6r8pj2f0r" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k4">Qao</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -5125,9 +5319,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair bold"><div class="chord-line">  G</div>Reviento de amor,</div><div class="line-pair bold"><div class="chord-line">          C</div>estoy temblando de gozo.</div><div class="line-pair bold"><div class="chord-line">     D</div>Hay tanta locura en este</div><div class="line-pair bold"><div class="chord-line"> B7      Em     D</div>amor que no controlo</div><div class="lyric-line bold">Pierde tu vida,</div><div class="lyric-line bold">recibirás la eternidad,</div><div class="lyric-line bold">la alegría de ser esclavo,</div><div class="lyric-line bold">esclavo de mi libertad.</div><div class="line-pair bold"><div class="chord-line">       C                           D</div>Si por un segundo vieras cómo te miro,</div><div class="line-pair bold"><div class="chord-line">                      G C  G</div>no querrías ver nada más.</div></div>
 </div>
 </article>
-<article class="song" id="song-un_sitio" data-title="Un sitio" style="--chars: 36">
+<article class="song" id="song-un_sitio" data-title="Un sitio" data-key="G" style="--chars: 36">
 <h3>122. Un sitio</h3>
-<p class="song-meta"><a class="meta-item" href="https://open.spotify.com/track/3VVUiN94kL5BTRIt5biVHg" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/3VVUiN94kL5BTRIt5biVHg" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k6">El </i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -5156,9 +5351,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line chord-inline">Solo: <span class="chord">G</span> <span class="chord">Am</span> <span class="chord">C</span> <span class="chord">G</span> – <span class="chord">G</span> <span class="chord">Am</span> <span class="chord">C</span> <span class="chord">G</span></div><div class="lyric-line">B7 Em A7 D – B7 Em A D</div><div class="line-pair bold"><div class="chord-line">Am                D</div>Mil razones que aprietan</div><div class="line-pair bold"><div class="chord-line">Am               D</div>bloqueando la intuición.</div><div class="line-pair bold"><div class="chord-line">C                  G</div>Y todo se queda a medias,</div><div class="line-pair bold"><div class="chord-line">B7       Em</div>hace falta el corazón.</div><div class="line-pair bold"><div class="chord-line">C              G</div>Y todo se queda a medias,</div><div class="line-pair bold"><div class="chord-line">D</div>haz silencio, ábrete al corazón.</div></div>
 </div>
 </article>
-<article class="song" id="song-ven_espiritu_ven" data-title="Ven Espíritu ven" style="--chars: 29">
+<article class="song" id="song-ven_espiritu_ven" data-title="Ven Espíritu ven" data-key="C" style="--chars: 29">
 <h3>123. Ven Espíritu ven</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span></p>
+<p class="pills"><i class="k11">Hor</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -5179,9 +5375,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="line-pair"><div class="chord-line">    C         G</div>Purifícanos y lávanos</div><div class="line-pair"><div class="chord-line">   Am          Em         F</div>Renuévanos, restáuranos Señor</div><div class="line-pair"><div class="chord-line">         G</div>Con tu poder</div><div class="line-pair"><div class="chord-line">    C         G</div>Purifícanos y lávanos</div><div class="line-pair"><div class="chord-line">   Am          Em         F</div>Renuévanos, restáuranos Señor</div><div class="line-pair"><div class="chord-line">      G          C</div>Te queremos conocer</div></div>
 </div>
 </article>
-<article class="song" id="song-veronica" data-title="Verónica" style="--chars: 50">
+<article class="song" id="song-veronica" data-title="Verónica" data-key="E" style="--chars: 50">
 <h3>124. Verónica</h3>
-<p class="song-meta"><span class="meta-item">Capo: 1</span><a class="meta-item" href="https://open.spotify.com/track/3pfFZCrgiOGi1BPAoh2ke0" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/3pfFZCrgiOGi1BPAoh2ke0" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -5207,9 +5404,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Éste es el Hijo de Dios,</div><div class="lyric-line bold">que carga con nuestras culpas.</div><div class="lyric-line bold">Misericordia encarnada,</div><div class="lyric-line bold">¡limpia mi pobre interior!</div><div class="lyric-line bold">Yo sólo quiero vivirte,</div><div class="lyric-line bold">amar y dejarme amar...</div><div class="lyric-line bold">Que enjugue cada gota de sangre</div><div class="lyric-line bold">que acaricia tu frente.</div><div class="lyric-line bold">Ínfima y pequeña, entrega consumada,</div><div class="lyric-line bold">amor de sangre: ¡Mi amante!</div><div class="lyric-line bold">Transfórmame en tu paño,</div><div class="lyric-line bold">tatúame tu rostro,</div><div class="lyric-line bold">empápalo sin miedo, ahógalo en tu sangre.</div><div class="lyric-line bold">Que sea yo tu paño, es mi íntimo deseo,</div><div class="lyric-line bold">¡tengo sed de cada gota!</div></div>
 </div>
 </article>
-<article class="song" id="song-vertigo" data-title="Vértigo" style="--chars: 46">
+<article class="song" id="song-vertigo" data-title="Vértigo" data-key="C" style="--chars: 46">
 <h3>125. Vértigo</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/2nXa6qRz31ARzEfIgpiSy0" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/2nXa6qRz31ARzEfIgpiSy0" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k3">Sen</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -5234,9 +5432,10 @@ body.tour-on .drawer .nav {
 <div class="verse"><div class="lyric-line bold">Y a veces tengo vértigo,</div><div class="lyric-line bold">no consigo apreciar</div><div class="lyric-line bold">que sobran las palabras,</div><div class="lyric-line bold">Basta con suspirar. (x2)</div></div>
 </div>
 </article>
-<article class="song" id="song-y_te_caes" data-title="Y te caes" style="--chars: 52">
+<article class="song" id="song-y_te_caes" data-title="Y te caes" data-key="Bm" style="--chars: 52">
 <h3>126. Y te caes</h3>
-<p class="song-meta"><span class="meta-item">Capo: 2</span><a class="meta-item" href="https://open.spotify.com/track/2lc9ceIfhIuKhEGr6GLuJ0" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: Bm</span><a class="meta-item" href="https://open.spotify.com/track/2lc9ceIfhIuKhEGr6GLuJ0" target="_blank" rel="noopener">Spotify link</a></p>
+<p class="pills"><i class="k2">Pas</i></p>
 <div class="controls">
   <button data-action="toggle-chords">Chords</button>
   <div class="stepper">
@@ -5293,7 +5492,7 @@ body.tour-on .drawer .nav {
 
 <!-- This book's settings (book.yaml) for the scripts below -->
 <script>
-const BOOK = {"storagePrefix": "cancionero-hakuna.", "notationSetting": true, "installTip": true};
+const BOOK = {"storagePrefix": "cancionero-hakuna.", "notationSetting": true, "installTip": true, "progress": false};
 </script>
 <!-- Scripts from web/js/, core.js first -->
 <script>
@@ -6336,13 +6535,52 @@ function transposeNote(note, shift) {
     return scale[(((index + shift) % 12) + 12) % 12];
 }
 
+// Songs with a key (data-key, builder/keys.py) move each note by interval within
+// the key: it keeps its letter distance from the tonic (E in C -> F# in D), so the
+// spelling chosen in the song file carries over (Bb, not A#, in F; G#7 before C#m).
+// Notes that would need E#, B#, Cb, Fb or a double accidental take the new key's
+// sharps or flats instead.
+const LETTERS = "CDEFGAB";
+const NATURAL = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+const MAJOR_KEYS = ["C", "Db", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", "B"];
+const MINOR_KEYS = ["Cm", "C#m", "Dm", "Ebm", "Em", "Fm", "F#m", "Gm", "G#m", "Am", "Bbm", "Bm"];
+const FLAT_KEYS = new Set(["F", "Bb", "Eb", "Ab", "Db", "Gb", "Cb", "Dm", "Gm", "Cm", "Fm", "Bbm", "Ebm", "Abm"]);
+
+function pitchOf(note) {
+    return (NATURAL[note[0]] + (note[1] === "#" ? 1 : note[1] === "b" ? -1 : 0) + 12) % 12;
+}
+
+// The song's key moved `shift` semitones: { name, from, to, flats } (from/to: tonics).
+function movedKey(key, shift) {
+    const minor = key.endsWith("m");
+    const tonic = minor ? key.slice(0, -1) : key;
+    const name = shift ? (minor ? MINOR_KEYS : MAJOR_KEYS)[(pitchOf(tonic) + shift + 120) % 12] : key;
+    return { name, from: tonic, to: minor ? name.slice(0, -1) : name, flats: FLAT_KEYS.has(name) };
+}
+
+function moveNote(note, shift, key) {
+    const steps = (LETTERS.indexOf(note[0]) - LETTERS.indexOf(key.from[0]) + 7) % 7;
+    const letter = LETTERS[(LETTERS.indexOf(key.to[0]) + steps) % 7];
+    const pc = (pitchOf(note) + shift + 120) % 12;
+    const accidental = ((pc - NATURAL[letter] + 18) % 12) - 6;
+    const name = letter + ({ 1: "#", "-1": "b", 0: "" }[accidental] ?? "?");
+    if (!name.includes("?") && !["E#", "B#", "Cb", "Fb"].includes(name)) return name;
+    return (key.flats ? NOTES_FLAT : NOTES_SHARP)[pc];
+}
+
 // Chord names: letters (C D E) or solfège (Do Re Mi), a book-wide setting.
 const NOTATIONS = { letters: "C D E", solfege: "Do Re Mi" };
 const SOLFEGE = { C: "Do", D: "Re", E: "Mi", F: "Fa", G: "Sol", A: "La", B: "Si" };
 
-// Transposes the root and the bass note: D/F# +2 -> E/G# (or Mi/Sol#)
-function transposeChord(chord, shift) {
-    const name = chord.replace(NOTE_RE, (note) => transposeNote(note, shift));
+// Transposes the root and the bass note: D/F# +2 -> E/G# (or Mi/Sol#).
+// key: movedKey(...) for songs with a key, else null (sharps stay sharps).
+function transposeChord(chord, shift, key = null) {
+    const name = !shift ? chord
+        : chord.replace(NOTE_RE, (note) => (key ? moveNote(note, shift, key) : transposeNote(note, shift)));
+    return inNotation(name);
+}
+
+function inNotation(name) {
     if (document.body.dataset.notation !== "solfege") return name;
     return name.replace(/[A-G]/g, (letter) => SOLFEGE[letter]); // Am7 -> Lam7
 }
@@ -6418,12 +6656,12 @@ function setChordLine(line, parts) {
     line.replaceChildren(...nodes);
 }
 
-function transposeChordLine(line, shift) {
+function transposeChordLine(line, shift, key) {
     const parts = chordLineParts(line);
     let drift = 0; // columns the next chord would move right (or left if < 0)
     setChordLine(line, parts.map((part, i) => {
         if (i % 2) {
-            const chord = transposeChord(part, shift);
+            const chord = transposeChord(part, shift, key);
             drift += chord.length - part.length;
             return chord;
         }
@@ -6434,14 +6672,14 @@ function transposeChordLine(line, shift) {
 }
 
 // "Intro: G Em ..." lines mix chords and words, so their chords keep a span each.
-function transposeInlineChords(line, shift) {
+function transposeInlineChords(line, shift, key) {
     const nodes = [...line.childNodes];
     let drift = 0; // columns the next chord would move right (or left if < 0)
 
     nodes.forEach((node, i) => {
         if (node.nodeType === Node.ELEMENT_NODE) {
             node.dataset.original ??= node.textContent;
-            const chord = transposeChord(node.dataset.original, shift);
+            const chord = transposeChord(node.dataset.original, shift, key);
             drift += chord.length - node.dataset.original.length;
             node.textContent = chord;
             return;
@@ -6459,11 +6697,14 @@ const builtChars = new WeakMap();
 // grows with it and the lyrics still fit the screen.
 function renderChords(song) {
     const shift = Number(song.dataset.transpose || 0);
+    const key = song.dataset.key ? movedKey(song.dataset.key, shift) : null;
+    const keyLabel = song.querySelector(".song-key");
+    if (keyLabel) keyLabel.textContent = `Key: ${inNotation(key.name)}`;
     if (!builtChars.has(song)) builtChars.set(song, Number(song.style.getPropertyValue("--chars")));
     let widest = builtChars.get(song);
     song.querySelectorAll(".chord-line, .chord-inline").forEach((line) => {
-        if (line.classList.contains("chord-line")) transposeChordLine(line, shift);
-        else transposeInlineChords(line, shift);
+        if (line.classList.contains("chord-line")) transposeChordLine(line, shift, key);
+        else transposeInlineChords(line, shift, key);
         widest = Math.max(widest, line.textContent.length);
     });
     song.style.setProperty("--chars", widest);

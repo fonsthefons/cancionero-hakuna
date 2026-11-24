@@ -1,5 +1,6 @@
 ---
 title: "Tuyo es el Reino"
+key: Am
 capo: "6"
 song_tags:
   misa: []

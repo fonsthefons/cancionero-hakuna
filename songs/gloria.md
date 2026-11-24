@@ -1,5 +1,6 @@
 ---
 title: "Gloria"
+key: G
 capo: "2"
 song_tags:
   misa: []

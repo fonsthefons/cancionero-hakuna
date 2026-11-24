@@ -1,5 +1,6 @@
 ---
 title: "Ofertorio"
+key: G
 capo: "4"
 song_tags:
   misa: []

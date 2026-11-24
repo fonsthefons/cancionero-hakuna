@@ -1,5 +1,6 @@
 ---
 title: "Lo tienes delante"
+key: C
 song_tags:
   otras_hkn: []
 ---

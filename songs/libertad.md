@@ -1,5 +1,6 @@
 ---
 title: "Libertad"
+key: E
 link: "https://open.spotify.com/track/3mmr39v3LgI9SIQwkoCeyI"
 song_tags:
   hakuna: []

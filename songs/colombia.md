@@ -1,5 +1,6 @@
 ---
 title: "Colombia"
+key: C
 capo: "3"
 link: "https://open.spotify.com/track/13ZmYvrRgNcL4Z0wiT1ZJb"
 song_tags:

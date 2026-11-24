@@ -1,5 +1,6 @@
 ---
 title: "No te vas"
+key: Am
 capo: "3"
 link: "https://open.spotify.com/track/69fYhhDgieqFWGESsrMh3o"
 song_tags:

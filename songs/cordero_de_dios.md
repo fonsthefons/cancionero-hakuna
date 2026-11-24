@@ -1,5 +1,6 @@
 ---
 title: "Cordero de Dios"
+key: Am
 capo: "1"
 song_tags:
   misa: []

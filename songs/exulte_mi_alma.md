@@ -1,5 +1,6 @@
 ---
 title: "Exulte mi alma"
+key: E
 capo: "2"
 link: "https://open.spotify.com/track/5UTlVJw88REZ281JEjzDH9"
 song_tags:

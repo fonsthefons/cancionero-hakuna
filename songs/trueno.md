@@ -1,5 +1,6 @@
 ---
 title: "Trueno"
+key: C
 capo: "3"
 link: "https://open.spotify.com/track/1NZTc8iAOEhQcMTsWCe4Qv"
 song_tags:

@@ -1,5 +1,6 @@
 ---
 title: "Lo imposible"
+key: G
 capo: "3"
 link: "https://open.spotify.com/track/2xoBRb0JSSPhMrqkvi7rxO"
 song_tags:

@@ -1,5 +1,6 @@
 ---
 title: "Ruah"
+key: G
 link: "https://open.spotify.com/track/30gnt4eElggpBj7SxEfSFm"
 song_tags:
   tu: []

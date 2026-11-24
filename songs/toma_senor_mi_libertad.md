@@ -1,5 +1,6 @@
 ---
 title: "Toma Señor mi libertad"
+key: C
 song_tags:
   otras_misa: []
 ---

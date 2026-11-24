@@ -1,5 +1,6 @@
 ---
 title: "Y te caes"
+key: Bm
 capo: "2"
 link: "https://open.spotify.com/track/2lc9ceIfhIuKhEGr6GLuJ0"
 song_tags:

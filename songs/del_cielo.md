@@ -1,5 +1,6 @@
 ---
 title: "Del cielo"
+key: C
 capo: "3"
 link: "https://open.spotify.com/track/7zWb05R136043bcUTF5KOH"
 song_tags:

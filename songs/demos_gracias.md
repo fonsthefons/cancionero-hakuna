@@ -1,5 +1,6 @@
 ---
 title: "Demos gracias"
+key: E
 capo: "2"
 song_tags:
   misa: []

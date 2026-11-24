@@ -1,5 +1,6 @@
 ---
 title: "Aleluya (Tú)"
+key: Em
 link: "https://open.spotify.com/track/4G1xZtr7KOVljv34DQFkFe"
 song_tags:
   tu: []

@@ -1,5 +1,6 @@
 ---
 title: "Juntos"
+key: C
 capo: "3"
 link: "https://open.spotify.com/track/3fWmgfzs3fhLhfbisa7G9I"
 song_tags:

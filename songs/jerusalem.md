@@ -1,5 +1,6 @@
 ---
 title: "Jerusalem"
+key: Am
 capo: "4"
 link: "https://open.spotify.com/track/5noZqN3jwYwVLnCoJRPkz2"
 song_tags:
