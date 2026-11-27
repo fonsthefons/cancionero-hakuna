@@ -31,11 +31,19 @@ a cantarle a la Virgen con Fe con un olé
 (bis)
 **
 
+A       C#m    Bm
 Dios te salve María
+E    D      A
 Manantial de dulzura
+            C#m
 A tus pies noche y día
+ Bm    E     A
 Te venimos a rezar
+A       C#m    Bm
 Dios te salve María
+ E    D        A
 Un rosal de hermosura
+       C#m     Bm
 eres Tú Madre mía
+  E      D     A
 de pureza virginal

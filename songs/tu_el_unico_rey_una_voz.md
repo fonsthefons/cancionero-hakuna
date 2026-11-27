@@ -30,9 +30,13 @@ En cada momento
                D
 sentarte en el trono.
 
+         G
 Que tu alabanza,
+              C
 esté siempre en mi boca,
+          Em
 y reconocer,
+               D
 que Tú eres Dios.
 
        C             D
@@ -43,11 +47,17 @@ C                    D
 Fijo mi mirada en el Cielo.
 
 **
+G            Em
 Tú, el Único Rey
+                  C
 que tiene que reinar,
+            D                G
 el Único Señor al que voy a alabar.
+                   Em
 Hoy levanto el corazón
+                 C
 al que lo conquistó,
+      Dsus4        D        G
 simplemente porque Tú eres Dios.
 **
 
@@ -62,11 +72,17 @@ Todo el poder y el honor,
 Toda la gloria al Señor (x4)
 
 **
+G            Em
 Tú, el Único Rey
+                  C
 que tiene que reinar,
+            D                G
 el Único Señor al que voy a alabar.
+                   Em
 Hoy levanto el corazón
+                 C
 al que lo conquistó,
+      Dsus4        D        G
 simplemente porque Tú eres Dios.
 
 G            Em

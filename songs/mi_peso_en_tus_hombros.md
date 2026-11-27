@@ -17,8 +17,11 @@ Si es Dios...
          Dsus2   D            G
 ¿Qué hace ahí? ¿Por qué está ahí?
 
+      G          D
 Él quiso morir atado a nuestro peso
+        Em      D   C  Am       Dsus2
 en sus espaldas. Y Tú te ataste a mí,
+   D         G
 te ataste a mí.
 **
              G
@@ -31,18 +34,28 @@ que recuerdo mi peso en tus hombros,
 pues lo único que te ata al leño es tu amor.
 **
 
+      G
 No puedes dejar de atarte,
+    D                         Em     D    C
 ni de tomarte tan en serio mi pecado: ¡sólo
+Am          Dsus2 D   G
 quieres verme liberada!
 
+      G
 No es un “amor de quita y pon”;
+    D                         Em   D
 me quieres como un ciego apasionado.
+    C  Am         Dsus2 D     G
 Señor, contágiame de tu pasión.
 
 **
+             G
 Hoy quiero decirte, Señor,
+               Dsus2
 que te doy las gracias,
+      Em                       C
 que recuerdo mi peso en tus hombros,
+        G          Dsus2                Em C
 pues lo único que te ata al leño es tu amor.
 **
 

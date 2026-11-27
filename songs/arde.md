@@ -21,36 +21,60 @@ Que no pueden ni intentan
                 D
 Contener su corazón.
 
+G                            C
 Brazos, cerrándose en abrazos,
+                   Em
 De un padre que dio tanto
+                D
 De un hijo que murió.
 
+G                            C
 Lloran, reyes y tronos lloran,
+                   Em
 Ante un hombre en la sombra,
+                D
 Rezándole a sus Dios.
 
+G                            C
 La mira, y al verla el mundo gira.
+                   Em
 Y en un solo segundo,
+                D
 Al cielo estremeció.
 
+G                            C
 Besa, donde ella pisa él besa.
+                   Em
 Secándose las lágrimas
+                D
 al pedirle perdón.
 
+G                            C
 Alza, un paso al firme al alba.
+                  Em
 Ejércitos se apartan
+                D
 ante su convicción.
 
+G                           C
 Siente, el peso que le viene.
+               Em
 Pero nada detiene
+                D
 Su sencilla decisión.
 
+G                            C
 Duerme, tranquilo el niño duerme
+                   Em
 Sufre porque no puede
+                D
 darle algo mejor.
 
+G                            C
 Calla, y en el silencio grita.
+                   Em
 Se le traspasa el alma.
+                D
 Sufre su condición.
 
 **
@@ -86,5 +110,7 @@ Un “Te quiero” mudo en un silencio acogedor.
 Un humilde carpintero mira a los ojos a Dios.
 **
 
+G           C           Em            D
 Un “Te quiero” mudo en un silencio acogedor.
+     G          C          Em       D
 Un humilde carpintero mira a los ojos a Dios.

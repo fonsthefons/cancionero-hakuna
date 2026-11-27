@@ -60,11 +60,17 @@ Bm             E
 que salgas por todos sus poros.
 
 **
+A
 Quémame, toma mi alma y mi cuerpo,
+   C#m
 consúmeme y hazme arder
+     D
 en tu fuego.
+         F#m
 Te hiciste hombre para que el
+E               F#m   E
 Hombre se hiciera Dios.
+F#m       E
 Uno: Tú y yo.
 **
 
@@ -81,10 +87,16 @@ Quiero vivir toda mi esencia.
 D C#m  Bm E
 
 **
+A
 Quémame, toma mi alma y mi cuerpo,
+   C#m
 consúmeme y hazme arder
+     D
 en tu fuego.
+         F#m
 Te hiciste hombre para que el
+E               F#m   E
 Hombre se hiciera Dios.
+F#m       E
 Uno: Tú y yo.
 **

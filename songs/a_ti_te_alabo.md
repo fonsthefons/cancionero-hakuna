@@ -19,10 +19,13 @@ A ti te alabo con todo lo que Tú has hecho.
         F
 A ti te alabo Padre, Hijo, Amor eterno.
 
+        C
 A ti te alabo con trompas y flautas,
+        G
 A ti te alabo con tambores y danzas,
-A ti te alaban criaturas
-y animales,
+        Am
+A ti te alaban criaturas y animales,
+        F
 A ti te alaban las montañas y los mares.
 Am – G/B – C – C/E – F
 A ti te alaban

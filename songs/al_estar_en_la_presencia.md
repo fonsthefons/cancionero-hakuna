@@ -16,9 +16,13 @@ Mi espíritu se alegra en tu majestad
  D           Bm    E
 Te adoro a Ti, te adoro a Ti.
 
+      A                      C#m
 Cuando veo la grandeza de tu dulce amor
+           D                    E
 Y compruebo la pureza de tu corazón
+ A              C#          F#m    G
 Mi espíritu se alegra en tu majestad
+ D           Bm    E
 Te adoro a Ti, te adoro a Ti
 
 **
@@ -33,9 +37,13 @@ Y contemplar tu santidad,
    A             E       D    A
 Te adoro a Ti Señor, te adoro a Ti
 
+     A        C#m                   F#m
 Y al estar aquí, delante de Ti, te adoraré,
+         D     Bm                 E
 Postrado ante Ti, mi corazón te adora oh Dios,
+           A         C#m
 Y siempre quiero estar, para adorar,
+   D         Dm
 Y contemplar tu santidad,
    A             E        D Dm   A
 Te adoro a Ti Señor, te adoro a Ti

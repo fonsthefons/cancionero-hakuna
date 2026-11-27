@@ -42,19 +42,31 @@ lo que canto y lo que soy.
 ¡Que todo, todo, que todo, todo sea verdad!
 **
 
+        C
 Que nuestra tinta sea de sangre,
+       D
 que las palabras sean clamor,
+      G                    Em D
 que escandalice mi postura y mi
+         C
 sonrisa ante el dolor,
+      D
 que desborde la locura sin medida de tu Amor.
+          G                  Em D
 Que nos llenemos de tus promesas,
+       C                    D
 que las bailemos de sol a sol,
+             G        Em D
 que disfrutemos del camino
+             C     A
 con un mismo corazón
+              D    D7
 ¡es real porque está vivo y da la vida con pasión!
 
 **
+     C           D
 ¡Que todo sea verdad!
+      G          Em D
 ¡Que todo sea verdad!
                                         G   G7
 ¡Que todo, todo, que todo, todo sea verdad!
@@ -82,10 +94,16 @@ si hay tanta Vida ¡tanta!
 ¡Es Real, es Real!
 
 **
+     C           D
 ¡Que todo sea verdad!
+      G          Em D
 ¡Que todo sea verdad!
+     C           D                      G C  G D
 ¡Que todo, todo, que todo, todo sea verdad! (x2)
+     C           D
 ¡Que todo, todo, que todo, todo sea!
+     C           D
 ¡Que todo, todo, que todo, todo sea!
+     C           D                  G C G D
 ¡Que todo, todo, que todo, todo sea verdad!
 **

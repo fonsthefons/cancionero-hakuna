@@ -60,11 +60,17 @@ se rebajó hasta someterse incluso a la muerte,
 y una muerte en la Cruz.
 
 **
+Am              F       C                G
 Por eso Dios lo levantó sobre el mundo entero.
+Am              F           C
 Por eso Dios le concedió el Nombre
+         G
 sobre todo nombre.
+Am              F       C           G
 Por eso Dios lo levantó sobre el universo.
+Am              F           C
 Por eso Dios le concedió el Nombre
+         G
 sobre todo nombre.
 **
 
@@ -72,5 +78,7 @@ Solo: F Am C E (x2)
 
 Dm                G        C Am
 Nombre sobre todo nombre, mi Salvador.
+Dm                G        C Am
 Nombre sobre todo nombre, mi Redentor.
+Dm                G        C Am
 Nombre sobre todo nombre, sobre todo te levanto.

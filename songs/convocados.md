@@ -14,9 +14,13 @@ En un solo lugar
         F       G    C
 Para hacer de todos Uno
 
+C                  G
 Convocados por el Hijo
+F                C
 A celebrar su Pascua
+Am             D
 El misterio del Señor
+        F       G C
 Muerto y resucitado
 
 F                  G

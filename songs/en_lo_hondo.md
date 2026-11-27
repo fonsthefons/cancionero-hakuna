@@ -21,10 +21,15 @@ y te mueres por crecer en mí,
       Em                 A
 y te mueres por crecer en mí.
 
+   Bm              A
 La razón no me permite vivirte,
+   D                  G
 hay demasiado yo en mí.
+G           A
 Sólo Tú puedes habitarme,
+    D            G - Em
 quiero que vivas en mí,
+          A
 que seas libre dentro de mí.
 
    Bm              A
@@ -49,16 +54,26 @@ porque eres Tú, quien vive en mí,
 quien vive en mí.
 **
 
+   Bm              A
 No acepto el mientras tanto,
+   D                        G
 cada instante es dador de Ti.
+G           A
 Te revelas y me buscas como loco,
+    D            G - Em
 expectante en lo banal,
+          A
 ¡Ahí me dices qué quieres de mí!
 
+   Bm              A
 Te abalanzas sobre mi alma
+   D                      G
 escondido en la casualidad:
+G           A
 en ella quiero abrazarte,
+    D               G - Em
 descubrirte y darte mi sí.
+          A
 ¡Vive Tú en mí!
 
 **

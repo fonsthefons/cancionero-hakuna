@@ -16,9 +16,13 @@ Aunque quiera callarlo,
      G
 no puedo.
 
+G           C
 En el mundo cuadran los esquemas,
+G          C
 con su lógica puedo hacer pie.
+G            C  -  Am
 Pero hay algo que late buscando
+     G
 un sitio.
 
 **
@@ -38,21 +42,34 @@ no eches tierra ábrete al corazón.
 
 G C (x2)
 
+G           C
 Superficies en las que no encuentro.
+G          C
 Pido pruebas, me empeño buscar
+G            C  -  Am
 solo en lo que siento y veo,
+     G
 pero hay más.
 
+G           C
 Me resisto, esto no lo entiendo.
+G          C
 Surge el miedo a aceptar,
+G            C  -  Am
 que en lo hondo despiertan certezas
+     G
 que hoy no consigo explicar.
 
 **
+D        Am
 Mil razones que aprietan
+D        Am
 bloqueando la intuición.
+C               G
 Y todo se queda a medias,
+B7       Em
 hace falta el corazón.
+C              G
 Y todo se queda a medias,
                          Am C Cm
 sal de ti, ábrete al corazón.

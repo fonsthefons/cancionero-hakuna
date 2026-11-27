@@ -17,9 +17,13 @@ Mirada de la Comunión,
   G    C
 amando
 
+   G               C
 Mirada de misericordia
+ G                  D
 del amor crucificado,
+ G     -         Em  D
 mirada que penetra en mi alma,
+  G    C
 un fuego abrasador.
 
 **
@@ -35,19 +39,31 @@ Pues es la más bella y preciada,
 la más pura de amor.
 **
 
+       C
 Mirada de verdad sincera,
+D
 mirada de Rey que reina,
+      G            -
 Mirada que envuelve mi vida
+Em     D
 Purifica
+     C
 Mirada de principio y fin
+      D
 Mirada del Resucitado
+        G             -
 Mirada que deslumbra con su luz
+  Em         D7
 Y al cegar sana
 
 **
+        C          G
 Enséñame, ¡Oh Trinidad!,
+B7                Em
 cómo es tu libre mirada.
+D       C            G
 Enséñame, ¡Oh Trinidad!,
+B7               Em
 Pues es la más bella y preciada,
                  G G7
 la más pura de amor.

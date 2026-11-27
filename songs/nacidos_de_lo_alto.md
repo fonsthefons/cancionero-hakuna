@@ -86,11 +86,17 @@ Los cojos corren los mudos claman:
 la victoria inevitable del Amor.
 
 **
+       G
 Mi corazón mira hacia Oriente
+   C               D
 en espera de su Salvador.
+   Bm             Em
 No quiero hacer esperar
+               C           D
 a un Cielo que ha empezado ya.
+  Bm                          Em
 Los ciegos nunca vimos tanto color,
+    C                     D
 ni muertos tan vivos por amor (x2)
 **
 

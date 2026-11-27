@@ -17,9 +17,13 @@ C                D     G   D/F#   Em
           Am           C             D
 ¿Quién me ama hasta la muerte de verdad?
 
+G      D/F#     Em
 ¿Quién abraza a quién?
+            Am           C        D
 Qué ligero el peso si lo llevas Tú.
+C                D     G   D/F#   Em
 ¿Cuánto suman dos miradas y una Cruz?
+          Am           C      D
 Quiero ser un Cirineo de Jesús,
        C           D         G C  D
 Quiero ser tu Cirineo, mi Jesús.
@@ -37,9 +41,13 @@ se hace grande en tu dolor,
 por amor, por amor…
 **
 
+G      D/F#     Em
 ¿Quién espera a quién?
+            Am           C           D
 ¿Quién me llama por mi nombre como Tú?
+C                D     G   D/F#  Em
 ¿Quién amó su noche para darme luz?
+          Am           C      D
 Quiero ser un Cirineo de Jesús,
        C           D         G C  D
 Quiero ser tu Cirineo, mi Jesús.

@@ -35,9 +35,13 @@ lo que puede un corazón,
 la medida sin medida del Amor.
 **
 
+               Gm         Dm
 En la Cruz clavaron el amor,
+         A                        Dm D7
 y un abrazo se hizo eterno en mi dolor.
+Gm                      Dm
 Clávame contigo, mi Jesús,
+        A
 quiero darme y darlo todo como Tú.
 
 **

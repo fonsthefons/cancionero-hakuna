@@ -11,7 +11,9 @@ Intro: Dsus2 Em Gm A
 Busqué paraísos sin tu Rostro,
     Em            A
 horizontes sin tu Luz.
+    Dsus2              Bm
 Pinté de colores mis pecados;
+    Em            A
 pero el cielo no era azul.
 
 Em                       Bm
@@ -36,7 +38,9 @@ Dsus2 Bm  Em A
 Soñé que me alzabas con tu mano,
      Em           A
 me librabas del temor.
+     Dsus2            Bm
 Sentí mi camino más ligero,
+     Em           A
 llevadero mi dolor.
 
 Em                       Bm
@@ -45,9 +49,13 @@ Caí, resbalé en la noche y vi
 un abismo grande en mí.
 
 **
+  Dsus2       Bm        F#m
 Regálame la vida, otro Cielo más,
+      G    A   Dsus2
 un futuro junto a Ti
+             Bm       F#m
 Seguiré tus pasos, seguro,
+      G    A       Dsus2
 me levanto siempre en Ti
 
   Dsus2       Bm        F#m

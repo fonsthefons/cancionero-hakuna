@@ -18,9 +18,13 @@ Decir al mundo con tu Voz hasta morir
     Am               A7        D
 Qué todo un Cielo es solo para mí…
 
+C         D     G             C
 Quiero estrenar mis ojos en tus brazos,
+C         D       G            C
 Quiero besar el suelo con tus Labios,
+C        D            G             C
 Borrar la noche y dar a la herida cicatriz.
+    Am               A7        D
 Quiero empezar de nuevo solo en Ti.
 
 **
@@ -42,17 +46,27 @@ Tomad, bebed,
 el Cielo entero sabe a Vino y Pan
 **
 
+C         D     G             C
 Quiero pisar tu Huella en cada espacio,
+C         D       G            C
 Quiero buscar, mirarte en todos lados,
+C        D            G             C
 Perder la vida hoy y ganarla toda en Ti.
+    Am               A7        D
 Quiero empezar y terminar por Ti.
 
 (Estribillo x3)
+   G Bm   Em       C           Am             D
 Tomad, comed, me entrego por Amor hasta el final.
+   C D7   Em      F                           D
 Tomad, bebed, el Cielo entero sabe a Vino y Pan.
+   G Bm   Em       C           Am             D
 Tomad, comed, me entrego por Amor hasta el final.
+   C D7   Em      C             D             G
 Tomad, bebed, el Cielo entero sabe a Vino y Pan.
+   G Bm   Em       C           Am             D
 Tomad, comed, me entrego por Amor hasta el final.
+   C D7   Em      C             D             G
 Tomad, bebed, el Cielo entero sabe a Vino y Pan.
 
 Out: C D Em A C D G

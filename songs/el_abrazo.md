@@ -12,7 +12,9 @@ Intro: A B A
 Quiero poder cerrarte en un paréntesis de brazos,
         A        B            E
 entrelazando los míos con los tuyos.
+        E        A                        B
 Quiero crear contigo un círculo sin afueras,
+        A        B            E
 incluir en el movimiento al mundo entero.
       A         B          E   G#m      C#m
 Y prestarte mi cuerpo para ese abrazo eterno
@@ -40,8 +42,11 @@ madre aún no nacido,
         A               B            E
 siendo hombre ensangrentado y crucificado
 
+            E           A
 Quiero abrazarte en la blanca Hostia y
+               B
 en la vida que me has dado
+        A               B            E
 En el sufriente y en quien tengo al lado.
 
  A             B        E     G#m   C#m
@@ -53,14 +58,22 @@ Invítame a entrar en ese abrazo y
 aprendiz en esta escuela
 
 **
+  E                          A
 Dejando la indiferencia viviré de
+              B
 rodillas y abrazado
+  E                          A
 Dejando las diferencias viviré de
+              B
 rodillas y abrazando
 
+  E                          A
 Dejando la indiferencia viviré de
+              B
 rodillas y abrazado
+  E                          A
 Dejando las diferencias viviré de
+              B
 rodillas y abrazando
 **
 

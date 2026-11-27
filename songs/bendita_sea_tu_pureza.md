@@ -44,23 +44,37 @@ No me dejes, (oh, no, no),
 Madre mía.
 **
 
+Em                F
 Bendita sea tu pureza,
+C
 y eternamente lo sea,
+Dm            F
 pues todo un Dios se recrea en tan
+G          C
 graciosa belleza.
 
+Em                F
 A Ti celestial Princesa,
+C
 Virgen Sagrada María,
+Dm            F               G          C
 te ofrezco en este día: alma, vida y corazón.
 
+Dm         F
 Mírame con compasión,
+G           C
 no me dejes Madre mía. (x2)
 
 **
+C               G
 Bendita, sea tu Pureza.
+  C             G
 Bendita, sea tu Pureza.
+      F            G
 No me dejes, (oh, no, no).
+      F               G
 No me dejes, (oh, no, no),
+      C  G
 Madre mía,
 **
 

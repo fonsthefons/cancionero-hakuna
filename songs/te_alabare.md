@@ -14,9 +14,13 @@ G              C
 Te alabo, mi Dios,
                G
 solo Tú eres santo.
+G              C
 Te alabo, mi Dios,
+              G
 solo Tú, Señor.
+G              C
 Te alabo, mi Dios,
+               G
 solo Tú, Altísimo.
 G                 D/F#
 Te alabo, mi Dios
@@ -32,13 +36,21 @@ te alabaré.
 
 G
 
+G              C
 Te alabo, mi Dios
+               G
 solo Tú eres santo.
+G              C
 Te alabo, mi Dios,
+              G
 solo Tú, Señor.
+G              C
 Te alabo, mi Dios,
+               G
 solo Tú, Altísimo.
+G            D/F#
 Te alabo, mi Dios
+  Em              G
 y siempre te alabaré.
 
 **

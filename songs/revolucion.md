@@ -71,12 +71,19 @@ Una fila de locos que siguen a Cristo,
 el Pobre Loco, borracho de amor.
 
 **
+   A
 ¡Grita revolución!
+    E
 ¡Ábrete a tu verdad!
+      D
 ¡Ábrete hasta hacerte pan!
+   E
 ¡Ábrete y cree en lo imposible!
+   A
 ¡Grita revolución!
+   E
 ¡Ábrete a nacer de nuevo!
+   D
 ¡Ábrete hasta ser quién eres!
      E                F#m       D
 ¡Ábrete al huracán del Espíritu y serás

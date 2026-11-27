@@ -17,9 +17,13 @@ de lejos penetras mis pensamientos;
   D7
 distingues mi camino y mi descanso.
 
+G
 Todas mis sendas te son familiares,
+Em
 conoces mis palabras.
+   C
 Me estrechas, me cubres con tu palma.
+  D7
 Tanto saber me sobrepasa.
 
 **
@@ -42,10 +46,14 @@ allí me alcanzará tu mano izquierda,
         D7
 o tu derecha me agarrará.
 
+        G
 Mas si digo: «Que al menos la tiniebla
 me encubra,
+        Em
 que la luz se haga noche en torno a mí».
+    C
 La noche es clara como el día.
+       D
 La tiniebla no es oscura para ti.
 
 **
