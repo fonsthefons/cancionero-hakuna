@@ -891,8 +891,20 @@ body.drawer-open {
     margin: 0 0 12px 6px;
 }
 
-.syllables-toggle[aria-pressed="true"] {
-    font-weight: bold;
+/* On/off buttons (Chords, Columns, Sílabas): a slider before the label, from aria-pressed. */
+.switch::before {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 18px;
+    margin-right: 6px;
+    border-radius: 9px;
+    vertical-align: middle;
+    background: radial-gradient(circle at 9px 50%, #fff 6px, transparent 7px), var(--border);
+}
+
+.switch[aria-pressed="true"]::before {
+    background: radial-gradient(circle at 21px 50%, #fff 6px, transparent 7px), var(--chord);
 }
 
 /* Still being tuned: a small tag on the button says so. */
@@ -1744,13 +1756,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/6XLPxmYdva9RIwEDYL2YHt" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -1777,13 +1789,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/6aFUXFy2sS1s3KUPC1sJia" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k0">Hakuna</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -1804,13 +1816,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: C</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -1827,13 +1839,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: Em</span><a class="meta-item" href="https://open.spotify.com/track/4G1xZtr7KOVljv34DQFkFe" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -1860,13 +1872,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/7vewA8C1p5XGirSZa3BK8y" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k3">Sencillamente</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -1898,13 +1910,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/1mrKM9bYFC4glEO3E6EXG7" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k5">Capricho</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -1930,13 +1942,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/6317iupL13x72ITllZjYzE" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k0">Hakuna</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -1963,13 +1975,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/2AgVJn79CL1yZydkQDIw2R" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k3">Sencillamente</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -1997,13 +2009,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/4eFz76pJnkwwknUULpoLzs" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k0">Hakuna</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2027,13 +2039,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/600Z5C33xvCoGdgOfkEHoN" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k5">Capricho</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2063,13 +2075,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/3AbYh5nP4NdvWUahFCU1Ys" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k11">Hora Santa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2090,13 +2102,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/4ofyi2MTkppGdaHViln62J" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2119,13 +2131,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/13ZmYvrRgNcL4Z0wiT1ZJb" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k3">Sencillamente</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2147,13 +2159,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/6bfQN7f9a70qQnIZsMpssK" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k4">Qaos</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2177,13 +2189,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/1XbZKR97T5ri1omfwVLeKx" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k3">Sencillamente</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2202,13 +2214,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2226,13 +2238,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: C</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2252,13 +2264,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: Am</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2277,13 +2289,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/7LEluSjsO5eQVnP5kgGg76" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k5">Capricho</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2308,13 +2320,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/7wc2c9rMKY0D4QxILBptUU" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k1">Mi pobre loco</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2338,13 +2350,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/7zWb05R136043bcUTF5KOH" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k9">Villancicos HKN</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2371,13 +2383,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: E</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2394,13 +2406,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/6zrVIzzqi0fLFxSezbNwLS" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k4">Qaos</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2429,13 +2441,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/3XvRXabvTutzrzOOM6Lfxp" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k0">Hakuna</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2463,13 +2475,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: Bm</span><a class="meta-item" href="https://open.spotify.com/track/4SssNu7Pcg7F0bqUJ9QqQo" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2494,13 +2506,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/5edDuXRCMuA6gxeld0SdtB" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k5">Capricho</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2533,13 +2545,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/58CVvanXMyQZxSeYVkkiJG" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2563,13 +2575,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/7f4dVqztHzgbFmRmij5Ank" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k3">Sencillamente</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2596,13 +2608,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/6vZtuRQOzMJv78ZU38gbPU" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k6">El arte de vivir</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2633,13 +2645,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/0FJzZEtCE09DhvVLQdRUMn" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k4">Qaos</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2665,13 +2677,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/0OlkJiyabHjmQVgENbSo2n" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k6">El arte de vivir</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2699,13 +2711,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: G</span></p>
 <p class="pills"><i class="k11">Hora Santa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2726,13 +2738,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/0GAKJ7Fj9NMf6refjr5kjV" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k3">Sencillamente</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2758,13 +2770,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: Em</span><a class="meta-item" href="https://open.spotify.com/track/5Q5O60DtrxV1BRRXHSNhCq" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2789,13 +2801,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/3nCFvYTpW7UnUQKVrJMeEU" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k0">Hakuna</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2816,13 +2828,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/6FZcbCSB84j4wiAnqmFfjG" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k5">Capricho</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2846,13 +2858,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/5UTlVJw88REZ281JEjzDH9" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k5">Capricho</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2876,13 +2888,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/1seWNwVAp8Ztwc91lHFWfI" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k3">Sencillamente</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2911,13 +2923,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2938,13 +2950,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/3XlpE1RQNTDxtczeha0vWM" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k9">Villancicos HKN</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -2973,13 +2985,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/6btcavbYVVRvP70HBBvvLf" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k0">Hakuna</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3003,13 +3015,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 5</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/4QgQabkpEzVvTflLhiYtun" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k4">Qaos</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3037,13 +3049,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/3w3698u96PM5zIr6JepR55" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k1">Mi pobre loco</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3069,13 +3081,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/5noZqN3jwYwVLnCoJRPkz2" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3098,13 +3110,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/3fWmgfzs3fhLhfbisa7G9I" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k9">Villancicos HKN</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3128,13 +3140,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/2Fwhtw2BXjcg846WNAXOKD" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k6">El arte de vivir</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3162,13 +3174,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/5hR5b7bf4mB41KnEpz8UXj" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3190,13 +3202,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 5</span><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/6w4zglfFWHMROimU1kQ19h" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k3">Sencillamente</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3219,13 +3231,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/3mmr39v3LgI9SIQwkoCeyI" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k0">Hakuna</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3248,13 +3260,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/2xoBRb0JSSPhMrqkvi7rxO" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k9">Villancicos HKN</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3282,13 +3294,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: C</span></p>
 <p class="pills"><i class="k10">Otras canciones HKN</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3311,13 +3323,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 6</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/7tiF5iSinIQDLhehL94z3n" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k6">El arte de vivir</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3343,13 +3355,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/4EHWldZTas5KUyFtT0rQlY" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k11">Hora Santa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3375,13 +3387,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/4Kd1BPlAVPxN1J5mIS696N" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3408,13 +3420,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/4LFnaNrPChE1u6CpwD0TLA" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3433,13 +3445,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 4 (o en 2º también)</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/2JaPSQUUlyRUjEJmZolqMz" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k3">Sencillamente</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3458,13 +3470,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/6nLBl3hzByuZnTC8hUZ46x" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k4">Qaos</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3490,13 +3502,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/2vuAi3K38fZ95ygzDSt7TO" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k6">El arte de vivir</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3523,13 +3535,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/0uBVjJ3sLKCpmhuyioidGK" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3553,13 +3565,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 5</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/1O0rjdgKz0XLnkNNRbJfsu" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k1">Mi pobre loco</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3585,13 +3597,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 5</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/0YlKwGPhm6ciZSoyNrsRbY" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k4">Qaos</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3616,13 +3628,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: Em</span><a class="meta-item" href="https://open.spotify.com/track/2zgM1I713Q6a433WWPfAJg" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k5">Capricho</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3645,13 +3657,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/2SkPhCOPbTO5tjJS0bPvkG" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k6">El arte de vivir</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3676,13 +3688,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: C</span></p>
 <p class="pills"><i class="k11">Hora Santa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3701,13 +3713,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 5</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/3RXhBTRteM9nS1Engqaude" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3728,13 +3740,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: Am</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3753,13 +3765,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/69fYhhDgieqFWGESsrMh3o" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k6">El arte de vivir</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3786,13 +3798,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: C#m</span><a class="meta-item" href="https://open.spotify.com/track/7F481UYKoaLYLsUCADbtf2" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k4">Qaos</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3818,13 +3830,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/0obqAY8sELrKDN1dxWKdte" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k1">Mi pobre loco</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3849,13 +3861,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/1YvSzh9FmdTTs0p1IRGtVu" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k3">Sencillamente</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3879,13 +3891,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: G</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3905,13 +3917,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/4a2Mx2JZ7fblUgbGVDv8HH" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k5">Capricho</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3938,13 +3950,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/7I3LqH5nUFh9fxwigr68di" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k5">Capricho</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3969,13 +3981,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/3oCEgWhmBqZq6srjlCa3wP" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -3998,13 +4010,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4025,13 +4037,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: Am</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4048,13 +4060,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4071,13 +4083,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: C</span></p>
 <p class="pills"><i class="k10">Otras canciones HKN</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4101,13 +4113,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: G</span></p>
 <p class="pills"><i class="k10">Otras canciones HKN</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4133,13 +4145,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/57nPnGj0Ootr8k7DIotmFu" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4167,13 +4179,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/5bBfHiCOHSPlRjNA206JbP" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k0">Hakuna</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4201,13 +4213,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4224,13 +4236,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 5</span><span class="meta-item song-key">Key: D</span><a class="meta-item" href="https://open.spotify.com/track/10z2aUbHmKs3F9OWCa3NhE" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k5">Capricho</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4253,13 +4265,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/5zPhRlHCb6izkY5uw2UxxJ" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4280,13 +4292,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/2poBUHUQJ3ZGpqfZuNAsFs" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4310,13 +4322,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/7xgNaNd0nhNYXzL51XkpEn" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k5">Capricho</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4341,13 +4353,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 6</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/5JHiSIB4ugnsViz09rOS7w" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k4">Qaos</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4380,13 +4392,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/25E6WO7eRzpwBvnlKzV2sM" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k0">Hakuna</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4413,13 +4425,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 4</span><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/4brm65j0O2ZhlUzoSYJPPH" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k1">Mi pobre loco</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4446,13 +4458,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span></p>
 <p class="pills"><i class="k10">Otras canciones HKN</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4476,13 +4488,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/3eaudxBDqoEdP91vqFhfZu" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k1">Mi pobre loco</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4505,13 +4517,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/1at3LHbf1CSPhBj0uXLSXA" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k1">Mi pobre loco</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4532,13 +4544,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/30gnt4eElggpBj7SxEfSFm" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4566,13 +4578,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4590,13 +4602,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: A</span></p>
 <p class="pills"><i class="k12">Otras canciones de Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4615,13 +4627,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/4tjcP5HR9rGYPDRqTgCtxk" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4645,13 +4657,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: G</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4668,13 +4680,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: C</span></p>
 <p class="pills"><i class="k12">Otras canciones de Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4693,13 +4705,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: Em</span><a class="meta-item" href="https://open.spotify.com/track/1t7i3ZQgjhU341Il43ijW8" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k3">Sencillamente</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4725,13 +4737,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: Em</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4752,13 +4764,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/6WpBT6BHecwSrt41c5i9gK" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k1">Mi pobre loco</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4785,13 +4797,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/4ushdiJUKXecZsxrsdjcYD" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4824,13 +4836,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: A</span><a class="meta-item" href="https://open.spotify.com/track/35sx4rk6TGum93jIZettPj" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4854,13 +4866,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/4IgooZbgYtgZaYJ2WnxWOF" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k0">Hakuna</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4888,13 +4900,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/2Qv3FoIBMUoRodeSHWrX5j" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4920,13 +4932,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: D</span></p>
 <p class="pills"><i class="k11">Hora Santa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4943,13 +4955,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/32AudWhiMVnj7j4gbdzxTX" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k4">Qaos</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4968,13 +4980,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/7frBYysQuPl52Zvn5hiKkh" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k3">Sencillamente</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -4999,13 +5011,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: C</span></p>
 <p class="pills"><i class="k12">Otras canciones de Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5023,13 +5035,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/5xP5qweWgMdq1jc6WonliW" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k0">Hakuna</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5052,13 +5064,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/7zDcCTcTFoPj5mnITAd3ua" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k1">Mi pobre loco</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5083,13 +5095,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 7</span><span class="meta-item song-key">Key: G</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5107,13 +5119,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/1NZTc8iAOEhQcMTsWCe4Qv" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k6">El arte de vivir</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5143,13 +5155,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/1ocy9G7T0cTemRnV8etM3p" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k7">Tú</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5176,13 +5188,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: Am</span><a class="meta-item" href="https://open.spotify.com/track/6mIFllrUsK9CKoy9zA0yc0" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k1">Mi pobre loco</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5208,13 +5220,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/1erC7sj0MgbLujDgbqDW20" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k1">Mi pobre loco</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5237,13 +5249,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 6</span><span class="meta-item song-key">Key: Am</span></p>
 <p class="pills"><i class="k8">Misa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5261,13 +5273,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/1tm7bR8ddVCULDv2YgkTvD" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k0">Hakuna</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5295,13 +5307,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/5Pav5v4KuJLFbum4VGL5Ku" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5330,13 +5342,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/0iUj1sBAa6AwGHkHuNO12f" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k1">Mi pobre loco</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5361,13 +5373,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 3</span><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/6WTdsYUlvy5HX6r8pj2f0r" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k4">Qaos</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5392,13 +5404,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item song-key">Key: G</span><a class="meta-item" href="https://open.spotify.com/track/3VVUiN94kL5BTRIt5biVHg" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k6">El arte de vivir</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5424,13 +5436,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span></p>
 <p class="pills"><i class="k11">Hora Santa</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5448,13 +5460,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 1</span><span class="meta-item song-key">Key: E</span><a class="meta-item" href="https://open.spotify.com/track/3pfFZCrgiOGi1BPAoh2ke0" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5477,13 +5489,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: C</span><a class="meta-item" href="https://open.spotify.com/track/2nXa6qRz31ARzEfIgpiSy0" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k3">Sencillamente</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5505,13 +5517,13 @@ body.tour-on .drawer .nav {
 <p class="song-meta"><span class="meta-item">Capo: 2</span><span class="meta-item song-key">Key: Bm</span><a class="meta-item" href="https://open.spotify.com/track/2lc9ceIfhIuKhEGr6GLuJ0" target="_blank" rel="noopener">Spotify link</a></p>
 <p class="pills"><i class="k2">Pasión</i></p>
 <div class="controls">
-  <button data-action="toggle-chords">Chords</button>
+  <button class="switch" data-action="toggle-chords" aria-pressed="true">Chords</button>
   <div class="stepper">
     <button data-action="transpose-down" aria-label="Transpose down">−</button>
     <button class="transpose-value" data-action="transpose-reset" aria-label="Reset transpose">0</button>
     <button data-action="transpose-up" aria-label="Transpose up">+</button>
   </div>
-  <button data-action="toggle-columns">Columns</button>
+  <button class="switch" data-action="toggle-columns" aria-pressed="false">Columns</button>
   <div class="stepper">
     <button data-action="song-text-smaller" aria-label="Smaller text">A−</button>
     <button class="song-scale-value" data-action="song-text-reset" aria-label="Reset text size">100%</button>
@@ -5718,6 +5730,18 @@ function songSetting(name, values, onGlobalChange) {
     };
 }
 
+// The words of a .lyric-line or .line-pair, as read: a pair's own lyric is
+// everything in it but its .chord-line (and a nested .lyric-line, which is a
+// line of its own). Not only its text nodes: the "Sílabas" spans (formula.js)
+// sit inside words ("corrien<span>tes</span>").
+function lyricText(line) {
+    if (!line.matches(".line-pair")) return line.textContent;
+    return [...line.childNodes]
+        .filter((node) => node.nodeType === Node.TEXT_NODE || !node.matches(".chord-line, .lyric-line"))
+        .map((node) => node.textContent)
+        .join("");
+}
+
 // Lowercase and strip accents so "Señor" matches "senor".
 function normalizeText(text) {
     return text.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -5829,10 +5853,22 @@ const chordsSetting = songSetting("chords", ["show", "hide"], (value) =>
 const columnsSetting = songSetting("columns", ["1", "2"], (value) =>
     setActionLabel("toggle-all-columns", value === "2" ? "1 column" : "2 columns"));
 
-onAction("toggle-chords", (button, song) => chordsSetting.toggleSong(song));
-onAction("toggle-columns", (button, song) => columnsSetting.toggleSong(song));
-onAction("toggle-all-chords", () => chordsSetting.toggleGlobal());
-onAction("toggle-all-columns", () => columnsSetting.toggleGlobal());
+// Slider of each song's Chords/Columns button: on = chords showing / 2 columns,
+// from the song's own override or else the book-wide value.
+function syncSwitches() {
+    for (const [action, name, on] of [["toggle-chords", "chords", "show"], ["toggle-columns", "columns", "2"]]) {
+        document.querySelectorAll(`[data-action="${action}"]`).forEach((button) => {
+            const value = button.closest(".song")?.dataset[name] || document.body.dataset[name];
+            button.setAttribute("aria-pressed", value === on);
+        });
+    }
+}
+
+onAction("toggle-chords", (button, song) => { chordsSetting.toggleSong(song); syncSwitches(); });
+onAction("toggle-columns", (button, song) => { columnsSetting.toggleSong(song); syncSwitches(); });
+onAction("toggle-all-chords", () => { chordsSetting.toggleGlobal(); syncSwitches(); });
+onAction("toggle-all-columns", () => { columnsSetting.toggleGlobal(); syncSwitches(); });
+syncSwitches();
 
 // Put every song back as written: transpose 0, no per-song chords/columns.
 onAction("reset-songs", () => {
@@ -5840,6 +5876,7 @@ onAction("reset-songs", () => {
         .forEach((song) => setTranspose(song, 0));
     chordsSetting.clearSongs();
     columnsSetting.clearSongs();
+    syncSwitches();
     document.querySelectorAll(".song[data-song-scale]").forEach((song) => setSongScale(song, 1));
     songState.clearAll();
 });
@@ -6060,14 +6097,11 @@ function searchText(text) {
 
 const searchIndex = [...document.querySelectorAll(".song")].map((song) => {
     // Lyric lines only: chord lines would add noise ("am", "do"...). A lyric
-    // under a chord line is its .line-pair's own text.
+    // under a chord line is its .line-pair's own text (lyricText, core.js).
     // A psalm's fórmula (formula.js) is a copy of another song: not the psalm's words.
     const lines = [...song.querySelectorAll(".lyric-line, .line-pair")]
         .filter((line) => !line.closest(".psalm-formula"))
-        .map((line) => (line.matches(".lyric-line")
-            ? line.textContent
-            : [...line.childNodes].filter((node) => node.nodeType === Node.TEXT_NODE).map((node) => node.data).join("")
-        ).trim())
+        .map((line) => lyricText(line).trim())
         .filter(Boolean);
     const lineText = lines.map(searchText);
     return {
@@ -6455,9 +6489,7 @@ function slideVerses(id) {
     return [...document.getElementById(id).querySelectorAll(".lyrics > .verse")].map((verse) =>
         [...verse.children].flatMap((el) => {
             if (el.classList.contains("chord-inline") || el.querySelector(".chord-inline")) return [];
-            const text = el.classList.contains("line-pair")
-                ? [...el.childNodes].filter((n) => n.nodeType === Node.TEXT_NODE).map((n) => n.textContent).join("")
-                : el.classList.contains("lyric-line") ? el.textContent : "";
+            const text = el.matches(".line-pair, .lyric-line") ? lyricText(el) : "";
             return text.trim() ? [{ text: text.trim(), bold: el.classList.contains("bold") }] : [];
         })
     ).filter((lines) => lines.length);
